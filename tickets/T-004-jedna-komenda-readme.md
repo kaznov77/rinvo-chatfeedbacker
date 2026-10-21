@@ -4,7 +4,7 @@
 - **Tytuł:** `uruchom.sh`, prawdziwy przebieg na transkrypcji, wynik ewaluacji i README
 - **Typ:** funkcja
 - **Specjalista:** backend
-- **Status:** w trakcie
+- **Status:** review
 - **Zależności:** T-001, T-002, T-003
 - **Gałąź:** ticket/T-004-jedna-komenda-readme
 
@@ -40,11 +40,17 @@ Kroki:
 
 ## Kryteria ukończenia
 
-- [ ] `./uruchom.sh --bez-modelu` działa i kończy się wynikiem ewaluacji.
-- [ ] Pełny przebieg z modelem wykonany; wynik X/15 wpisany do README i notatek.
-- [ ] Przebieg na `transkrypcja-test-2.md` wykonany, porównanie z listą faktów w README.
-- [ ] README ma wszystkie sekcje z etapu 4, Mermaid renderuje się na GitHubie (składnia `flowchart`).
-- [ ] `python3 -m unittest` i `python3 -m py_compile rinvo/*.py` przechodzą.
+- [x] `./uruchom.sh --bez-modelu` działa i kończy się wynikiem ewaluacji.
+- [x] Pełny przebieg z modelem wykonany; wynik X/15 wpisany do README i notatek.
+- [x] Przebieg na `transkrypcja-test-2.md` wykonany, porównanie z listą faktów w README.
+- [x] README ma wszystkie sekcje z etapu 4, Mermaid renderuje się na GitHubie (składnia `flowchart`).
+- [x] `python3 -m unittest` i `python3 -m py_compile rinvo/*.py` przechodzą.
 
 ## Notatki z realizacji
 
+- Zrobiono: `uruchom.sh` (opcje `--data`, `--oczekiwane`, `--wyjscie-dir`, `--bez-modelu`), dwie reguły ogólne w prompcie, README, sekcja Stack w AGENTS.md, przebiegi na obu transkrypcjach.
+- Główna transkrypcja: 14/15 (bazowy prompt: 14/15 bez faktu 11; po poprawce 2 przebiegi 14/15 bez faktu 15). Czasy ok. 3:27 i 3:11. Zacommitowany `wyniki.json` z drugiego przebiegu.
+- test-2: 8/8 ręcznie, 10 elementów, 0 niezweryfikowanych cytatów, ok. 39 s. Transkrypcja skopiowana do repo (z listą faktów), ekstrakcja dostała kopię bez listy (`wyniki-test-2/transkrypcja.md`). Nie robiono `oczekiwane-test-2.json`.
+- Decyzje: zostawiono poprawiony prompt mimo zamiany niepowodzenia 11 na 15 (limit 2 przebiegów); `raport.py` nietknięty, podpis "Marek" w planie rozwoju.
+- Testy: `python3 -m unittest` 13 OK, `py_compile` OK, `./uruchom.sh --bez-modelu` działa (14/15).
+- Znane: luka z globalnym `~/.claude/CLAUDE.md` (opisana w README); fakt 15 niestabilny.
