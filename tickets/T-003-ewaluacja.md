@@ -4,7 +4,7 @@
 - **Tytuł:** `oczekiwane.json` z 15 faktami i deterministyczny skrypt ewaluacji
 - **Typ:** funkcja
 - **Specjalista:** tester
-- **Status:** review
+- **Status:** gotowe
 - **Zależności:** brak (pracuje na kontrakcie z `docs/plan.md`)
 - **Gałąź:** ticket/T-003-ewaluacja
 
