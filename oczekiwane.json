@@ -16,9 +16,6 @@
     "opis": "sobota do 15 (dzwonienie)",
     "rodzaj": "istnieje",
     "gdzie": {
-     "typ": [
-      "zmiana konfiguracji"
-     ],
      "tekst": [
       "sobot\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,40}?(?<![\\d:.])(?:15|pietnast\\w*)(?![\\d])"
      ]

@@ -4,7 +4,7 @@
 - **Tytuł:** `oczekiwane.json` z 15 faktami i deterministyczny skrypt ewaluacji
 - **Typ:** funkcja
 - **Specjalista:** tester
-- **Status:** w trakcie
+- **Status:** review
 - **Zależności:** brak (pracuje na kontrakcie z `docs/plan.md`)
 - **Gałąź:** ticket/T-003-ewaluacja
 
@@ -57,9 +57,19 @@ Nie twórz `rinvo/__init__.py`.
 
 ## Kryteria ukończenia
 
-- [ ] `oczekiwane.json` ma 15 faktów, każdy z min. 1 atomem.
-- [ ] Testy na wynikach dobrym i zepsutych przechodzą zgodnie z opisem.
-- [ ] `python3 -m unittest` przechodzi.
+- [x] `oczekiwane.json` ma 15 faktów, każdy z min. 1 atomem.
+- [x] Testy na wynikach dobrym i zepsutych przechodzą zgodnie z opisem.
+- [x] `python3 -m unittest` przechodzi.
 
 ## Notatki z realizacji
 
+- Zrobione: `rinvo/ewaluacja.py` (atomy `istnieje`/`liczba`/`brak`, warunki na polach strukturalnych, `cytaty` nigdy nie są sprawdzane; tekst i wzorce są składane do ASCII, więc ogonki i wielkość liter nie mają znaczenia), `oczekiwane.json` (15 faktów, 1-5 atomów każdy), `tests/test_ewaluacja.py`, `tests/dane/ewaluacja-dobry.json` i `ewaluacja-zepsuty.json`. Dodatkowo ostrzeżenie o `cytaty_zweryfikowane: false`.
+- Wyniki: `python3 -m unittest` daje 3 testy OK, 0 błędów. Dobry plik daje 15/15 (kod 0). Zepsuty (sobota do 14, dwa przypomnienia o wstępie, brak zakazu Opla) daje dokładnie ❌ dla faktów 1, 8, 11 (kod 1). Ręcznie sprawdzone regexy „sobota do 14” na zapisach: „do 14:00”, „9.00 do 14.00”, „9-14”, „od dziewiątej do czternastej”, „do czternastej” (łapie), „9–15” i „9:00-15:00” (nie łapie).
+- Decyzje:
+  - Dodałem pusty `tests/__init__.py`, bo bez niego `python3 -m unittest` nie znajduje testów (0 testów). Jest spoza listy zakresu. Pusty plik, więc przy scaleniu z innymi biletami nie powinno być konfliktu.
+  - Dane „dobre” napisałem ja sam na podstawie faktów, więc test pokazuje spójność atomów z kontraktem, a nie to, że prawdziwy LLM zmieści się w regexach. Prawdziwą walidację da dopiero T-004 na wyjściu modelu.
+  - Atom `brak` dla filtra i kafelka: ❌, jeśli jeden element typu `błąd` zawiera zarówno „filtr”, jak i „kafelek/klikalny”. Może dać fałszywe ❌, gdy model w opisie błędu wspomni, że kafelek to osobna sprawa. W razie potrzeby poluzować w `oczekiwane.json` (fakt 4, 3. atom).
+  - Fakt 12 i 15 używają szerokich regexów, więc łatwo je spełnić (ryzyko fałszywych ✅ zamiast ❌). Fakt 1 nie wymusza typu elementu.
+  - Nie testowane w osobnych testach: zepsucia „filtr+kafelek” i „VoiceDesk bez ryzyka” (ticket mówi: testy minimalne). Logika jest ta sama (`brak`/`kategoria_crm`).
+- Nie przeczytałem skilli TDD z `~/.agents/skills/` (limit czasu).
+- Znalezione błędy kodu produkcyjnego: brak (kod produkcyjny nie istnieje w tym worktree).
