@@ -7,8 +7,8 @@
       "typ": "błąd",
       "status": "teraz",
       "tytul": "Rozmowy niesprzedażowe oceniane jak sprzedażowe",
-      "skrot": "Sprawdzić dziś rozmowę Agnieszki z 8.10 i oznaczać rozmowy niesprzedażowe, bez liczenia do średniej.",
-      "opis": "System ocenia rozmowy niesprzedażowe tak, jakby były sprzedażowe. Agnieszka dostała ocenę 2 za rozmowę z czwartku 2026-10-08 (ok. po 10:00), w której klient dzwonił tylko po numer do serwisu. System uznał, że nie zebrała potrzeb i nie umówiła jazdy próbnej. Marek sprawdzi tę rozmowę dziś. Takie rozmowy mają być oznaczane jako „niesprzedażowe” i nieliczone do średniej. Tomasza to zdenerwowało.",
+      "skrot": "Dziś sprawdzić błąd: rozmowy niesprzedażowe mają być oznaczane i nieliczone do średniej.",
+      "opis": "System ocenia rozmowy niesprzedażowe (np. klient dzwoni tylko po numer do serwisu) według kryteriów sprzedażowych: zbieranie potrzeb, umówienie jazdy próbnej. Marek przyznał, że to błąd Rinvo. Ma go sprawdzić dziś (2026-10-13) na przykładzie rozmowy Agnieszki z czwartku 8 października, po godz. 10:00. Docelowo takie rozmowy mają być oznaczane jako „niesprzedażowe” i nieliczone do średniej.",
       "wlasciciel": "Marek",
       "zatwierdza": null,
       "termin": "2026-10-13",
@@ -20,8 +20,7 @@
       "do_klienta": true,
       "cytaty": [
         "Dobra, sprawdzę dziś. I takie rozmowy powinny być oznaczane jako „niesprzedażowe” i nieliczone do średniej.",
-        "Czyli system ocenia rozmowy, które nie są sprzedażowe, tak jakby były sprzedażowe. To jest nasz błąd. Masz datę tej rozmowy?",
-        "Czwartek, ósmy, jakoś po dziesiątej. Agnieszka pamięta, bo się zdenerwowała."
+        "Czyli system ocenia rozmowy, które nie są sprzedażowe, tak jakby były sprzedażowe. To jest nasz błąd. Masz datę tej rozmowy?"
       ],
       "cytaty_zweryfikowane": true
     },
@@ -29,9 +28,9 @@
       "id": "E02",
       "typ": "zadanie",
       "status": "teraz",
-      "tytul": "Usunięcie oceny 2 Agnieszki ze średniej",
-      "skrot": "Usunąć do piątku 16.10 ocenę 2 Agnieszki ze średniej.",
-      "opis": "Ocena 2 Agnieszki za niesprzedażową rozmowę z 2026-10-08 ma zostać usunięta z jej średniej do piątku 2026-10-16, bo w piątek Tomasz rozmawia z Agnieszką o premii.",
+      "tytul": "Usunąć dwójkę Agnieszki ze średniej",
+      "skrot": "Do piątku 2026-10-16 usunąć ze średniej Agnieszki ocenę 2 za rozmowę z 8 października.",
+      "opis": "Rozmowa Agnieszki z czwartku 8 października (po godz. 10:00): klient od razu powiedział, że dzwoni tylko po numer do serwisu, Agnieszka podała numer i się pożegnała. System błędnie ocenił ją jako rozmowę sprzedażową i dał ocenę 2 (brak zebrania potrzeb i umówienia jazdy). Właściwie to rozmowa niesprzedażowa: trzeba ją tak oznaczyć i usunąć tę ocenę ze średniej Agnieszki do piątku, bo w piątek Tomasz rozmawia z nią o premii.",
       "wlasciciel": "Marek",
       "zatwierdza": null,
       "termin": "2026-10-16",
@@ -39,11 +38,12 @@
       "termin_opis": "do piątku",
       "warunek": null,
       "przypomnienie": null,
-      "kategoria_crm": null,
+      "kategoria_crm": "ryzyko",
       "do_klienta": true,
       "cytaty": [
         "Usunę do piątku.",
-        "I tę dwójkę Agnieszce usuńcie ze średniej, bo w piątek rozmawiam z nią o premii."
+        "I tę dwójkę Agnieszce usuńcie ze średniej, bo w piątek rozmawiam z nią o premii.",
+        "Czwartek, ósmy, jakoś po dziesiątej. Agnieszka pamięta, bo się zdenerwowała."
       ],
       "cytaty_zweryfikowane": true
     },
@@ -51,9 +51,9 @@
       "id": "E03",
       "typ": "zmiana konfiguracji",
       "status": "teraz",
-      "tytul": "Zmiana terminu wysyłki raportu tygodniowego",
+      "tytul": "Zmiana godziny wysyłki raportu tygodniowego",
       "skrot": "Przestawić wysyłkę raportu z poniedziałku 7:00 na niedzielę 20:00.",
-      "opis": "Raport tygodniowy przychodzi teraz w poniedziałek o 7:00. Ma być wysyłany w niedzielę o 20:00. Wcześniejsza propozycja poniedziałku 8:00 jest nieaktualna.",
+      "opis": "Raport tygodniowy przychodzi obecnie w poniedziałek o 7:00. Ostatecznie ustalono wysyłkę w niedzielę o 20:00 (wcześniejsza propozycja: poniedziałek 8:00, nieaktualna).",
       "wlasciciel": "Marek",
       "zatwierdza": null,
       "termin": null,
@@ -65,7 +65,7 @@
       "do_klienta": true,
       "cytaty": [
         "Tak, niedziela dwudziesta.",
-        "Zróbcie w niedzielę wieczorem, o dwudziestej. Wtedy w poniedziałek rano już mam to przemyślane."
+        "Czyli niedziela, dwudziesta."
       ],
       "cytaty_zweryfikowane": true
     },
@@ -75,7 +75,7 @@
       "status": "backlog",
       "tytul": "Eksport wyników do Excela",
       "skrot": "Zapisać prośbę pana Roberta o eksport wyników do Excela, bez terminu.",
-      "opis": "Pan Robert (właściciel salonu) chciałby ściągać wyniki ocen do Excela. Dziś takiej funkcji nie ma. Prośba trafia do backlogu, bez terminu. O to samo pytało kilku innych klientów.",
+      "opis": "Pan Robert (właściciel salonu) chce móc pobrać wyniki ocen do Excela. Funkcji dziś nie ma, prośba trafia do backlogu bez terminu. Kilku innych klientów też o to pytało.",
       "wlasciciel": "Marek",
       "zatwierdza": null,
       "termin": null,
@@ -97,7 +97,7 @@
       "status": "teraz",
       "tytul": "Wyłączenie działu flotowego z ocen",
       "skrot": "Wyłączyć rozmowy działu flotowego z oceniania.",
-      "opis": "Rozmowy działu flotowego nie mają być oceniane. Flota ma osobne zasady i osobnego kierownika, a nie podlega Tomaszowi.",
+      "opis": "Dział flotowy ma osobne zasady i osobnego kierownika, nie podlega Tomaszowi. Rozmowy floty trzeba wyłączyć z ocen.",
       "wlasciciel": "Marek",
       "zatwierdza": null,
       "termin": null,
@@ -108,8 +108,7 @@
       "kategoria_crm": null,
       "do_klienta": true,
       "cytaty": [
-        "Jasne, flotę wyłączam z ocen.",
-        "Nie oceniajcie rozmów działu flotowego. Flota ma osobne zasady i osobnego kierownika, to nie moja działka."
+        "Jasne, flotę wyłączam z ocen."
       ],
       "cytaty_zweryfikowane": true
     },
@@ -117,9 +116,9 @@
       "id": "E06",
       "typ": "zakaz",
       "status": "zakaz",
-      "tytul": "Zakaz oceniania rozmów floty",
-      "skrot": "Nie oceniać rozmów działu flotowego.",
-      "opis": "Nie wolno wystawiać ocen rozmowom działu flotowego. Flota ma osobnego kierownika, a jej ocenianie wywoła awanturę. Nie ustalono warunku odblokowania.",
+      "tytul": "Nie oceniać rozmów działu flotowego",
+      "skrot": "Nie oceniać rozmów działu flotowego Motorpolu.",
+      "opis": "Flota ma osobne zasady i osobnego kierownika. Wystawianie im ocen wywoła awanturę. Nie ustalono, kiedy zakaz miałby zostać zdjęty.",
       "wlasciciel": null,
       "zatwierdza": null,
       "termin": null,
@@ -130,8 +129,7 @@
       "kategoria_crm": "ryzyko",
       "do_klienta": true,
       "cytaty": [
-        "Jak zaczniecie im wystawiać oceny, będzie awantura.",
-        "Nie oceniajcie rozmów działu flotowego. Flota ma osobne zasady i osobnego kierownika, to nie moja działka."
+        "Spoko. Jeszcze jedno. Nie oceniajcie rozmów działu flotowego. Flota ma osobne zasady i osobnego kierownika, to nie moja działka. Jak zaczniecie im wystawiać oceny, będzie awantura."
       ],
       "cytaty_zweryfikowane": true
     },
@@ -139,18 +137,18 @@
       "id": "E07",
       "typ": "zmiana konfiguracji",
       "status": "czeka na klienta",
-      "tytul": "Nowe kryterium oceny: propozycja finansowania",
-      "skrot": "Dodać kryterium „zaproponował finansowanie” po otrzymaniu opisu od Tomasza; przypomnieć raz 16.10.",
-      "opis": "Tomasz chce dodać do oceny nową kategorię: czy handlowiec zaproponował finansowanie. Tomasz wyśle opis kryterium. Bez jego opisu Rinvo nic nie dodaje. Jeśli opis nie przyjdzie do piątku 2026-10-16, Marek przypomni Tomaszowi raz.",
+      "tytul": "Nowa kategoria oceny: propozycja finansowania",
+      "skrot": "Dodać kategorię „zaproponował finansowanie” po otrzymaniu opisu od Tomasza; przypomnieć raz 2026-10-16.",
+      "opis": "Tomasz chce dodać do oceny nową kategorię: czy handlowiec zaproponował finansowanie. Wyśle opis kryterium. Bez tego opisu Rinvo nic nie dodaje. Jeśli opis nie przyjdzie do piątku (2026-10-16), Marek przypomina Tomaszowi raz.",
       "wlasciciel": "Marek",
       "zatwierdza": "Tomasz",
       "termin": null,
       "termin_do": null,
       "termin_opis": null,
-      "warunek": "Tomasz wyśle opis kryterium",
+      "warunek": "Bez twojego opisu nic nie dodaję.",
       "przypomnienie": {
         "data": "2026-10-16",
-        "tresc": "Jeśli Tomasz nie wysłał opisu kryterium „czy handlowiec zaproponował finansowanie”, przypomnieć mu raz.",
+        "tresc": "Jeśli Tomasz nie przysłał opisu kryterium „czy handlowiec zaproponował finansowanie”, przypomnieć mu.",
         "maks_razy": 1
       },
       "kategoria_crm": null,
@@ -166,8 +164,8 @@
       "typ": "zadanie",
       "status": "teraz",
       "tytul": "Korekta faktury: zły adres",
-      "skrot": "Przekazać dziś Michałowi prośbę o korektę faktury na adres ul. Grunwaldzka 410.",
-      "opis": "Faktura przyszła na stary adres (ul. Kartuska), a Motorpol od lipca jest na ul. Grunwaldzkiej 410 w Gdańsku. Księgowość klienta chce korekty. Marek przekaże to dziś Michałowi, który wystawia faktury.",
+      "skrot": "Dziś przekazać Michałowi prośbę o korektę faktury na adres ul. Grunwaldzka 410.",
+      "opis": "Faktura przyszła na stary adres (ul. Kartuska), a Motorpol od lipca jest przy ul. Grunwaldzkiej 410 w Gdańsku. Księgowość klienta chce korekty. Faktury wystawia Michał, Marek przekazuje mu sprawę dziś (2026-10-13).",
       "wlasciciel": "Marek",
       "zatwierdza": null,
       "termin": "2026-10-13",
@@ -187,9 +185,9 @@
       "id": "E09",
       "typ": "informacja handlowa",
       "status": "wstrzymane",
-      "tytul": "Potencjalny agent głosowy po godzinach",
-      "skrot": "Czekać, aż pan Robert sam odezwie się w sprawie agenta głosowego po godzinach.",
-      "opis": "Pan Robert (właściciel salonu) rozważa dołożenie agenta głosowego, który odbierałby telefony po godzinach. Na razie to tylko pomysł. Rinvo nic nie robi, dopóki pan Robert sam się nie odezwie.",
+      "tytul": "Pan Robert rozważa agenta głosowego po godzinach",
+      "skrot": "Czekać, aż pan Robert sam się odezwie w sprawie agenta głosowego po godzinach.",
+      "opis": "Pan Robert (właściciel salonu) rozważa dodanie agenta głosowego do odbierania telefonów po godzinach. Na razie to tylko pomysł. Rinvo nic nie robi, dopóki pan Robert sam się nie odezwie.",
       "wlasciciel": null,
       "zatwierdza": "pan Robert",
       "termin": null,
@@ -200,7 +198,7 @@
       "kategoria_crm": "sukces",
       "do_klienta": false,
       "cytaty": [
-        "Aha, pan Robert myśli o tym, żeby dołożyć agenta głosowego do odbierania telefonów po godzinach. Ale to na razie tylko myśli, nic nie róbcie, nie wysyłajcie ofert. Jak będzie chciał, sam się odezwie."
+        "Dzięki. Aha, pan Robert myśli o tym, żeby dołożyć agenta głosowego do odbierania telefonów po godzinach. Ale to na razie tylko myśli, nic nie róbcie, nie wysyłajcie ofert. Jak będzie chciał, sam się odezwie."
       ],
       "cytaty_zweryfikowane": true
     },
@@ -208,9 +206,9 @@
       "id": "E10",
       "typ": "zakaz",
       "status": "zakaz",
-      "tytul": "Zakaz wysyłania ofert na agenta głosowego",
-      "skrot": "Nie wysyłać ofert ani nie działać w sprawie agenta głosowego.",
-      "opis": "Nie wolno wysyłać ofert ani podejmować działań w sprawie agenta głosowego po godzinach, dopóki pan Robert sam się nie odezwie.",
+      "tytul": "Nie wysyłać ofert na agenta głosowego",
+      "skrot": "Nie wysyłać panu Robertowi ofert ani nie podejmować działań ws. agenta głosowego.",
+      "opis": "Klient wprost zakazał działań i wysyłania ofert na agenta głosowego po godzinach. Zakaz obowiązuje, dopóki pan Robert sam się nie odezwie.",
       "wlasciciel": null,
       "zatwierdza": null,
       "termin": null,
@@ -222,7 +220,7 @@
       "do_klienta": false,
       "cytaty": [
         "Rozumiem, nic nie wysyłam.",
-        "Ale to na razie tylko myśli, nic nie róbcie, nie wysyłajcie ofert. Jak będzie chciał, sam się odezwie."
+        "Dzięki. Aha, pan Robert myśli o tym, żeby dołożyć agenta głosowego do odbierania telefonów po godzinach. Ale to na razie tylko myśli, nic nie róbcie, nie wysyłajcie ofert. Jak będzie chciał, sam się odezwie."
       ],
       "cytaty_zweryfikowane": true
     }

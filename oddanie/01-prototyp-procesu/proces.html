@@ -1,0 +1,17 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>Rinvo: schemat procesu</title>
+<style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:0 16px;color:#1f2328}</style></head><body>
+<h1>Rinvo: od transkrypcji do zatwierdzonych szkiców</h1>
+<pre class="mermaid">
+flowchart LR
+    T[Transkrypcja .md] --> C["claude -p<br/>JSON Schema + prompt"]
+    C --> V["Walidacja w Pythonie<br/>enumy, daty, cytaty dosłowne"]
+    V --> W[wyniki.json]
+    W --> S[Szablony]
+    S --> R[raport.html]
+    R --> H{{Człowiek sprawdza i zatwierdza}}
+    W -.-> E["Ewaluacja<br/>oczekiwane.json"]
+    E -.-> O[Wynik X/15]
+</pre>
+<p>Model wywoływany jest raz (<code>claude -p</code>). Wszystko po <code>wyniki.json</code> jest deterministyczne. Nic nie jest wysyłane automatycznie.</p>
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";mermaid.initialize({startOnLoad:true});</script>
+</body></html>

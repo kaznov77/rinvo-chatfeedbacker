@@ -1,0 +1,19 @@
+Temat: Zadanie rekrutacyjne – automatyczna obsługa ustaleń z rozmowy z klientem
+
+Cześć Marek,
+
+przesyłam rozwiązanie zadania. System bierze transkrypcję rozmowy z dealerem, jednym wywołaniem claude -p wyciąga z niej wszystkie ustalenia i zapisuje je w wyniki.json. Każde ustalenie ma typ, status, właściciela, datę, warunek i dosłowny cytat, sprawdzany automatycznie w transkrypcji. Z tego powstaje raport.html ze szkicami: zgłoszenia błędów, zmiany konfiguracji, przypomnienia warunkowe, zakazy dla konta, backlog, notatka do CRM i krótki mail do klienta. Nic nie jest wysyłane bez zatwierdzenia przez człowieka.
+
+W folderze oddanie/ jest:
+- 01-prototyp-procesu: schemat procesu (proces.html otwiera się w przeglądarce) i plan z decyzjami,
+- 02-demo: system uruchomiony na Twojej transkrypcji (raport.html, wyniki.json, ewaluacja) oraz test na drugiej, innej transkrypcji,
+- 03-logi-ai: logi z pracy z Claude Code i Codexem.
+
+Na innej transkrypcji system uruchamia się jedną komendą: ./uruchom.sh transkrypcja.md
+
+Wynik: 15/15 faktów na Twojej transkrypcji i 8/8 na drugiej. Przez większość pracy było 14/15: system pomijał klientkę na urlopie, która jest leadem do oddzwonienia, a nie odmową. Naprawiła to ogólna reguła w prompcie, ale to wynik pojedynczego przebiegu. Szczegóły są w README.
+
+Repozytorium: [LINK DO REPO]
+
+Pozdrawiam,
+Wawrzyniec Kaznowski

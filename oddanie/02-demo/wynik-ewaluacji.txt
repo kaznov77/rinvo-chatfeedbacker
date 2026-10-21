@@ -1,0 +1,20 @@
+[2/3] Raport...
+Zapisano ./raport.html
+[3/3] Ewaluacja względem oczekiwane.json...
+✅ 1. Godziny dzwonienia pn-pt 9-19, sobota 9-15, niedziela nie; godziny salonu sobota do 15 (oba salony); brak soboty do 14
+✅ 2. Adres Włocławek Toruńska 120; po poprawce napisać do Kasi
+✅ 3. Błąd: ponowne dzwonienie po rozłączeniu w 3 s; 6 przypadków, 16:40, numer na 14, limit 5 prób bez zmian
+✅ 4. Filtr statusu „zainteresowany” jako błąd; klikalny kafelek jako osobna prośba o funkcję
+✅ 5. Korekta faktury na Auto Tama Toruń sp. z o.o., właściciel Michał
+✅ 6. Zwrot/odjęcie podwójnych połączeń i informacja do Kasi, ile ich było
+✅ 7. Cena SMS do 2026-10-09 (dopuszczalnie do 11.10); treść pisze Kasia; zatwierdza Paweł
+✅ 8. Dokładnie jedno przypomnienie o tekstach wstępu, 2026-10-08, maks_razy 1
+✅ 9. Dokładnie jedno przypomnienie o pliku leadów, 2026-10-12, maks_razy 1; bez wzoru pliku; bez ponownej starej bazy
+✅ 10. Spotkanie z Pawłem 2026-10-15 10:00, zaproszenie po potwierdzeniu Kasi; case Peugeot 208 bez nazwy firmy
+✅ 11. Zakazy: Opel, agent po godzinach, nowy mail dla handlowców, sprzedawanie/auta używane, kontakt z Olą
+✅ 12. Zablokowane do wiadomości od Kasi: podwójne pytanie o model; lead serwisowy Oli
+✅ 13. Urlop Kasi 2026-10-19 – 2026-10-23, nic nowego nie startuje
+✅ 14. Ryzyko odejścia: VoiceDesk, integracja, ok. 30% taniej (kategoria_crm: ryzyko)
+✅ 15. Klientka na urlopie to lead do oddzwonienia, nie odmowa
+Wynik: 15/15
+Raport: ./raport.html

@@ -37,3 +37,4 @@ Zasady:
 - Jeden temat to jeden element. Nie dziel i nie łącz na siłę. Nie pomijaj zakazów ani informacji handlowych (ceny, rozliczenia).
 - Gdy klient wprost mówi, czego NIE robić, nie wdrażać albo nie ruszać (także czasowo, do jakiegoś zdarzenia), oprócz elementu dla samej sprawy utwórz osobny element typu `zakaz` ze statusem `zakaz`, z warunkiem odblokowania w polu `warunek`.
 - W opisie zadań typu "daj znać" albo "napisz" podawaj imię adresata.
+- Gdy klient poprawia, jak klasyfikować konkretny przypadek lub wynik (np. „to nie jest odmowa, tylko …”), utwórz osobny element opisujący ten przypadek, błędną i właściwą klasyfikację oraz co trzeba z nim zrobić. Nie gub go przez to, że wspomniano go przy okazji statystyk.

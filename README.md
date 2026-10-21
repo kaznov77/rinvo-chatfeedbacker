@@ -1,3 +1,5 @@
+> **Oddanie zadania rekrutacyjnego:** [oddanie/README.md](oddanie/README.md)
+
 <img src="assets/icon.svg" width="64" height="64" alt="">
 
 # Rinvo chatfeedbacker
@@ -56,18 +58,19 @@ Data spotkania jest brana z nagłówka transkrypcji, a `--data` ją zastępuje. 
 
 ## Wyniki ewaluacji
 
-**`samples/transkrypcja-spotkanie.md` (15 faktów): 14/15.** Przebieg z modelem trwa ok. 3:10-3:30.
+**`samples/transkrypcja-spotkanie.md` (15 faktów): 15/15.** Przebieg z modelem trwa ok. 3:10-3:30.
 
 | Przebieg | Prompt | Wynik | Nie przeszło |
 |---|---|---|---|
 | wcześniejszy `wyniki.json` | bazowy | 14/15 | 11 (zakaz: nowy mail dla handlowców; model zapisał jako prośbę o funkcję) |
 | 1 | + reguła o zakazach i imieniu adresata | 14/15 | 15 (lead na urlopie do oddzwonienia) |
 | 2 | jw. | 14/15 | 15 |
-| 3 (zacommitowany) | + pole `skrot` | 14/15 | 15 |
+| 3 | + pole `skrot` | 14/15 | 15 |
+| 4 (zacommitowany) | + reguła o korektach klasyfikacji przypadku | 15/15 | — |
 
-Poprawka promptu naprawiła fakt 11, ale w obu przebiegach nie przeszedł fakt 15, który wcześniej przechodził. Nie wiadomo, czy to skutek zmiany promptu, czy niedeterminizmu; limit dwóch poprawek wyczerpany, więc zostawiono tę wersję. Przebieg 3 (po dodaniu pola `skrot`) znów nie zaliczył faktu 15. Trzy przebiegi z rzędu sugerują, że to raczej skutek reguły o osobnych zakazach niż przypadek. Zacommitowany `wyniki.json` pochodzi z przebiegu 3.
+Poprawka promptu naprawiła fakt 11, ale w obu przebiegach nie przeszedł fakt 15, który wcześniej przechodził. Nie wiadomo, czy to skutek zmiany promptu, czy niedeterminizmu; limit dwóch poprawek wyczerpany, więc zostawiono tę wersję. Przebieg 3 (po dodaniu pola `skrot`) znów nie zaliczył faktu 15. Trzy przebiegi z rzędu sugerują, że to raczej skutek reguły o osobnych zakazach niż przypadek. Przebieg 4 dodał ogólną regułę: gdy klient poprawia klasyfikację konkretnego przypadku („to nie odmowa, tylko…”), powstaje osobny element. Wynik 15/15. To trzecia poprawka promptu, ponad pierwotny limit dwóch; dodana na prośbę użytkownika. Wynik pochodzi z jednego przebiegu, więc przy niedeterminizmie modelu kolejny może dać 14/15. Zacommitowany `wyniki.json` pochodzi z przebiegu 4.
 
-**`transkrypcja-test-2.md` (Motorpol Gdańsk, Analiza Rozmów, inny produkt i klient): 8/8 według ręcznego porównania** (powtórzone po dodaniu pola `skrot`, nadal 8/8). Ekstrakcja dostała transkrypcję bez listy faktów (`wyniki-test-2/transkrypcja.md`), 10 elementów, 0 niezweryfikowanych cytatów, ok. 40 s. Porównanie z listą faktów:
+**`transkrypcja-test-2.md` (Motorpol Gdańsk, Analiza Rozmów, inny produkt i klient): 8/8 według ręcznego porównania** (powtórzone po dodaniu pola `skrot` i po przebiegu 4, nadal 8/8). Ekstrakcja dostała transkrypcję bez listy faktów (`wyniki-test-2/transkrypcja.md`), 10 elementów, 0 niezweryfikowanych cytatów, ok. 40 s. Porównanie z listą faktów:
 
 1. Błąd rozmów niesprzedażowych (rozmowa Agnieszki, 8.10, sprawdzić dziś): jest (E01).
 2. Usunięcie oceny 2 Agnieszki do 16.10: jest (E02).
