@@ -1,0 +1,677 @@
+{
+  "zrodlo": "samples/transkrypcja-spotkanie.md",
+  "data_spotkania": "2026-10-06",
+  "elementy": [
+    {
+      "id": "E01",
+      "typ": "zadanie",
+      "status": "czeka na klienta",
+      "tytul": "Test dwóch wersji wstępu rozmowy walidacyjnej",
+      "opis": "Ręczny test A/B wstępu. Wersja 1 zostaje jak teraz. Wersja 2 jest krótsza, ale nadal mówi, że to wirtualna asystentka i że rozmowa jest nagrywana. Formułka ma być dokończona, a „przepraszam” na końcu zostaje. Test idzie przez dwa dni albo na dwa miasta (Toruń i Włocławek). Obie wersje tekstu pisze Kasia, Rinvo nie pisze tekstu za nią. Wersję do zostawienia wybiera Kasia. Nie startujemy w tym tygodniu, bo Kasia odsłuchuje starą bazę. Nie startujemy też w tygodniu urlopu Kasi (19–23.10). Paweł nie zatwierdza tekstu wstępu. Jeśli Kasia nie wyśle obu wersji do czwartku 8.10, przypominamy jej raz.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Kasia",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": "nie w tym tygodniu",
+      "warunek": "Jak przyślesz obie, puścimy i sobie wybierzesz.",
+      "przypomnienie": {
+        "data": "2026-10-08",
+        "tresc": "Przypomnieć Kasi o wysłaniu dwóch wersji tekstu wstępu do testu",
+        "maks_razy": 1
+      },
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Jak przyślesz obie, puścimy i sobie wybierzesz. Tekstu za ciebie nie piszę. W tym tygodniu nie puszczamy, skoro słuchasz starej bazy. Jak do czwartku nic nie przyjdzie, przypomnę.",
+        "Jak do czwartku nie wyślę obu wersji, przypomnij mi. Raz."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E02",
+      "typ": "prośba o funkcję",
+      "status": "backlog",
+      "tytul": "Wbudowane testy A/B w panelu",
+      "opis": "Kasia chce sama wrzucać w panelu 2–3 wersje rozmowy: wstęp, kolejność pytań (od razu o model czy najpierw o aktualność zgłoszenia). System ma sam dzielić połączenia po równo i pokazywać wyniki. Główną miarą jest liczba pełnych rozmów (telefon, model i salon), a nie liczba rozłączeń. Bez terminu.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Takiej funkcji dziś nie ma. Ten jeden test ze wstępem zrobimy ręcznie, tak jak mówiłaś. A to, żebyś mogła sama, zapisuję jako prośbę. Terminu ci teraz nie dam, ale pytam, bo nie jesteście pierwsi.",
+        "Więcej pełnych rozmów. Rozłączenia mogą być, jak ktoś po prostu nie chce. Ważne, ilu dochodzi do końca z telefonem, modelem i salonem."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E03",
+      "typ": "błąd",
+      "status": "wstrzymane",
+      "tytul": "Asystentka drugi raz pyta o model",
+      "opis": "Według Oli w jednej rozmowie asystentka w połowie przestała reagować na to, co mówi klientka, i drugi raz zapytała o model. Nie ma nagrania ani numeru („jakaś pani przed południem”), więc bez nagrania nie da się tego znaleźć.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "bez nagrania nie znajdę",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "A tej drugiej sytuacji, gdzie pyta drugi raz o model, bez nagrania nie znajdę. Ola nie dała numeru."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E04",
+      "typ": "błąd",
+      "status": "teraz",
+      "tytul": "Nieaktualny adres salonu we Włocławku w bazie wiedzy",
+      "opis": "Agent podaje adres salonu Peugeot i Citroën we Włocławku przy ul. Kapitulnej. Od sierpnia salon jest przy ul. Toruńskiej 120. Poprawka dzisiaj, razem z godzinami salonu. Toruń bez zmian. Nie wysyłamy nagrania testowego, Kasia sprawdzi sama. Marek tylko pisze, gdy będzie poprawione.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": "2026-10-06",
+      "termin_do": null,
+      "termin_opis": "dzisiaj",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.",
+        "Toruńska 120. Godziny bez zmian, w tygodniu dziewiąta–osiemnasta, sobota dziewiąta–czternasta. Toruń bez zmian.",
+        "Nie musisz mi wysyłać, puszczę sobie test sama. Tylko napisz, jak będzie poprawione."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E05",
+      "typ": "zmiana konfiguracji",
+      "status": "teraz",
+      "tytul": "Godziny otwarcia salonów podawane przez agenta",
+      "opis": "Godziny salonu, które agent podaje klientom, w obu salonach (Toruń i Włocławek): w tygodniu 9:00–18:00, w sobotę 9:00–15:00 (wcześniej 14:00). Zmiana dzisiaj, razem z adresem.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": "2026-10-06",
+      "termin_do": null,
+      "termin_opis": "dzisiaj",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Tak, dla obu salonów. Dobrze, że pytasz.",
+        "Dobra, poprawię razem z adresem."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E06",
+      "typ": "błąd",
+      "status": "teraz",
+      "tytul": "Drugie połączenie tego samego dnia po rozłączeniu w ciągu 3 s",
+      "opis": "Ustawienie miało działać tak: jeśli ktoś rozłączy się w ciągu 3 sekund, agent nie dzwoni do niego drugi raz tego samego dnia. Wczoraj (5.10) zadzwonił drugi raz w 6 przypadkach w tej samej kampanii, po południu. Pierwszy przypadek był o 16:40, numer kończy się na 14. Sprawdzamy zaraz po rozmowie. Potem piszemy Kasi, co z błędem i ile było takich połączeń.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": "2026-10-06",
+      "termin_do": null,
+      "termin_opis": "zaraz po rozmowie",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.",
+        "Wczoraj i tak zadzwonił. Sześć takich przypadków, ta sama kampania, po południu. Pierwszy był o 16:40, numer kończy się na 14, słyszałam obie próby jedna po drugiej."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E07",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Nie zmieniać limitu 5 prób",
+      "opis": "Limit prób połączenia zostaje na 5. Nie schodzimy do 3.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": false,
+      "cytaty": [
+        "Zostaw pięć. Nie kazałam schodzić do trzech. Mówiłam tylko, że ktoś mnie o to pytał."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E08",
+      "typ": "zmiana konfiguracji",
+      "status": "teraz",
+      "tytul": "Godziny dzwonienia agenta",
+      "opis": "Nowe godziny dzwonienia: poniedziałek–piątek 9:00–19:00 (wcześniej do 20:00), sobota 9:00–15:00, niedziela bez dzwonienia. Zmiana dzisiaj.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": "2026-10-06",
+      "termin_do": null,
+      "termin_opis": "dzisiaj",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Czyli sobota dziewiąta–piętnasta, tydzień dziewiąta–dziewiętnasta. A co z godzinami salonu, które agent podaje klientom? Też mam zmienić na piętnastą?",
+        "Dobra. Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E09",
+      "typ": "zmiana konfiguracji",
+      "status": "wstrzymane",
+      "tytul": "Przesunięcie prób na porę obiadową",
+      "opis": "Na starej bazie najwięcej osób odbierało około 12:00–13:00 i po 17:00, a przed 10:00 prawie nikt. Pomysł: pierwsza próba w przerwie obiadowej. Odłożone, dopóki nie zobaczymy wyników na świeżych leadach.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Kasia",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "Najpierw zobaczmy świeże.",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Jasne, zostawiam.",
+        "Może, ale nie teraz. To była stara baza, na świeżych może być inaczej. Najpierw zobaczmy świeże."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E10",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Nie traktować „oddzwońcie po urlopie” jako odmowy",
+      "opis": "Odpowiedź typu „oddzwońcie w przyszłym tygodniu, jestem na urlopie” to lead, a nie osoba niezainteresowana. Doradca ma oddzwonić po powrocie klienta. Wystarczy, że bot zapyta, kiedy zadzwonić.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": false,
+      "cytaty": [
+        "To jest lead, nie odmowa. Doradca ma zadzwonić, jak ona wróci. Jak wrzucicie ją w „niezainteresowany”, bo nie umówiła się na jutro, to źle to czytacie."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E11",
+      "typ": "zadanie",
+      "status": "teraz",
+      "tytul": "Case study: sprzedaż Peugeota 208 z leada z lipca",
+      "opis": "Pierwsza baza: 70 numerów, 41 odebrało, 23 pełne rozmowy, 9 zainteresowanych. Jeden z zainteresowanych (Toruń) leżał w bazie od lipca. Po rozmowie z botem w piątek przyjechał w sobotę i kupił Peugeota 208. Przykład możemy od razu wykorzystywać bez nazwy firmy i bez nazwiska. Nazwę firmy musi zatwierdzić Paweł, zapytamy go na spotkaniu. Przykład pokażemy Pawłowi na spotkaniu.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Paweł",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "Bez nazwy możesz od razu.",
+      "przypomnienie": null,
+      "kategoria_crm": "sukces",
+      "do_klienta": false,
+      "cytaty": [
+        "Dobra, na razie bez nazwy. O nazwę zapytam przy Pawle.",
+        "Mnie to nie przeszkadza, ale nazwę firmy musi zatwierdzić Paweł. Bez nazwy możesz od razu."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E12",
+      "typ": "informacja handlowa",
+      "status": "teraz",
+      "tytul": "Ryzyko utraty klienta: VoiceDesk i sceptycyzm Pawła",
+      "opis": "Paweł widział tylko 9 zainteresowanych na 70 numerów i chciał wszystko wyłączyć. Dwa tygodnie temu była u niego firma VoiceDesk (bot do leadów). Twierdzą, że są tańsi (Paweł mówił o „jakichś 30% taniej”, nie wiadomo, od czego) i że integrują się z CRM dealera. Integracja najbardziej interesuje Pawła. Rinvo nie ma tej integracji i nie obiecuje jej w tym kwartale.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": "ryzyko",
+      "do_klienta": false,
+      "cytaty": [
+        "Nie wiem dokładnie. Paweł mówił coś o „jakieś trzydzieści procent taniej”, ale nie wiem, od czego. Bardziej go kręci to łączenie z systemem, bo dziewczyny teraz przepisują wszystko z maili.",
+        "Dwa tygodnie temu była u Pawła firma VoiceDesk. Też mają bota do leadów. Powiedzieli, że są tańsi i że łączą się z systemem, więc leady same wpadają handlowcom. Paweł się tym zainteresował.",
+        "No. Paweł zobaczył tylko te dziewięć na siedemdziesiąt i chciał wszystko wyłączyć."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E13",
+      "typ": "zadanie",
+      "status": "czeka na klienta",
+      "tytul": "Spotkanie z Pawłem 15.10 o 10:00",
+      "opis": "Półgodzinne spotkanie z Pawłem: pokazujemy, co mamy, w tym przykład Peugeota 208, i sprawdzamy, czego mu brakuje (integracja z CRM). Termin: czwartek 15.10, 10:00, Paweł będzie wtedy w Toruniu. Kasia przekaże propozycję Pawłowi i potwierdzi termin. Zaproszenie wysyłamy dopiero po jej potwierdzeniu.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Kasia",
+      "termin": "2026-10-15",
+      "termin_do": null,
+      "termin_opis": "przyszły czwartek o dziesiątej",
+      "warunek": "Czekam na potwierdzenie od ciebie, zaproszenie wyślę dopiero wtedy.",
+      "przypomnienie": null,
+      "kategoria_crm": "ryzyko",
+      "do_klienta": true,
+      "cytaty": [
+        "Czwartek, piętnastego, dziesiąta. Czekam na potwierdzenie od ciebie, zaproszenie wyślę dopiero wtedy.",
+        "Tak. I na tym spotkaniu możesz pokazać tę 208."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E14",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Nie włączać Opla",
+      "opis": "Opel nie jest podpinany do walidacji. Peugeot i Citroën zostają. Opel czeka na wyniki świeżych leadów z ostatniego miesiąca i decyzję Kasi. Nawet jeśli Paweł napisze, że kazał włączyć, najpierw dzwonimy do Kasi. Paweł nie zatwierdza Opla.",
+      "wlasciciel": null,
+      "zatwierdza": "Kasia",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "Opel czeka, aż zobaczymy wyniki na leadach z ostatniego miesiąca.",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Opla nie włączam. Nawet jak Paweł napisze, że kazał, to najpierw zadzwonię do ciebie, a nie będę tego klikał.",
+        "Opla na to nie puszczamy. Peugeot i Citroën zostają, Opel czeka, aż zobaczymy wyniki na leadach z ostatniego miesiąca."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E15",
+      "typ": "zadanie",
+      "status": "czeka na klienta",
+      "tytul": "Kampania na świeżych leadach z ostatniego miesiąca",
+      "opis": "Kasia wyśle plik z niewyrobionymi leadami z ostatniego miesiąca (strona i Facebook), prawdopodobnie w poniedziałek 12.10. Wystarczy numer i salon (Toruń albo Włocławek), surowy eksport z panelu jest w porządku. Nie wysyłamy Kasi wzoru pliku. Bez pliku nic nie startuje. Jeśli w poniedziałek nic nie przyjdzie, wysyłamy jeden mail. W tygodniu urlopu Kasi (19–23.10) nic nowego nie startuje.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": "2026-10-12",
+      "termin_do": null,
+      "termin_opis": "poniedziałek",
+      "warunek": "Bez pliku nic nie puszczam.",
+      "przypomnienie": {
+        "data": "2026-10-12",
+        "tresc": "Jeden mail do Kasi, jeśli nie przyszedł plik ze świeżymi leadami",
+        "maks_razy": 1
+      },
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Bez pliku nic nie puszczam. Starej bazy drugi raz nie puszczam i wzoru ci nie wysyłam. Jak w poniedziałek nic nie będzie, napiszę raz.",
+        "Jak będzie numer i to, czy Toruń, czy Włocławek, to puszczajcie."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E16",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Nie puszczać starej bazy drugi raz",
+      "opis": "Stara baza (70 leadów sprzed 2–3 miesięcy) nie idzie drugi raz.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Bez pliku nic nie puszczam. Starej bazy drugi raz nie puszczam i wzoru ci nie wysyłam. Jak w poniedziałek nic nie będzie, napiszę raz."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E17",
+      "typ": "błąd",
+      "status": "czeka na klienta",
+      "tytul": "Zapytanie o serwis wpadło jako lead sprzedażowy",
+      "opis": "Ola dostała mail po walidacji, w którym dopiero na dole było, że klient chce umówić przegląd. W CRM trafiło to jako lead sprzedażowy. Nie wiadomo, czy agent źle zakwalifikował rozmowę, czy Ola nie doczytała. Czekamy, aż Kasia prześle tę sprawę, jeśli Ola ją znajdzie. Bez tej wiadomości nic nie robimy i nie zgadujemy, o którą kampanię chodzi.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "Jak znajdzie, prześlę.",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Jak mi tego nie prześlesz, to nie wiem, czy agent źle to zakwalifikował, czy ona nie doczytała. Bez tego nie ruszam.",
+        "Jak znajdzie, prześlę. Jak nie, to nie zgadujcie, która to kampania."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E18",
+      "typ": "prośba o funkcję",
+      "status": "wstrzymane",
+      "tytul": "Model i salon na górze maila do handlowców",
+      "opis": "Mail po walidacji ma mieć model i salon na górze, przed transkrypcją. Nie w tym tygodniu (zamknięcie miesiąca). Wracamy do tematu, gdy ruszą świeże leady.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Kasia",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "Wrócimy do tego, jak pójdą świeże leady.",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "To zostawmy na świeże. W tym tygodniu i tak nikt ci nie powie, czy jest lepszy. I do Oli nie piszę, ustalam wszystko z tobą.",
+        "Wrócimy do tego, jak pójdą świeże leady."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E19",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Nie pisać bezpośrednio do Oli",
+      "opis": "Wszystkie ustalenia idą przez Kasię, nie kontaktujemy się bezpośrednio z Olą.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": false,
+      "cytaty": [
+        "To zostawmy na świeże. W tym tygodniu i tak nikt ci nie powie, czy jest lepszy. I do Oli nie piszę, ustalam wszystko z tobą."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E20",
+      "typ": "błąd",
+      "status": "teraz",
+      "tytul": "Filtr statusu „zainteresowany” nie zawęża listy kontaktów",
+      "opis": "Na liście kontaktów filtr statusu „zainteresowany” pokazuje wszystkich: odebranych, nieodebranych i tych, którzy kupili gdzie indziej. Filtr daty działa. Sprawdzamy zaraz po rozmowie.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": "2026-10-06",
+      "termin_do": null,
+      "termin_opis": "zaraz po rozmowie",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.",
+        "Zostań, nie odświeżaj. Widzę: data działa, a filtr statusu nie. To sprawdzę u nas po callu."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E21",
+      "typ": "prośba o funkcję",
+      "status": "backlog",
+      "tytul": "Klikalne kafelki w dashboardzie walidacji",
+      "opis": "Kliknięcie w kafelek (np. „zainteresowani: 9”) ma przenosić do listy tych konkretnych osób. Takiej funkcji nie ma, bez terminu.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Nie mieszałbym tych dwóch rzeczy: filtr jest zepsuty, a klikania w kafelek nigdy nie zrobiliśmy. Na to klikanie terminu ci nie podam."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E22",
+      "typ": "zadanie",
+      "status": "teraz",
+      "tytul": "Kolumna z nazwiskiem zaraz po statusie na liście kontaktów",
+      "opis": "Na liście kontaktów kolumna z nazwiskiem ma być zaraz po statusie. Robimy to tylko przy okazji naprawy filtra, jeśli i tak będziemy zmieniać tę listę. Nie robimy osobnej pracy tylko pod kolumnę.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "Jak już będę w tej liście",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Jak już będę w tej liście, to przesunę ci nazwisko. Jak się okaże, że problem z filtrem siedzi gdzie indziej, to kolumn osobno nie ruszam."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E23",
+      "typ": "prośba o funkcję",
+      "status": "backlog",
+      "tytul": "Cotygodniowy raport mailowy dla Pawła",
+      "opis": "Automatyczny mail w poniedziałek rano z liczbą połączeń, odebranych i zainteresowanych. Teraz Kasia przepisuje te liczby ręcznie (ok. pół godziny tygodniowo). Bez terminu.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Raportu mailowego teraz nie mamy. Ale to jest coś, o co pyta więcej klientów, więc zapiszę. Nie obiecuję terminu."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E24",
+      "typ": "zadanie",
+      "status": "wstrzymane",
+      "tytul": "Agent po godzinach",
+      "opis": "Jeden agent odbiera po godzinach na wszystkie numery. Zakres: sprzedaż jak w walidacji, z której powstaje lead. Serwis: bez umawiania, zbieramy imię, telefon, model, salon i opis problemu z autem, bez pytania o VIN, rano oddzwania BOK. Części: jak serwis, ale na koniec prosimy, żeby rano mieli pod ręką VIN. Assistance: agent podaje numer właściwej marki, bez zakładania sprawy. Zgubione kluczyki i wszystko inne: do BOK na rano. Serwisu w ciągu dnia nie robimy. Nie w tym miesiącu. Wracamy tylko wtedy, gdy Kasia sama tak powie. Numery assistance i listę pól, gdy przyjdą, tylko przechowujemy i niczego nie podpinamy.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Kasia",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": "nie w tym miesiącu",
+      "warunek": "Jak sama nie powiem, że wracamy do tematu, to nie wracamy.",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Jak wyślesz numery, odłożę je i nic nie podepnę. W tym miesiącu tego nie ruszamy. A jak ktoś napisze, że od wtorku, odpiszę, że czekam na ciebie.",
+        "Jak sama nie powiem, że wracamy do tematu, to nie wracamy. Numery assistance i listę pól wam wyślę, jak znajdę chwilę, ale to nie jest zielone światło. Jak wyślę, trzymajcie u siebie, nie podpinajcie."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E25",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Nie uruchamiać agenta po godzinach na podstawie wiadomości od innych osób",
+      "opis": "Jeśli ktoś od klienta napisze, że Kasia zgodziła się na start po godzinach (np. „od wtorku”), nie wierzymy. Odpisujemy, że czekamy na Kasię.",
+      "wlasciciel": null,
+      "zatwierdza": "Kasia",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": false,
+      "cytaty": [
+        "Dobra. Jak wyślesz numery, odłożę je i nic nie podepnę. W tym miesiącu tego nie ruszamy. A jak ktoś napisze, że od wtorku, odpiszę, że czekam na ciebie."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E26",
+      "typ": "informacja handlowa",
+      "status": "teraz",
+      "tytul": "Korekta faktury za wrzesień",
+      "opis": "Faktura za wrzesień jest wystawiona na „Grupa Auto Tama sp. z o.o.”, a umowa jest z „Auto Tama Toruń sp. z o.o.”. Potrzebna jest korekta dla pani Grażyny. Marek przekazuje sprawę Michałowi dzisiaj, korekta ma przyjść w przyszłym tygodniu.",
+      "wlasciciel": "Michał",
+      "zatwierdza": null,
+      "termin": "2026-10-12",
+      "termin_do": "2026-10-16",
+      "termin_opis": "w przyszłym tygodniu",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Kurczę, przepraszam. Faktury wystawia Michał, przekażę mu dziś. Korekta powinna przyjść w przyszłym tygodniu."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E27",
+      "typ": "informacja handlowa",
+      "status": "teraz",
+      "tytul": "Rozliczanie krótkich połączeń i zwrot za podwójne telefony",
+      "opis": "Sprawdzamy, czy minuty liczymy od pierwszej sekundy, czy za każdą rozpoczętą minutę. Podwójne połączenia wynikające z błędu Rinvo (rozłączenie w ciągu 3 s) odejmujemy z rozliczenia. Piszemy Kasi, ile ich było, razem z informacją o błędzie.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "jeśli te podwójne telefony to nasz błąd",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Napiszę razem z informacją, co z tym błędem.",
+        "Szczerze, nie pamiętam, czy liczymy od pierwszej sekundy, czy za rozpoczętą minutę. Sprawdzę. A jeśli te podwójne telefony to nasz błąd, to ich nie powinniście płacić. Odejmiemy je."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E28",
+      "typ": "informacja handlowa",
+      "status": "teraz",
+      "tytul": "Cena SMS-ów po nieudanych próbach",
+      "opis": "Pomysł: SMS po dwóch nieudanych próbach dodzwonienia. Wysyłamy cenę za SMS w tym tygodniu. Tekst SMS-a pisze Kasia. Każdy koszt zatwierdza Paweł.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Paweł",
+      "termin": "2026-10-09",
+      "termin_do": null,
+      "termin_opis": "w tym tygodniu",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra, cenę wyślę w tym tygodniu.",
+        "Przyślij cenę. Wszystko, co kosztuje, i tak musi zatwierdzić Paweł. Treść napiszę sama, tak jak ze wstępem."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E29",
+      "typ": "zadanie",
+      "status": "teraz",
+      "tytul": "Ściąga ze statusami dla handlowców",
+      "opis": "Jednostronicowa ściąga z wyjaśnieniem statusów („zainteresowany”, „oddzwonić”, „niezweryfikowany” itd.) dla handlowców.",
+      "wlasciciel": "Marek",
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Ściągę ci wyślę, a szkolenie czeka na twój termin."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E30",
+      "typ": "zadanie",
+      "status": "wstrzymane",
+      "tytul": "Szkolenie dla handlowców ze statusów",
+      "opis": "Krótkie szkolenie online (ok. 15 minut) dla handlowców. Odbędzie się dopiero po starcie świeżych leadów, nie wcześniej. Termin ustala Kasia.",
+      "wlasciciel": "Marek",
+      "zatwierdza": "Kasia",
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": "Szkolenie dopiero, jak pójdą świeże, nie wcześniej, bo zapomną. Termin ustalę ja.",
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Ściągę ci wyślę, a szkolenie czeka na twój termin.",
+        "Ściągę tak. Szkolenie dopiero, jak pójdą świeże, nie wcześniej, bo zapomną. Termin ustalę ja."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E31",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Agent nie sprzedaje",
+      "opis": "Agent nie sprzedaje. Gdy klient mówi „już kupiłem” albo „rozmyśliłem się”, agent dziękuje i kończy rozmowę. Nie proponuje aut używanych (prośba Oli odrzucona). Jeśli agent zacznie sprzedawać, Kasia go wyłączy.",
+      "wlasciciel": null,
+      "zatwierdza": null,
+      "termin": null,
+      "termin_do": null,
+      "termin_opis": null,
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Jasne, niech nie sprzedaje. Jak ktoś mówi, że kupił, dziękujemy i koniec. Używanych nie dokładam.",
+        "Ola chciała, żeby przy odmowie proponował auto używane. Nie. Jak zacznie sprzedawać, wyłączę go."
+      ],
+      "cytaty_zweryfikowane": true
+    },
+    {
+      "id": "E32",
+      "typ": "zakaz",
+      "status": "zakaz",
+      "tytul": "Nic nowego w czasie urlopu Kasi (19–23.10)",
+      "opis": "Od 19 do 23.10 Kasia jest na urlopie. W tym czasie nic nowego nie startuje, nawet jeśli będzie już plik ze świeżymi leadami. W pilnych sprawach dzwonimy do Pawła, ale Paweł nie zatwierdza Opla ani tekstu wstępu, to czeka na Kasię.",
+      "wlasciciel": null,
+      "zatwierdza": "Kasia",
+      "termin": "2026-10-19",
+      "termin_do": "2026-10-23",
+      "termin_opis": "od dziewiętnastego do dwudziestego trzeciego",
+      "warunek": null,
+      "przypomnienie": null,
+      "kategoria_crm": null,
+      "do_klienta": true,
+      "cytaty": [
+        "Dobra. Tydzień od dziewiętnastego nic nowego nie startuje. Jak się pali, dzwonię do Pawła, ale Opel i wstęp czekają na ciebie.",
+        "A, i od dziewiętnastego do dwudziestego trzeciego mam urlop. Cały tydzień. W tym czasie nic nowego nie odpalajcie, nawet jak plik ze świeżymi leadami już będzie i coś się wysypie."
+      ],
+      "cytaty_zweryfikowane": true
+    }
+  ]
+}
