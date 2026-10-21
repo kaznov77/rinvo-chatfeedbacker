@@ -34,3 +34,5 @@ Zasady:
 - `do_klienta`: `true`, jeśli element ma trafić do maila podsumowującego dla klienta. `false` dla treści wewnętrznych Rinvo (ryzyka, notatki o tym, do kogo nie pisać, co Rinvo zrobi na własną rękę).
 - `cytaty`: co najmniej jeden cytat. Każdy to DOSŁOWNY fragment transkrypcji (znak w znak, jedna wypowiedź, bez sklejania różnych miejsc, bez parafrazy, bez dopisywania imion mówiących).
 - Jeden temat to jeden element. Nie dziel i nie łącz na siłę. Nie pomijaj zakazów ani informacji handlowych (ceny, rozliczenia).
+- Gdy klient wprost mówi, czego NIE robić, nie wdrażać albo nie ruszać (także czasowo, do jakiegoś zdarzenia), oprócz elementu dla samej sprawy utwórz osobny element typu `zakaz` ze statusem `zakaz`, z warunkiem odblokowania w polu `warunek`.
+- W opisie zadań typu "daj znać" albo "napisz" podawaj imię adresata.

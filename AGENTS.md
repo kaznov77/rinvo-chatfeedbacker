@@ -8,13 +8,13 @@ Obaj pracują według tych samych zasad.
 
 Przy pracy nad ticketem (w `.worktrees/`, na gałęzi `ticket/…`) zasady tego workflow mają pierwszeństwo przed innymi zasadami gita w tym pliku (np. auto-commit i push do głównej gałęzi). Te inne zasady dotyczą tylko drobnych zadań poza ticketami.
 
-## Stack projektu (uzupełnij)
+## Stack projektu
 
-- Język / framework: _do uzupełnienia_
-- Jak uruchomić projekt: _do uzupełnienia_
-- Jak uruchomić testy: _do uzupełnienia_
-- Linter / formatter: _do uzupełnienia_
-- Ważne katalogi: _do uzupełnienia_
+- Język / framework: Python 3, tylko biblioteka standardowa; ekstrakcję robi `claude -p` (zalogowany Claude Code)
+- Jak uruchomić projekt: `./uruchom.sh TRANSKRYPCJA [--data RRRR-MM-DD]` albo `./uruchom.sh --bez-modelu` (demo bez `claude`)
+- Jak uruchomić testy: `python3 -m unittest`
+- Linter / formatter: brak; sprawdzenie składni `python3 -m py_compile rinvo/*.py`
+- Ważne katalogi: `rinvo/` (moduły i prompt), `tests/`, `samples/` (transkrypcja przykładowa), `tickets/`, `docs/`
 
 ## Workflow
 
