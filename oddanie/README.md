@@ -18,7 +18,7 @@ flowchart LR
 
 | Folder | Co jest w środku |
 |---|---|
-| `01-prototyp-procesu/` | Schemat procesu: `proces.html` (otwórz w przeglądarce, Mermaid z CDN), `proces.md` (ten sam schemat) i `plan.md` (decyzje, kontrakt danych, ryzyka). |
+| `01-prototyp-procesu/` | Klikalny prototyp przepływu z prawdziwymi danymi Auto Tama: `proces.html` (otwórz w przeglądarce, bez internetu), plus `proces.md` i `plan.md` (decyzje, kontrakt danych, ryzyka). |
 | `02-demo/` | Działający system uruchomiony na transkrypcji: kod (`rinvo/`, `uruchom.sh`, testy), `transkrypcja-spotkanie.md`, `wyniki.json`, `raport.html`, `oczekiwane.json`, skrypt ewaluacji (`rinvo/ewaluacja.py`), `wynik-ewaluacji.txt`, a także `transkrypcja-test-2.md` z wynikami w `wyniki-test-2/`. |
 | `03-logi-ai/` | Logi z pracy z AI: sesje Claude Code (z subagentami) i sesja Codexa. Opis w `logi-README.md`. |
 
