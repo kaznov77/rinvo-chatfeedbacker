@@ -28,26 +28,49 @@ ETYKIETY = {
 }
 
 CSS = """
-body{margin:0;background:#faf8f4;color:#1f2328;font:15px/1.5 system-ui,sans-serif}
-main{max-width:880px;margin:0 auto;padding:16px}
-h1,h2,h3{font-family:ui-serif,Georgia,serif}
-h2{border-bottom:1px solid #d8d2c4;padding-bottom:4px;margin-top:32px}
-.baner{background:#d9480f;color:#fff;padding:10px 16px;font-weight:600}
-nav ul{columns:2;padding-left:18px}
-.karta{background:#fff;border:1px solid #e3ddd0;padding:10px 14px;margin:10px 0}
-.karta summary{cursor:pointer;list-style:none}.karta summary::-webkit-details-marker{display:none}
-.karta summary b:after{content:' ▸';color:#8a8f94}.karta[open] summary b:after{content:' ▾'}
-.skrot{margin:2px 0}.wiecej{border-top:1px dashed #e3ddd0;margin-top:8px;padding-top:6px}
-.meta{color:#5c636a;font-size:.88em}
-.et{display:inline-block;font:600 .75em system-ui;padding:1px 7px;border-radius:3px;color:#fff;background:#777;margin-right:6px;text-transform:uppercase}
-.et-teraz{background:#d9480f}.et-czeka{background:#1c6ea4}.et-wstrzymane{background:#777}
-.et-backlog{background:#7b5ea7}.et-zakaz{background:#c92a2a}
-blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid #d9480f;background:#f3efe6;font:.85em ui-monospace,monospace}
-.ostrz{color:#c92a2a;font-weight:600;font-size:.88em}
-.brak{color:#8a8f94;font-style:italic}
-textarea{width:100%;min-height:220px;font:13px ui-monospace,monospace;box-sizing:border-box}
-table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #e3ddd0;padding:4px 8px;text-align:left}
-@media print{details>.wiecej{display:block}.baner{color:#000;background:none;border:2px solid #000}nav{display:none}.karta{break-inside:avoid}}
+:root{--tlo:#E9EDF1;--arkusz:#fff;--atrament:#14213D;--szary:#5B6675;--linia:#D3DAE2;
+--teraz:#F2B705;--czeka:#2F6FB3;--wstrzymane:#8A94A3;--backlog:#6B5CA5;--zakaz:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tlo);color:var(--atrament);font:16px/1.55 "Avenir Next","Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.uklad{display:grid;grid-template-columns:230px minmax(0,760px);gap:32px;max-width:1060px;margin:0 auto;padding:24px 20px 80px}
+nav{position:sticky;top:20px;align-self:start;font-size:.92em}
+nav ul{list-style:none;margin:12px 0 0;padding:0}
+nav a{display:flex;justify-content:space-between;padding:5px 10px;border-radius:6px;color:var(--atrament);text-decoration:none}
+nav a:hover,nav a:focus-visible{background:var(--arkusz)}
+nav .ile{color:var(--szary)}
+.baner{font-size:.9em;color:var(--szary);margin:0 0 6px}
+h1{font-size:1.9em;line-height:1.2;margin:0 0 4px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.25em;margin:44px 0 12px;display:flex;align-items:baseline;gap:12px}
+h2 .ile{font-weight:500;color:var(--szary);font-size:.8em}
+h3{font-size:1em;margin:18px 0 8px;color:var(--szary)}
+.pasek{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:20px 0 8px;background:var(--linia)}
+.pasek span{display:block}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88em;color:var(--szary);margin:0}
+.legenda i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+.postep{margin:18px 0 0;padding:12px 16px;background:var(--atrament);color:#fff;border-radius:8px;font-weight:600}
+.karta{background:var(--arkusz);border-left:5px solid var(--wstrzymane);border-radius:4px 8px 8px 4px;margin:8px 0;box-shadow:0 1px 0 var(--linia)}
+.k-teraz{border-left-color:var(--teraz)}.k-czeka{border-left-color:var(--czeka)}.k-backlog{border-left-color:var(--backlog)}.k-zakaz{border-left-color:var(--zakaz)}
+.karta summary{list-style:none;cursor:pointer;padding:12px 16px 12px 14px;display:grid;grid-template-columns:auto 1fr;gap:2px 12px}
+.karta summary::-webkit-details-marker{display:none}
+.karta summary:focus-visible,input:focus-visible{outline:3px solid var(--czeka);outline-offset:2px}
+.karta input{margin:4px 0 0;width:18px;height:18px;accent-color:var(--atrament);grid-row:span 3}
+.tytul{font-weight:600}
+.et{font-size:.8em;font-weight:600;padding:1px 8px;border-radius:10px;margin-left:8px;white-space:nowrap;background:var(--tlo);color:var(--szary)}
+.et-zakaz{background:#F6DEDB;color:var(--zakaz)}.et-teraz{background:#FDF0C4;color:#6B5200}
+.skrot{color:var(--atrament)}
+.meta{color:var(--szary);font-size:.88em;display:flex;flex-wrap:wrap;gap:4px 16px}
+.karta.ok{opacity:.55}
+.wiecej{padding:0 16px 14px 44px;border-top:1px solid var(--tlo)}
+.wiecej p{max-width:68ch}
+blockquote{margin:8px 0;padding:6px 12px;border-left:2px solid var(--linia);color:var(--szary);font-style:italic}
+.ostrz{color:var(--zakaz);font-weight:600;font-size:.88em}
+.brak{color:var(--szary)}
+table{border-collapse:collapse;width:100%;background:var(--arkusz);border-radius:8px;overflow:hidden;font-size:.92em}
+td,th{padding:7px 12px;text-align:left;border-bottom:1px solid var(--tlo)}th{color:var(--szary);font-weight:600}
+textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);border-radius:8px;font:15px/1.6 inherit;color:var(--atrament)}
+@media (max-width:820px){.uklad{grid-template-columns:1fr}nav{position:static}}
+@media (prefers-reduced-motion:no-preference){.karta{transition:opacity .2s}}
+@media print{nav,.postep,.karta input{display:none}.uklad{display:block}details>.wiecej{display:block}.karta{break-inside:avoid}}
 """
 
 
@@ -100,7 +123,7 @@ def _meta(x):
         czesci.append("do: " + e(x["termin_do"]))
     if x.get("warunek"):
         czesci.append("warunek: " + e(x["warunek"]))
-    return " · ".join(czesci)
+    return "".join("<span>%s</span>" % c for c in czesci)
 
 
 def _skrot(x):
@@ -122,8 +145,10 @@ def _dm(data):
 
 def _karta(x):
     """Zwinięta karta: tytuł i skrót na wierzchu, szczegóły po rozwinięciu."""
-    out = ['<details class="karta"><summary>']
-    out.append("%s<b>%s</b> <small>(%s)</small>" % (_etykieta(x.get("status", "")), e(x.get("tytul", "")), e(x.get("id", ""))))
+    klasa = {"czeka na klienta": "czeka", "wstrzymane": "wstrzymane"}.get(x.get("status"), x.get("status", ""))
+    out = ['<details class="karta k-%s"><summary>' % e(str(klasa))]
+    out.append('<input type="checkbox" class="zatw" aria-label="Zatwierdź %s" onclick="event.stopPropagation()">' % e(x.get("id", "")))
+    out.append('<div><span class="tytul">%s</span>%s</div>' % (e(x.get("tytul", "")), _etykieta(x.get("status", ""))))
     out.append('<div class="skrot">%s</div>' % e(_skrot(x)))
     krotko = []
     if x.get("wlasciciel"):
@@ -133,10 +158,10 @@ def _karta(x):
     if x.get("warunek"):
         krotko.append("warunkowe")
     if krotko:
-        out.append('<div class="meta">%s</div>' % " · ".join(krotko))
+        out.append('<div class="meta">%s</div>' % "".join("<span>%s</span>" % k for k in krotko))
     if not x.get("cytaty_zweryfikowane", False):
         out.append('<div class="ostrz">Uwaga: cytaty niezweryfikowane względem transkrypcji.</div>')
-    out.append('</summary><div class="wiecej">')
+    out.append('</summary><div class="wiecej"><p class="meta">%s</p>' % e(x.get("id", "")))
     if x.get("opis"):
         out.append("<p>%s</p>" % e(x["opis"]))
     m = _meta(x)
@@ -233,20 +258,33 @@ def generuj_html(wyniki):
             lista = _wybierz(wyniki, klucz)
             tresci[klucz] = _lista_kart(lista)
             liczniki[klucz] = len(lista)
-    spis = "".join('<li><a href="#%s">%s</a> (%d)</li>' % (k, e(n), liczniki[k]) for k, n in SEKCJE)
-    sekcje = "".join(
-        '<section id="%s"><h2>%s</h2>'
-        '<label><input type="checkbox"> zatwierdzam</label>%s</section>' % (k, e(n), tresci[k])
-        for k, n in SEKCJE)
+    spis = "".join('<li><a href="#%s"><span>%s</span><span class="ile">%d</span></a></li>' % (k, e(n), liczniki[k]) for k, n in SEKCJE)
+    sekcje = "".join('<section id="%s"><h2>%s<span class="ile">%d</span></h2>%s</section>' % (k, e(n), liczniki[k], tresci[k])
+                     for k, n in SEKCJE)
+    el = wyniki.get("elementy", [])
+    statusy = [("teraz", "do zrobienia teraz", "teraz"), ("czeka na klienta", "czeka na klienta", "czeka"),
+               ("wstrzymane", "wstrzymane", "wstrzymane"), ("backlog", "backlog", "backlog"), ("zakaz", "zakazy", "zakaz")]
+    pasek, legenda = [], []
+    for st, nazwa, kl in statusy:
+        n = sum(1 for x in el if x.get("status") == st)
+        if n:
+            pasek.append('<span style="flex:%d;background:var(--%s)" title="%s: %d"></span>' % (n, kl, e(nazwa), n))
+            legenda.append('<span><i style="background:var(--%s)"></i>%s %d</span>' % (kl, e(nazwa), n))
+    js = ("const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep');"
+          "function o(){let n=0;b.forEach(c=>{c.closest('.karta').classList.toggle('ok',c.checked);n+=c.checked});"
+          "p.textContent='Zatwierdzono '+n+' z '+b.length}b.forEach(c=>c.addEventListener('change',o));o()")
     return (
         '<!doctype html><html lang="pl"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        "<title>Szkice do zatwierdzenia</title><style>%s</style></head><body>"
-        '<div class="baner">Szkice do zatwierdzenia. Nic nie zostało wysłane.</div><main>'
-        "<h1>Szkice po spotkaniu %s</h1><p class=\"meta\">Źródło: %s</p>"
-        "<nav><ul>%s</ul></nav>%s</main></body></html>"
-    ) % (CSS, e(str(wyniki.get("data_spotkania", ""))), e(str(wyniki.get("zrodlo", ""))), spis, sekcje)
-
+        "<title>Ustalenia po spotkaniu %s</title><style>%s</style></head><body><div class=\"uklad\">"
+        "<nav aria-label=\"Sekcje\"><strong>Sekcje</strong><ul>%s</ul></nav><main>"
+        '<p class="baner">Szkice do zatwierdzenia. Nic nie zostało wysłane.</p>'
+        "<h1>Ustalenia po spotkaniu %s</h1><p class=\"meta\"><span>Źródło: %s</span><span>Elementy: %d</span></p>"
+        '<div class="pasek" role="img" aria-label="Podział elementów według statusu">%s</div><p class="legenda">%s</p>'
+        '<p class="postep" id="postep" aria-live="polite"></p>'
+        "%s</main></div><script>%s</script></body></html>"
+    ) % (e(str(wyniki.get("data_spotkania", ""))), CSS, spis, e(str(wyniki.get("data_spotkania", ""))),
+         e(str(wyniki.get("zrodlo", ""))), len(el), "".join(pasek), "".join(legenda), sekcje, js)
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Generuje raport.html z wyniki.json")

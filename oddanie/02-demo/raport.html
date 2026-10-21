@@ -1,658 +1,744 @@
-<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Szkice do zatwierdzenia</title><style>
-body{margin:0;background:#faf8f4;color:#1f2328;font:15px/1.5 system-ui,sans-serif}
-main{max-width:880px;margin:0 auto;padding:16px}
-h1,h2,h3{font-family:ui-serif,Georgia,serif}
-h2{border-bottom:1px solid #d8d2c4;padding-bottom:4px;margin-top:32px}
-.baner{background:#d9480f;color:#fff;padding:10px 16px;font-weight:600}
-nav ul{columns:2;padding-left:18px}
-.karta{background:#fff;border:1px solid #e3ddd0;padding:10px 14px;margin:10px 0}
-.karta summary{cursor:pointer;list-style:none}.karta summary::-webkit-details-marker{display:none}
-.karta summary b:after{content:' ▸';color:#8a8f94}.karta[open] summary b:after{content:' ▾'}
-.skrot{margin:2px 0}.wiecej{border-top:1px dashed #e3ddd0;margin-top:8px;padding-top:6px}
-.meta{color:#5c636a;font-size:.88em}
-.et{display:inline-block;font:600 .75em system-ui;padding:1px 7px;border-radius:3px;color:#fff;background:#777;margin-right:6px;text-transform:uppercase}
-.et-teraz{background:#d9480f}.et-czeka{background:#1c6ea4}.et-wstrzymane{background:#777}
-.et-backlog{background:#7b5ea7}.et-zakaz{background:#c92a2a}
-blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid #d9480f;background:#f3efe6;font:.85em ui-monospace,monospace}
-.ostrz{color:#c92a2a;font-weight:600;font-size:.88em}
-.brak{color:#8a8f94;font-style:italic}
-textarea{width:100%;min-height:220px;font:13px ui-monospace,monospace;box-sizing:border-box}
-table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #e3ddd0;padding:4px 8px;text-align:left}
-@media print{details>.wiecej{display:block}.baner{color:#000;background:none;border:2px solid #000}nav{display:none}.karta{break-inside:avoid}}
-</style></head><body><div class="baner">Szkice do zatwierdzenia. Nic nie zostało wysłane.</div><main><h1>Szkice po spotkaniu 2026-10-06</h1><p class="meta">Źródło: samples/transkrypcja-spotkanie.md</p><nav><ul><li><a href="#teraz">Do zrobienia teraz</a> (14)</li><li><a href="#bledy">Zgłoszenia błędów</a> (5)</li><li><a href="#konfiguracja">Zmiany konfiguracji</a> (6)</li><li><a href="#przypomnienia">Przypomnienia warunkowe</a> (2)</li><li><a href="#zakazy">Zakazy dla konta klienta</a> (15)</li><li><a href="#czeka">Czeka na klienta / wstrzymane</a> (10)</li><li><a href="#backlog">Backlog produktowy</a> (4)</li><li><a href="#crm">Notatka do CRM</a> (7)</li><li><a href="#kalendarz">Kalendarz</a> (14)</li><li><a href="#mail">Szkic maila do klienta</a> (39)</li></ul></nav><section id="teraz"><h2>Do zrobienia teraz</h2><label><input type="checkbox"> zatwierdzam</label><details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Nieaktualny adres salonu we Włocławku w bazie wiedzy</b> <small>(E01)</small>
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ustalenia po spotkaniu 2026-10-06</title><style>
+:root{--tlo:#E9EDF1;--arkusz:#fff;--atrament:#14213D;--szary:#5B6675;--linia:#D3DAE2;
+--teraz:#F2B705;--czeka:#2F6FB3;--wstrzymane:#8A94A3;--backlog:#6B5CA5;--zakaz:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tlo);color:var(--atrament);font:16px/1.55 "Avenir Next","Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.uklad{display:grid;grid-template-columns:230px minmax(0,760px);gap:32px;max-width:1060px;margin:0 auto;padding:24px 20px 80px}
+nav{position:sticky;top:20px;align-self:start;font-size:.92em}
+nav ul{list-style:none;margin:12px 0 0;padding:0}
+nav a{display:flex;justify-content:space-between;padding:5px 10px;border-radius:6px;color:var(--atrament);text-decoration:none}
+nav a:hover,nav a:focus-visible{background:var(--arkusz)}
+nav .ile{color:var(--szary)}
+.baner{font-size:.9em;color:var(--szary);margin:0 0 6px}
+h1{font-size:1.9em;line-height:1.2;margin:0 0 4px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.25em;margin:44px 0 12px;display:flex;align-items:baseline;gap:12px}
+h2 .ile{font-weight:500;color:var(--szary);font-size:.8em}
+h3{font-size:1em;margin:18px 0 8px;color:var(--szary)}
+.pasek{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:20px 0 8px;background:var(--linia)}
+.pasek span{display:block}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88em;color:var(--szary);margin:0}
+.legenda i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+.postep{margin:18px 0 0;padding:12px 16px;background:var(--atrament);color:#fff;border-radius:8px;font-weight:600}
+.karta{background:var(--arkusz);border-left:5px solid var(--wstrzymane);border-radius:4px 8px 8px 4px;margin:8px 0;box-shadow:0 1px 0 var(--linia)}
+.k-teraz{border-left-color:var(--teraz)}.k-czeka{border-left-color:var(--czeka)}.k-backlog{border-left-color:var(--backlog)}.k-zakaz{border-left-color:var(--zakaz)}
+.karta summary{list-style:none;cursor:pointer;padding:12px 16px 12px 14px;display:grid;grid-template-columns:auto 1fr;gap:2px 12px}
+.karta summary::-webkit-details-marker{display:none}
+.karta summary:focus-visible,input:focus-visible{outline:3px solid var(--czeka);outline-offset:2px}
+.karta input{margin:4px 0 0;width:18px;height:18px;accent-color:var(--atrament);grid-row:span 3}
+.tytul{font-weight:600}
+.et{font-size:.8em;font-weight:600;padding:1px 8px;border-radius:10px;margin-left:8px;white-space:nowrap;background:var(--tlo);color:var(--szary)}
+.et-zakaz{background:#F6DEDB;color:var(--zakaz)}.et-teraz{background:#FDF0C4;color:#6B5200}
+.skrot{color:var(--atrament)}
+.meta{color:var(--szary);font-size:.88em;display:flex;flex-wrap:wrap;gap:4px 16px}
+.karta.ok{opacity:.55}
+.wiecej{padding:0 16px 14px 44px;border-top:1px solid var(--tlo)}
+.wiecej p{max-width:68ch}
+blockquote{margin:8px 0;padding:6px 12px;border-left:2px solid var(--linia);color:var(--szary);font-style:italic}
+.ostrz{color:var(--zakaz);font-weight:600;font-size:.88em}
+.brak{color:var(--szary)}
+table{border-collapse:collapse;width:100%;background:var(--arkusz);border-radius:8px;overflow:hidden;font-size:.92em}
+td,th{padding:7px 12px;text-align:left;border-bottom:1px solid var(--tlo)}th{color:var(--szary);font-weight:600}
+textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);border-radius:8px;font:15px/1.6 inherit;color:var(--atrament)}
+@media (max-width:820px){.uklad{grid-template-columns:1fr}nav{position:static}}
+@media (prefers-reduced-motion:no-preference){.karta{transition:opacity .2s}}
+@media print{nav,.postep,.karta input{display:none}.uklad{display:block}details>.wiecej{display:block}.karta{break-inside:avoid}}
+</style></head><body><div class="uklad"><nav aria-label="Sekcje"><strong>Sekcje</strong><ul><li><a href="#teraz"><span>Do zrobienia teraz</span><span class="ile">14</span></a></li><li><a href="#bledy"><span>Zgłoszenia błędów</span><span class="ile">5</span></a></li><li><a href="#konfiguracja"><span>Zmiany konfiguracji</span><span class="ile">6</span></a></li><li><a href="#przypomnienia"><span>Przypomnienia warunkowe</span><span class="ile">2</span></a></li><li><a href="#zakazy"><span>Zakazy dla konta klienta</span><span class="ile">15</span></a></li><li><a href="#czeka"><span>Czeka na klienta / wstrzymane</span><span class="ile">10</span></a></li><li><a href="#backlog"><span>Backlog produktowy</span><span class="ile">4</span></a></li><li><a href="#crm"><span>Notatka do CRM</span><span class="ile">7</span></a></li><li><a href="#kalendarz"><span>Kalendarz</span><span class="ile">14</span></a></li><li><a href="#mail"><span>Szkic maila do klienta</span><span class="ile">39</span></a></li></ul></nav><main><p class="baner">Szkice do zatwierdzenia. Nic nie zostało wysłane.</p><h1>Ustalenia po spotkaniu 2026-10-06</h1><p class="meta"><span>Źródło: samples/transkrypcja-spotkanie.md</span><span>Elementy: 42</span></p><div class="pasek" role="img" aria-label="Podział elementów według statusu"><span style="flex:14;background:var(--teraz)" title="do zrobienia teraz: 14"></span><span style="flex:4;background:var(--czeka)" title="czeka na klienta: 4"></span><span style="flex:6;background:var(--wstrzymane)" title="wstrzymane: 6"></span><span style="flex:3;background:var(--backlog)" title="backlog: 3"></span><span style="flex:15;background:var(--zakaz)" title="zakazy: 15"></span></div><p class="legenda"><span><i style="background:var(--teraz)"></i>do zrobienia teraz 14</span><span><i style="background:var(--czeka)"></i>czeka na klienta 4</span><span><i style="background:var(--wstrzymane)"></i>wstrzymane 6</span><span><i style="background:var(--backlog)"></i>backlog 3</span><span><i style="background:var(--zakaz)"></i>zakazy 15</span></p><p class="postep" id="postep" aria-live="polite"></p><section id="teraz"><h2>Do zrobienia teraz<span class="ile">14</span></h2><details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
+<div><span class="tytul">Nieaktualny adres salonu we Włocławku w bazie wiedzy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Zmienić adres salonu we Włocławku na ul. Toruńską 120 i dać znać Kasi.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E01</p>
 <p>Agent podaje stary adres salonu Peugeot i Citroën we Włocławku (ul. Kapitulna). Od sierpnia salon jest przy ul. Toruńskiej 120, na Kapitulnej jest pusty plac. To błąd po stronie Rinvo (nieaktualna baza wiedzy). Marek poprawia dzisiaj i pisze Kasi, że jest poprawione. Nagrania testowego nie wysyła, Kasia sama puści test. Adres Torunia bez zmian.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (dzisiaj)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (dzisiaj)</span></div>
 <blockquote>Nie musisz mi wysyłać, puszczę sobie test sama. Tylko napisz, jak będzie poprawione.</blockquote>
 <blockquote>Toruńska 120. Godziny bez zmian, w tygodniu dziewiąta–osiemnasta, sobota dziewiąta–czternasta. Toruń bez zmian.</blockquote>
 <blockquote>O, to jest nasz błąd, ewidentnie nieaktualna baza wiedzy. Podaj mi nowy adres, poprawię dzisiaj.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Godziny otwarcia salonów podawane przez agenta</b> <small>(E02)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
+<div><span class="tytul">Godziny otwarcia salonów podawane przez agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić w bazie wiedzy godziny obu salonów: pn–pt 9–18, sobota 9–15.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E02</p>
 <p>Od tego miesiąca oba salony (Toruń i Włocławek) są w sobotę otwarte do 15:00. W tygodniu bez zmian, 9:00–18:00. Agent ma podawać klientom: pn–pt 9:00–18:00, sobota 9:00–15:00. Marek poprawia dzisiaj razem z adresem we Włocławku i daje znać Kasi.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (dzisiaj, razem z adresem)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (dzisiaj, razem z adresem)</span></div>
 <blockquote>Tak, dla obu salonów. Dobrze, że pytasz.</blockquote>
 <blockquote>Czyli sobota dziewiąta–piętnasta, tydzień dziewiąta–dziewiętnasta. A co z godzinami salonu, które agent podaje klientom? Też mam zmienić na piętnastą?</blockquote>
 <blockquote>Dobra, poprawię razem z adresem.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Skrócenie godzin dzwonienia agenta</b> <small>(E03)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
+<div><span class="tytul">Skrócenie godzin dzwonienia agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić godziny dzwonienia: pn–pt 9–19, sobota 9–15, niedziela bez połączeń.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E03</p>
 <p>Obecnie agent dzwoni pn–sob 9:00–20:00. Nowe godziny: poniedziałek–piątek 9:00–19:00, sobota 9:00–15:00 (Kasia najpierw mówiła 14:00, potem poprawiła na 15:00, bo salon jest w sobotę do 15:00), w niedzielę wcale. Powód: skarga klienta na telefon o 19:30, a w sobotę po zamknięciu salonu nikt nie odbierze, gdy klient oddzwoni. Marek zmienia dzisiaj, po callu.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (po callu, dzisiaj)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (po callu, dzisiaj)</span></div>
 <blockquote>Dokładnie. A, jeszcze wracając do godzin dzwonienia. Sobotę jednak zostaw do piętnastej, nie do czternastej. Od tego miesiąca salon w sobotę jest do piętnastej, zapomniałam.</blockquote>
 <blockquote>To skróćcie do dziewiętnastej. W sobotę pan zadzwonił do salonu z pretensjami, że robot dzwoni do niego o wpół do ósmej wieczorem.</blockquote>
 <blockquote>Dobra. Tydzień dziewiąta–dziewiętnasta, sobota dziewiąta–czternasta. Zmienię po callu.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Ponowne połączenie po rozłączeniu w ciągu 3 sekund</b> <small>(E04)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
+<div><span class="tytul">Ponowne połączenie po rozłączeniu w ciągu 3 sekund</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić, czemu agent dzwonił drugi raz po rozłączeniu w 3 s, i napisać Kasi.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E04</p>
 <p>Ustawienie: jeśli ktoś rozłączy się w ciągu 3 sekund, agent nie dzwoni do niego drugi raz tego samego dnia. 5.10 po południu na tej samej kampanii było 6 takich przypadków. Pierwszy o 16:40, numer kończy się na 14 (obie próby jedna po drugiej). Marek sprawdza zaraz po rozmowie i pisze Kasi, co z błędem i ile było takich połączeń (patrz rozliczenie).</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (zaraz po rozmowie)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (zaraz po rozmowie)</span></div>
 <blockquote>Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.</blockquote>
 <blockquote>Wczoraj i tak zadzwonił. Sześć takich przypadków, ta sama kampania, po południu. Pierwszy był o 16:40, numer kończy się na 14, słyszałam obie próby jedna po drugiej.</blockquote>
 <blockquote>A, to miało nie iść drugi raz. Dobra, sprawdzę po spotkaniu na tej kampanii, nie będziemy teraz w tym grzebać.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Naliczanie minut i odliczenie podwójnych połączeń</b> <small>(E06)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
+<div><span class="tytul">Naliczanie minut i odliczenie podwójnych połączeń</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić naliczanie krótkich połączeń, odjąć podwójne telefony i napisać Kasi, ile ich było.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E06</p>
 <p>Klient płaci za minuty. Paweł i pani Grażyna pytają, czy połączenia z rozłączeniem po 3 sekundach są liczone jako cała minuta. Marek nie pamięta, czy liczymy od pierwszej sekundy, czy za rozpoczętą minutę, i to sprawdzi. Jeśli podwójne telefony to błąd Rinvo, klient ich nie płaci i zostaną odjęte. Marek napisze Kasi, ile ich było, razem z informacją o błędzie (E04).</p>
-<div class="meta">właściciel: Marek · warunek: Odjęcie, jeśli podwójne telefony to błąd Rinvo</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Odjęcie, jeśli podwójne telefony to błąd Rinvo</span></div>
 <blockquote>Napiszę razem z informacją, co z tym błędem.</blockquote>
 <blockquote>Szczerze, nie pamiętam, czy liczymy od pierwszej sekundy, czy za rozpoczętą minutę. Sprawdzę. A jeśli te podwójne telefony to nasz błąd, to ich nie powinniście płacić. Odejmiemy je.</blockquote>
 <blockquote>To napisz mi, ile tego było, bo Paweł będzie pytał.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Korekta faktury za wrzesień</b> <small>(E07)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
+<div><span class="tytul">Korekta faktury za wrzesień</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przekazać Michałowi dziś korektę faktury za wrzesień na Auto Tama Toruń sp. z o.o.</div>
-<div class="meta">Michał · termin 12.10–16.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Michał</span><span>termin 12.10–16.10</span></div>
+</summary><div class="wiecej"><p class="meta">E07</p>
 <p>Faktura za wrzesień poszła na „Grupa Auto Tama sp. z o.o.”, a umowa jest z „Auto Tama Toruń sp. z o.o.”. Pani Grażyna (księgowa) bez korekty jej nie zaksięguje. Marek przekazuje sprawę Michałowi dziś, a korekta ma przyjść w przyszłym tygodniu.</p>
-<div class="meta">właściciel: Michał · termin: 2026-10-12 (przekazanie dziś, korekta w przyszłym tygodniu) · do: 2026-10-16</div>
+<div class="meta"><span>właściciel: Michał</span><span>termin: 2026-10-12 (przekazanie dziś, korekta w przyszłym tygodniu)</span><span>do: 2026-10-16</span></div>
 <blockquote>Kurczę, przepraszam. Faktury wystawia Michał, przekażę mu dziś. Korekta powinna przyjść w przyszłym tygodniu.</blockquote>
 <blockquote>Faktura za wrzesień przyszła na „Grupa Auto Tama sp. z o.o.”, a umowa jest podpisana z „Auto Tama Toruń sp. z o.o.”.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Klasyfikacja leada „oddzwońcie po urlopie”</b> <small>(E12)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E12" onclick="event.stopPropagation()">
+<div><span class="tytul">Klasyfikacja leada „oddzwońcie po urlopie”</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sklasyfikować klientkę z urlopu jako leada do oddzwonienia, nie jako „niezainteresowany”.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E12</p>
 <p>Z 9 zainteresowanych jedna klientka powiedziała „oddzwońcie w przyszłym tygodniu, jestem na urlopie”. To lead, a nie odmowa. Klasyfikacja „niezainteresowany” byłaby błędna, właściwa to zainteresowany / oddzwonić. Doradca ma zadzwonić po jej powrocie. Wystarczy, że bot zapytał, kiedy zadzwonić. Trzeba sprawdzić, jak ten przypadek jest oznaczony, i pilnować takiej klasyfikacji.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>No właśnie, ta z urlopu to nie jest odmowa.</blockquote>
 <blockquote>To jest lead, nie odmowa. Doradca ma zadzwonić, jak ona wróci. Jak wrzucicie ją w „niezainteresowany”, bo nie umówiła się na jutro, to źle to czytacie. Bot zapytał, kiedy zadzwonić, i to wystarczy.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Case study: sprzedaż Peugeota 208</b> <small>(E13)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E13" onclick="event.stopPropagation()">
+<div><span class="tytul">Case study: sprzedaż Peugeota 208</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Użyć przykładu sprzedaży 208 (lead z lipca) bez nazwy firmy i pokazać go Pawłowi.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E13</p>
 <p>Lead z Torunia leżał w bazie od lipca. Po piątkowej rozmowie z botem klient przyjechał w sobotę rano i kupił Peugeota 208. Rinvo może od razu używać tego przykładu bez nazwiska i bez nazwy firmy. Marek pokaże go na spotkaniu z Pawłem. Wyniki starej bazy: 70 numerów, 41 odebrało, 23 pełne rozmowy, 9 zainteresowanych.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Dobra, na razie bez nazwy. O nazwę zapytam przy Pawle.</blockquote>
 <blockquote>Jeden z tych dziewięciu, pan z Torunia, w sobotę przyjechał i kupił Peugeota 208.</blockquote>
 <blockquote>Tak. I na tym spotkaniu możesz pokazać tę 208.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Filtr statusu „zainteresowany” nie zawęża listy</b> <small>(E27)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E27" onclick="event.stopPropagation()">
+<div><span class="tytul">Filtr statusu „zainteresowany” nie zawęża listy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Naprawić filtr „zainteresowany” na liście kontaktów, zaraz po rozmowie.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E27</p>
 <p>Na liście kontaktów filtr statusu „zainteresowany” nie zawęża wyników: pokazuje odebranych, nieodebranych i „kupiłem gdzie indziej”. Filtr daty działa. Marek sprawdza zaraz po rozmowie.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (zaraz po rozmowie)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (zaraz po rozmowie)</span></div>
 <blockquote>Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.</blockquote>
 <blockquote>Widzę: data działa, a filtr statusu nie. To sprawdzę u nas po callu.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Kolumna nazwiska po statusie na liście kontaktów</b> <small>(E29)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E29" onclick="event.stopPropagation()">
+<div><span class="tytul">Kolumna nazwiska po statusie na liście kontaktów</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przy naprawie filtra przesunąć kolumnę nazwiska zaraz za status.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E29</p>
 <p>Kasia chce mieć nazwisko zaraz po statusie. Teraz pierwszy jest mail, a nazwisko widać dopiero po przewinięciu. Kolumn nie da się przeciągać. Sprawa niepilna, do zrobienia tylko przy okazji pracy nad listą przy filtrze.</p>
-<div class="meta">właściciel: Marek · warunek: Jeśli przy naprawie filtra będą zmiany na liście kontaktów</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Jeśli przy naprawie filtra będą zmiany na liście kontaktów</span></div>
 <blockquote>Jak już będę w tej liście, to przesunę ci nazwisko. Jak się okaże, że problem z filtrem siedzi gdzie indziej, to kolumn osobno nie ruszam.</blockquote>
 <blockquote>Na liście kontaktów chcę mieć nazwisko zaraz po statusie.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Cena SMS po nieudanych połączeniach</b> <small>(E34)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E34" onclick="event.stopPropagation()">
+<div><span class="tytul">Cena SMS po nieudanych połączeniach</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Wysłać Kasi cenę SMS-a po dwóch nieudanych próbach do piątku 9.10.</div>
-<div class="meta">Marek · termin 9.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 9.10</span></div>
+</summary><div class="wiecej"><p class="meta">E34</p>
 <p>Paweł pyta o SMS po dwóch nieudanych próbach połączenia. SMS-y są płatne osobno za każdą wiadomość. Marek wysyła Kasi cenę w tym tygodniu. Treść SMS napisze Kasia, więc bez przykładowego tekstu. Wszystko, co kosztuje, zatwierdza Paweł.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Paweł · termin: 2026-10-09 (w tym tygodniu)</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Paweł</span><span>termin: 2026-10-09 (w tym tygodniu)</span></div>
 <blockquote>Dobra, cenę wyślę w tym tygodniu.</blockquote>
 <blockquote>Przyślij cenę. Wszystko, co kosztuje, i tak musi zatwierdzić Paweł. Treść napiszę sama, tak jak ze wstępem.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Konkurencja VoiceDesk</b> <small>(E35)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E35" onclick="event.stopPropagation()">
+<div><span class="tytul">Konkurencja VoiceDesk</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: VoiceDesk proponuje Pawłowi ok. 30% taniej i integrację z CRM.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E35</p>
 <p>Dwa tygodnie temu VoiceDesk prezentował się Pawłowi: deklarują, że są tańsi (ok. 30%, nie wiadomo, od czego) i mają integrację z CRM dealera. Paweł jest zainteresowany głównie integracją. Rinvo nie ma integracji i Marek nie obiecuje jej w tym kwartale. Rozmowa z Pawłem planowana na 15.10.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <div class="meta">wewnętrzne, nie trafia do maila</div>
 <blockquote>Nie wiem dokładnie. Paweł mówił coś o „jakieś trzydzieści procent taniej”, ale nie wiem, od czego. Bardziej go kręci to łączenie z systemem, bo dziewczyny teraz przepisują wszystko z maili.</blockquote>
 <blockquote>Powiedzieli, że są tańsi i że łączą się z systemem, więc leady same wpadają handlowcom. Paweł się tym zainteresował.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Ściąga statusów dla handlowców</b> <small>(E37)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E37" onclick="event.stopPropagation()">
+<div><span class="tytul">Ściąga statusów dla handlowców</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przygotować i wysłać Kasi jednostronicową ściągę ze statusami leadów.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E37</p>
 <p>Jedna strona z wyjaśnieniem statusów („zainteresowany”, „oddzwonić”, „niezweryfikowany” itd.) dla Oli i innych handlowców.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Dobra. Ściągę ci wyślę, a szkolenie czeka na twój termin.</blockquote>
 <blockquote>Ściągę tak.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Paweł rozważał wyłączenie usługi</b> <small>(E42)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E42" onclick="event.stopPropagation()">
+<div><span class="tytul">Paweł rozważał wyłączenie usługi</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: Paweł chciał wyłączyć agenta po wyniku 9 zainteresowanych na 70.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E42</p>
 <p>Paweł patrzy na liczby. Po wyniku starej bazy (70 numerów, 41 odebranych, 23 pełne rozmowy, 9 zainteresowanych) chciał wszystko wyłączyć. Kasia go przekonała, że to były stare leady. Decyzje Pawła zależą od wyników świeżych leadów.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <div class="meta">wewnętrzne, nie trafia do maila</div>
 <blockquote>Paweł zobaczył tylko te dziewięć na siedemdziesiąt i chciał wszystko wyłączyć.</blockquote>
-</div></details></section><section id="bledy"><h2>Zgłoszenia błędów</h2><label><input type="checkbox"> zatwierdzam</label><details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Nieaktualny adres salonu we Włocławku w bazie wiedzy</b> <small>(E01)</small>
+</div></details></section><section id="bledy"><h2>Zgłoszenia błędów<span class="ile">5</span></h2><details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
+<div><span class="tytul">Nieaktualny adres salonu we Włocławku w bazie wiedzy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Zmienić adres salonu we Włocławku na ul. Toruńską 120 i dać znać Kasi.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E01</p>
 <p>Agent podaje stary adres salonu Peugeot i Citroën we Włocławku (ul. Kapitulna). Od sierpnia salon jest przy ul. Toruńskiej 120, na Kapitulnej jest pusty plac. To błąd po stronie Rinvo (nieaktualna baza wiedzy). Marek poprawia dzisiaj i pisze Kasi, że jest poprawione. Nagrania testowego nie wysyła, Kasia sama puści test. Adres Torunia bez zmian.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (dzisiaj)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (dzisiaj)</span></div>
 <blockquote>Nie musisz mi wysyłać, puszczę sobie test sama. Tylko napisz, jak będzie poprawione.</blockquote>
 <blockquote>Toruńska 120. Godziny bez zmian, w tygodniu dziewiąta–osiemnasta, sobota dziewiąta–czternasta. Toruń bez zmian.</blockquote>
 <blockquote>O, to jest nasz błąd, ewidentnie nieaktualna baza wiedzy. Podaj mi nowy adres, poprawię dzisiaj.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Ponowne połączenie po rozłączeniu w ciągu 3 sekund</b> <small>(E04)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
+<div><span class="tytul">Ponowne połączenie po rozłączeniu w ciągu 3 sekund</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić, czemu agent dzwonił drugi raz po rozłączeniu w 3 s, i napisać Kasi.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E04</p>
 <p>Ustawienie: jeśli ktoś rozłączy się w ciągu 3 sekund, agent nie dzwoni do niego drugi raz tego samego dnia. 5.10 po południu na tej samej kampanii było 6 takich przypadków. Pierwszy o 16:40, numer kończy się na 14 (obie próby jedna po drugiej). Marek sprawdza zaraz po rozmowie i pisze Kasi, co z błędem i ile było takich połączeń (patrz rozliczenie).</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (zaraz po rozmowie)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (zaraz po rozmowie)</span></div>
 <blockquote>Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.</blockquote>
 <blockquote>Wczoraj i tak zadzwonił. Sześć takich przypadków, ta sama kampania, po południu. Pierwszy był o 16:40, numer kończy się na 14, słyszałam obie próby jedna po drugiej.</blockquote>
 <blockquote>A, to miało nie iść drugi raz. Dobra, sprawdzę po spotkaniu na tej kampanii, nie będziemy teraz w tym grzebać.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Agent drugi raz pytał o model</b> <small>(E10)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
+<div><span class="tytul">Agent drugi raz pytał o model</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Nie szukać przypadku powtórnego pytania o model, dopóki nie będzie numeru.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E10</p>
 <p>Ola zgłosiła rozmowę, w której asystentka przestała reagować na to, co mówi klientka, i drugi raz zapytała o model. Nie ma nagrania ani numeru („jakaś pani przed południem”). Bez nagrania Rinvo nie znajdzie tej rozmowy.</p>
-<div class="meta">właściciel: Marek · warunek: Klient poda numer lub nagranie</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Klient poda numer lub nagranie</span></div>
 <blockquote>A tej drugiej sytuacji, gdzie pyta drugi raz o model, bez nagrania nie znajdę. Ola nie dała numeru.</blockquote>
 <blockquote>W drugiej asystentka w środku rozmowy przestała odpowiadać na to, co klientka mówi, i drugi raz zapytała o model.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-czeka">czeka na klienta</span><b>Przegląd zakwalifikowany jako lead sprzedażowy</b> <small>(E22)</small>
+<details class="karta k-czeka"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E22" onclick="event.stopPropagation()">
+<div><span class="tytul">Przegląd zakwalifikowany jako lead sprzedażowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Sprawdzić sprawę przeglądu od Oli, gdy Kasia ją prześle.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E22</p>
 <p>Ola dostała mail po walidacji, w którym dopiero na dole było widać, że klient chciał umówić przegląd. W systemie trafiło to jako lead sprzedażowy. Nie wiadomo, czy agent źle to zakwalifikował, czy Ola nie doczytała. Kasia prześle sprawę, jeśli Ola ją znajdzie w skrzynce.</p>
-<div class="meta">właściciel: Marek · warunek: Kasia prześle sprawę od Oli</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Kasia prześle sprawę od Oli</span></div>
 <blockquote>Jak mi tego nie prześlesz, to nie wiem, czy agent źle to zakwalifikował, czy ona nie doczytała. Bez tego nie ruszam.</blockquote>
 <blockquote>Powiedziała, że ma to w skrzynce i znajdzie. Jak znajdzie, prześlę. Jak nie, to nie zgadujcie, która to kampania.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Filtr statusu „zainteresowany” nie zawęża listy</b> <small>(E27)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E27" onclick="event.stopPropagation()">
+<div><span class="tytul">Filtr statusu „zainteresowany” nie zawęża listy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Naprawić filtr „zainteresowany” na liście kontaktów, zaraz po rozmowie.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E27</p>
 <p>Na liście kontaktów filtr statusu „zainteresowany” nie zawęża wyników: pokazuje odebranych, nieodebranych i „kupiłem gdzie indziej”. Filtr daty działa. Marek sprawdza zaraz po rozmowie.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (zaraz po rozmowie)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (zaraz po rozmowie)</span></div>
 <blockquote>Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.</blockquote>
 <blockquote>Widzę: data działa, a filtr statusu nie. To sprawdzę u nas po callu.</blockquote>
-</div></details></section><section id="konfiguracja"><h2>Zmiany konfiguracji</h2><label><input type="checkbox"> zatwierdzam</label><details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Godziny otwarcia salonów podawane przez agenta</b> <small>(E02)</small>
+</div></details></section><section id="konfiguracja"><h2>Zmiany konfiguracji<span class="ile">6</span></h2><details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
+<div><span class="tytul">Godziny otwarcia salonów podawane przez agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić w bazie wiedzy godziny obu salonów: pn–pt 9–18, sobota 9–15.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E02</p>
 <p>Od tego miesiąca oba salony (Toruń i Włocławek) są w sobotę otwarte do 15:00. W tygodniu bez zmian, 9:00–18:00. Agent ma podawać klientom: pn–pt 9:00–18:00, sobota 9:00–15:00. Marek poprawia dzisiaj razem z adresem we Włocławku i daje znać Kasi.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (dzisiaj, razem z adresem)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (dzisiaj, razem z adresem)</span></div>
 <blockquote>Tak, dla obu salonów. Dobrze, że pytasz.</blockquote>
 <blockquote>Czyli sobota dziewiąta–piętnasta, tydzień dziewiąta–dziewiętnasta. A co z godzinami salonu, które agent podaje klientom? Też mam zmienić na piętnastą?</blockquote>
 <blockquote>Dobra, poprawię razem z adresem.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Skrócenie godzin dzwonienia agenta</b> <small>(E03)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
+<div><span class="tytul">Skrócenie godzin dzwonienia agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić godziny dzwonienia: pn–pt 9–19, sobota 9–15, niedziela bez połączeń.</div>
-<div class="meta">Marek · termin 6.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 6.10</span></div>
+</summary><div class="wiecej"><p class="meta">E03</p>
 <p>Obecnie agent dzwoni pn–sob 9:00–20:00. Nowe godziny: poniedziałek–piątek 9:00–19:00, sobota 9:00–15:00 (Kasia najpierw mówiła 14:00, potem poprawiła na 15:00, bo salon jest w sobotę do 15:00), w niedzielę wcale. Powód: skarga klienta na telefon o 19:30, a w sobotę po zamknięciu salonu nikt nie odbierze, gdy klient oddzwoni. Marek zmienia dzisiaj, po callu.</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-06 (po callu, dzisiaj)</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-06 (po callu, dzisiaj)</span></div>
 <blockquote>Dokładnie. A, jeszcze wracając do godzin dzwonienia. Sobotę jednak zostaw do piętnastej, nie do czternastej. Od tego miesiąca salon w sobotę jest do piętnastej, zapomniałam.</blockquote>
 <blockquote>To skróćcie do dziewiętnastej. W sobotę pan zadzwonił do salonu z pretensjami, że robot dzwoni do niego o wpół do ósmej wieczorem.</blockquote>
 <blockquote>Dobra. Tydzień dziewiąta–dziewiętnasta, sobota dziewiąta–czternasta. Zmienię po callu.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Przesunięcie prób na porę obiadową</b> <small>(E15)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E15" onclick="event.stopPropagation()">
+<div><span class="tytul">Przesunięcie prób na porę obiadową</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Rozważyć przesunięcie pierwszej próby na 12–13 po wynikach świeżych leadów.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E15</p>
 <p>Na starej bazie najwięcej osób odbierało około 12:00–13:00 i po 17:00, a przed 10:00 prawie nikt. Pomysł: pierwsza próba w przerwie obiadowej. Odłożone do czasu wyników na świeżych leadach.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Najpierw wyniki na świeżych leadach</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Najpierw wyniki na świeżych leadach</span></div>
 <blockquote>Może, ale nie teraz. To była stara baza, na świeżych może być inaczej. Najpierw zobaczmy świeże.</blockquote>
 <blockquote>Jasne, zostawiam.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Podpięcie Opla do walidacji</b> <small>(E17)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E17" onclick="event.stopPropagation()">
+<div><span class="tytul">Podpięcie Opla do walidacji</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Opel czeka na wyniki świeżych leadów i decyzję Kasi.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E17</p>
 <p>Walidacja zostaje na Peugeocie i Citroënie. Opel czeka na wyniki leadów z ostatniego miesiąca. Paweł obawia się zrażenia klientów. Opla zatwierdza Kasia, a nie Paweł.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Wyniki na leadach z ostatniego miesiąca i decyzja Kasi</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Wyniki na leadach z ostatniego miesiąca i decyzja Kasi</span></div>
 <blockquote>Opla na to nie puszczamy. Peugeot i Citroën zostają, Opel czeka, aż zobaczymy wyniki na leadach z ostatniego miesiąca.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Nowy układ maila do handlowców</b> <small>(E24)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E24" onclick="event.stopPropagation()">
+<div><span class="tytul">Nowy układ maila do handlowców</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Po starcie świeżych leadów dać model i salon na górze maila do handlowców.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E24</p>
 <p>Mail po walidacji to ściana tekstu z transkrypcją. Kasia chce mieć model i salon na górze. Odłożone do startu świeżych leadów, bo handlowcy zamykają miesiąc i nie ocenią zmiany.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Start świeżych leadów</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Start świeżych leadów</span></div>
 <blockquote>To zostawmy na świeże. W tym tygodniu i tak nikt ci nie powie, czy jest lepszy.</blockquote>
 <blockquote>A co do samego maila: model i salon na górze, żeby nie musieli szukać w tej ścianie. To bym chciała. Ale nie w tym tygodniu.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Kolumna nazwiska po statusie na liście kontaktów</b> <small>(E29)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E29" onclick="event.stopPropagation()">
+<div><span class="tytul">Kolumna nazwiska po statusie na liście kontaktów</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przy naprawie filtra przesunąć kolumnę nazwiska zaraz za status.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E29</p>
 <p>Kasia chce mieć nazwisko zaraz po statusie. Teraz pierwszy jest mail, a nazwisko widać dopiero po przewinięciu. Kolumn nie da się przeciągać. Sprawa niepilna, do zrobienia tylko przy okazji pracy nad listą przy filtrze.</p>
-<div class="meta">właściciel: Marek · warunek: Jeśli przy naprawie filtra będą zmiany na liście kontaktów</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Jeśli przy naprawie filtra będą zmiany na liście kontaktów</span></div>
 <blockquote>Jak już będę w tej liście, to przesunę ci nazwisko. Jak się okaże, że problem z filtrem siedzi gdzie indziej, to kolumn osobno nie ruszam.</blockquote>
 <blockquote>Na liście kontaktów chcę mieć nazwisko zaraz po statusie.</blockquote>
-</div></details></section><section id="przypomnienia"><h2>Przypomnienia warunkowe</h2><label><input type="checkbox"> zatwierdzam</label><details class="karta"><summary>
-<span class="et et-czeka">czeka na klienta</span><b>Test dwóch wersji wstępu rozmowy</b> <small>(E08)</small>
+</div></details></section><section id="przypomnienia"><h2>Przypomnienia warunkowe<span class="ile">2</span></h2><details class="karta k-czeka"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
+<div><span class="tytul">Test dwóch wersji wstępu rozmowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu od Kasi dwóch tekstów wstępu puścić test na dwa dni lub dwa miasta.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E08</p>
 <p>Problem: agent mówi formułkę bez przerwy i klient nie może wejść w słowo (np. „jestem w samochodzie”). Kasia chce test dwóch wersji: obecnej i krótszej, która dalej mówi, że to wirtualna asystentka i że rozmowa jest nagrywana. Test idzie na dwa dni albo na dwa miasta (Toruń i Włocławek). Kasia sama wybiera wersję, którą zostawiamy. Oba teksty pisze Kasia, Rinvo ich nie pisze. „Przepraszam” na końcu zostaje. Nie w tym tygodniu i nie w czasie urlopu Kasi (19–23.10). Jeśli Kasia nie wyśle tekstów do czwartku 8.10, Marek przypomina jej raz.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Kasia przyśle obie wersje tekstu</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Kasia przyśle obie wersje tekstu</span></div>
 <div class="meta">przypomnienie: 2026-10-08 · Przypomnieć Kasi o wysłaniu dwóch wersji tekstu wstępu do testu. · maks. 1 raz</div>
 <blockquote>Dobra. Jak przyślesz obie, puścimy i sobie wybierzesz. Tekstu za ciebie nie piszę. W tym tygodniu nie puszczamy, skoro słuchasz starej bazy. Jak do czwartku nic nie przyjdzie, przypomnę.</blockquote>
 <blockquote>Puśćcie to na dwa dni albo na dwa miasta, Toruń i Włocławek, a ja sama wybiorę, którą zostawiamy. Tekst napiszę ja. W tym tygodniu tego nie puszczajcie, bo odsłuchuję starą bazę i wszystko mi się zleje. Jak do czwartku nie wyślę obu wersji, przypomnij mi. Raz.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-czeka">czeka na klienta</span><b>Kampania na świeżych leadach</b> <small>(E19)</small>
+<details class="karta k-czeka"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E19" onclick="event.stopPropagation()">
+<div><span class="tytul">Kampania na świeżych leadach</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu pliku od Kasi (pn 12.10) puścić świeże leady.</div>
-<div class="meta">Marek · termin 12.10 · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 12.10</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E19</p>
 <p>Kasia wyśle plik z leadami z ostatniego miesiąca (strona i Facebook). Termin: poniedziałek 12.10, piątku nie obiecuje, bo zamykają miesiąc. Plik to brzydki eksport z panelu, model bywa w treści wiadomości. Wystarczy numer i salon (Toruń albo Włocławek). Bez pliku nic nie puszczamy. Jeśli w poniedziałek pliku nie będzie, Marek pisze do Kasi jeden mail. Nie startujemy w czasie urlopu Kasi (19–23.10).</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-12 (poniedziałek) · warunek: Kasia wyśle plik z numerem i salonem</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-12 (poniedziałek)</span><span>warunek: Kasia wyśle plik z numerem i salonem</span></div>
 <div class="meta">przypomnienie: 2026-10-12 · Jeden mail do Kasi w sprawie pliku ze świeżymi leadami. · maks. 1 raz</div>
 <blockquote>Dobra. Bez pliku nic nie puszczam. Starej bazy drugi raz nie puszczam i wzoru ci nie wysyłam. Jak w poniedziałek nic nie będzie, napiszę raz.</blockquote>
 <blockquote>Piątku nie obiecuję, bo zamykamy miesiąc. Powiedzmy poniedziałek. Jak nie wyślę, napisz jeden mail, nie trzy.</blockquote>
-</div></details></section><section id="zakazy"><h2>Zakazy dla konta klienta</h2><label><input type="checkbox"> zatwierdzam</label><details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie zmieniać limitu 5 prób połączenia</b> <small>(E05)</small>
+</div></details></section><section id="zakazy"><h2>Zakazy dla konta klienta<span class="ile">15</span></h2><details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E05" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie zmieniać limitu 5 prób połączenia</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie zmieniać limitu 5 prób połączenia, nie schodzić do 3.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E05</p>
 <p>Limit prób połączenia zostaje na 5. Kasia nie prosiła o zejście do 3, tylko wspomniała, że ktoś o to pytał.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Tylko jeśli Kasia sama zdecyduje o zmianie limitu</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Tylko jeśli Kasia sama zdecyduje o zmianie limitu</span></div>
 <blockquote>Zostaw pięć. Nie kazałam schodzić do trzech. Mówiłam tylko, że ktoś mnie o to pytał.</blockquote>
 <blockquote>No, zostaje pięć.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie puszczać testu wstępu w tym tygodniu</b> <small>(E09)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E09" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie puszczać testu wstępu w tym tygodniu</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie puszczać testu wstępu w tym tygodniu ani bez akceptacji Kasi.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E09</p>
 <p>W tym tygodniu Kasia odsłuchuje starą bazę i wyniki by się zlały. Test wstępu zatwierdza tylko Kasia, Paweł nie.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Od przyszłego tygodnia, po otrzymaniu tekstów od Kasi, poza jej urlopem</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Od przyszłego tygodnia, po otrzymaniu tekstów od Kasi, poza jej urlopem</span></div>
 <blockquote>W tym tygodniu tego nie puszczajcie, bo odsłuchuję starą bazę i wszystko mi się zleje.</blockquote>
 <blockquote>Ale Paweł nie zatwierdza ani Opla, ani tekstu wstępu. To czeka na mnie.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Bez nazwy firmy w case study</b> <small>(E14)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E14" onclick="event.stopPropagation()">
+<div><span class="tytul">Bez nazwy firmy w case study</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie używać nazwy Auto Tama w case study bez zgody Pawła.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E14</p>
 <p>Nazwę firmy w przykładzie sprzedaży 208 musi zatwierdzić Paweł. Marek zapyta o to przy Pawle.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Paweł · warunek: Paweł zatwierdzi użycie nazwy</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Paweł</span><span>warunek: Paweł zatwierdzi użycie nazwy</span></div>
 <blockquote>Mnie to nie przeszkadza, ale nazwę firmy musi zatwierdzić Paweł. Bez nazwy możesz od razu.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie zmieniać teraz rozkładu prób</b> <small>(E16)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E16" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie zmieniać teraz rozkładu prób</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie przesuwać godzin prób przed wynikami na świeżych leadach.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E16</p>
 <p>Kasia nie chce teraz zmieniać pory prób, bo dane pochodzą ze starej bazy.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Po wynikach na świeżych leadach i decyzji Kasi</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Po wynikach na świeżych leadach i decyzji Kasi</span></div>
 <blockquote>Może, ale nie teraz. To była stara baza, na świeżych może być inaczej. Najpierw zobaczmy świeże.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie włączać Opla</b> <small>(E18)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E18" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie włączać Opla</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie włączać Opla, nawet na polecenie Pawła, bez rozmowy z Kasią.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E18</p>
 <p>Opel ma zostać wyłączony. Jeśli Paweł napisze, że kazał go włączyć, Marek najpierw dzwoni do Kasi i niczego nie klika.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Wyniki świeżych leadów i zgoda Kasi</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Wyniki świeżych leadów i zgoda Kasi</span></div>
 <blockquote>Opla nie włączam. Nawet jak Paweł napisze, że kazał, to najpierw zadzwonię do ciebie, a nie będę tego klikał.</blockquote>
 <blockquote>Ale Paweł nie zatwierdza ani Opla, ani tekstu wstępu. To czeka na mnie.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie puszczać drugi raz starej bazy</b> <small>(E20)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E20" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie puszczać drugi raz starej bazy</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie puszczać drugi raz starej bazy leadów.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E20</p>
 <p>Stara baza (70 numerów z leadami sprzed 2–3 miesięcy) była już dzwoniona i nie idzie drugi raz.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Starej bazy drugi raz nie puszczajcie.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie wysyłać wzoru pliku</b> <small>(E21)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E21" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie wysyłać wzoru pliku</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie wysyłać Kasi wzoru pliku z leadami.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E21</p>
 <p>Kasia wyśle surowy eksport z panelu. Wystarczy, że jest numer i salon.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>I nie przysyłaj mi wzoru pliku.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie zgadywać sprawy przeglądu</b> <small>(E23)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E23" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie zgadywać sprawy przeglądu</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie ruszać sprawy przeglądu ani nie zgadywać kampanii bez wiadomości od Kasi.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E23</p>
 <p>Bez przesłanej sprawy Rinvo nie szuka na własną rękę, w której kampanii była ta rozmowa.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Wiadomość od Kasi z tą sprawą</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Wiadomość od Kasi z tą sprawą</span></div>
 <blockquote>A tego przeglądu, co Ola ma w skrzynce, nie ruszajcie bez wiadomości ode mnie.</blockquote>
 <blockquote>Jak nie, to nie zgadujcie, która to kampania.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie zmieniać maila do handlowców teraz</b> <small>(E25)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E25" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie zmieniać maila do handlowców teraz</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie zmieniać maila do handlowców w tym tygodniu ani przed świeżymi leadami.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E25</p>
 <p>Handlowcy zamykają miesiąc, więc zmiana maila czeka na start świeżych leadów.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Start świeżych leadów</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Start świeżych leadów</span></div>
 <blockquote>Ale nie w tym tygodniu. Zamykają miesiąc i nikt mi nie powie, czy nowy mail jest lepszy. Wrócimy do tego, jak pójdą świeże leady.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie pisać bezpośrednio do Oli</b> <small>(E26)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E26" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie pisać bezpośrednio do Oli</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie kontaktować się z Olą, wszystko ustalać z Kasią.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E26</p>
 <p>Wszystkie ustalenia w sprawie handlowców idą przez Kasię.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <div class="meta">wewnętrzne, nie trafia do maila</div>
 <blockquote>I do Oli nie piszę, ustalam wszystko z tobą.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Bez osobnej pracy pod kolumnę nazwiska</b> <small>(E30)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E30" onclick="event.stopPropagation()">
+<div><span class="tytul">Bez osobnej pracy pod kolumnę nazwiska</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie robić osobnej pracy pod kolumnę nazwiska, jeśli lista nie jest ruszana.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E30</p>
 <p>Kolumnę zmieniamy tylko przy okazji naprawy filtra.</p>
-<div class="meta">właściciel: Marek · warunek: Tylko przy okazji zmian na liście kontaktów</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Tylko przy okazji zmian na liście kontaktów</span></div>
 <blockquote>Jak w tym tygodniu listy nie ruszacie, nie róbcie osobnej roboty pod kolumnę.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nie podpinać agenta po godzinach</b> <small>(E33)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E33" onclick="event.stopPropagation()">
+<div><span class="tytul">Nie podpinać agenta po godzinach</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie podpinać agenta po godzinach ani numerów assistance bez decyzji Kasi.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E33</p>
 <p>Nawet gdy Kasia przyśle numery assistance i listę pól, Rinvo je przechowuje i niczego nie podpina. Nie wierzyć innym osobom, które piszą, że „Kasia mówiła, że od wtorku”, i odpisywać, że czekamy na Kasię.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Kasia sama powie, że wracamy do tematu</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Kasia sama powie, że wracamy do tematu</span></div>
 <blockquote>Jak wyślę, trzymajcie u siebie, nie podpinajcie. I jak ktoś ode mnie napisze „Kasia mówiła, że po godzinach od wtorku”, nie wierzcie.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Bez szkolenia przed świeżymi leadami</b> <small>(E39)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E39" onclick="event.stopPropagation()">
+<div><span class="tytul">Bez szkolenia przed świeżymi leadami</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie robić szkolenia handlowców przed startem świeżych leadów.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E39</p>
 <p>Przy wcześniejszym szkoleniu handlowcy zapomną. Termin wyznacza Kasia.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Start świeżych leadów i termin od Kasi</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Start świeżych leadów i termin od Kasi</span></div>
 <blockquote>Szkolenie dopiero, jak pójdą świeże, nie wcześniej, bo zapomną.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Agent nie sprzedaje</b> <small>(E40)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E40" onclick="event.stopPropagation()">
+<div><span class="tytul">Agent nie sprzedaje</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Agent nie sprzedaje i nie proponuje aut używanych przy odmowie.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E40</p>
 <p>Gdy klient mówi „już kupiłem” albo „rozmyśliłem się”, agent dziękuje i kończy rozmowę. Prośba Oli o proponowanie aut używanych jest odrzucona. Jeśli agent zacznie sprzedawać, Kasia go wyłączy.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Jasne, niech nie sprzedaje. Jak ktoś mówi, że kupił, dziękujemy i koniec. Używanych nie dokładam.</blockquote>
 <blockquote>Ola chciała, żeby przy odmowie proponował auto używane. Nie. Jak zacznie sprzedawać, wyłączę go.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Nic nowego w czasie urlopu Kasi</b> <small>(E41)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E41" onclick="event.stopPropagation()">
+<div><span class="tytul">Nic nowego w czasie urlopu Kasi</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie uruchamiać niczego nowego od 19 do 23.10, w pilnych sprawach dzwonić do Pawła.</div>
-<div class="meta">Marek · termin 19.10–23.10 · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 19.10–23.10</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E41</p>
 <p>Kasia ma urlop 19–23.10. Nic nowego nie startuje, nawet jeśli plik ze świeżymi leadami już będzie. W pilnych sprawach dzwonić do Pawła, ale Paweł nie zatwierdza Opla ani tekstu wstępu, te czekają na Kasię.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · termin: 2026-10-19 (od dziewiętnastego do dwudziestego trzeciego) · do: 2026-10-23 · warunek: Powrót Kasi z urlopu</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>termin: 2026-10-19 (od dziewiętnastego do dwudziestego trzeciego)</span><span>do: 2026-10-23</span><span>warunek: Powrót Kasi z urlopu</span></div>
 <blockquote>Dobra. Tydzień od dziewiętnastego nic nowego nie startuje. Jak się pali, dzwonię do Pawła, ale Opel i wstęp czekają na ciebie.</blockquote>
 <blockquote>A, i od dziewiętnastego do dwudziestego trzeciego mam urlop. Cały tydzień. W tym czasie nic nowego nie odpalajcie, nawet jak plik ze świeżymi leadami już będzie i coś się wysypie.</blockquote>
-</div></details></section><section id="czeka"><h2>Czeka na klienta / wstrzymane</h2><label><input type="checkbox"> zatwierdzam</label><details class="karta"><summary>
-<span class="et et-czeka">czeka na klienta</span><b>Test dwóch wersji wstępu rozmowy</b> <small>(E08)</small>
+</div></details></section><section id="czeka"><h2>Czeka na klienta / wstrzymane<span class="ile">10</span></h2><details class="karta k-czeka"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
+<div><span class="tytul">Test dwóch wersji wstępu rozmowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu od Kasi dwóch tekstów wstępu puścić test na dwa dni lub dwa miasta.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E08</p>
 <p>Problem: agent mówi formułkę bez przerwy i klient nie może wejść w słowo (np. „jestem w samochodzie”). Kasia chce test dwóch wersji: obecnej i krótszej, która dalej mówi, że to wirtualna asystentka i że rozmowa jest nagrywana. Test idzie na dwa dni albo na dwa miasta (Toruń i Włocławek). Kasia sama wybiera wersję, którą zostawiamy. Oba teksty pisze Kasia, Rinvo ich nie pisze. „Przepraszam” na końcu zostaje. Nie w tym tygodniu i nie w czasie urlopu Kasi (19–23.10). Jeśli Kasia nie wyśle tekstów do czwartku 8.10, Marek przypomina jej raz.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Kasia przyśle obie wersje tekstu</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Kasia przyśle obie wersje tekstu</span></div>
 <div class="meta">przypomnienie: 2026-10-08 · Przypomnieć Kasi o wysłaniu dwóch wersji tekstu wstępu do testu. · maks. 1 raz</div>
 <blockquote>Dobra. Jak przyślesz obie, puścimy i sobie wybierzesz. Tekstu za ciebie nie piszę. W tym tygodniu nie puszczamy, skoro słuchasz starej bazy. Jak do czwartku nic nie przyjdzie, przypomnę.</blockquote>
 <blockquote>Puśćcie to na dwa dni albo na dwa miasta, Toruń i Włocławek, a ja sama wybiorę, którą zostawiamy. Tekst napiszę ja. W tym tygodniu tego nie puszczajcie, bo odsłuchuję starą bazę i wszystko mi się zleje. Jak do czwartku nie wyślę obu wersji, przypomnij mi. Raz.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Agent drugi raz pytał o model</b> <small>(E10)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
+<div><span class="tytul">Agent drugi raz pytał o model</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Nie szukać przypadku powtórnego pytania o model, dopóki nie będzie numeru.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E10</p>
 <p>Ola zgłosiła rozmowę, w której asystentka przestała reagować na to, co mówi klientka, i drugi raz zapytała o model. Nie ma nagrania ani numeru („jakaś pani przed południem”). Bez nagrania Rinvo nie znajdzie tej rozmowy.</p>
-<div class="meta">właściciel: Marek · warunek: Klient poda numer lub nagranie</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Klient poda numer lub nagranie</span></div>
 <blockquote>A tej drugiej sytuacji, gdzie pyta drugi raz o model, bez nagrania nie znajdę. Ola nie dała numeru.</blockquote>
 <blockquote>W drugiej asystentka w środku rozmowy przestała odpowiadać na to, co klientka mówi, i drugi raz zapytała o model.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Przesunięcie prób na porę obiadową</b> <small>(E15)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E15" onclick="event.stopPropagation()">
+<div><span class="tytul">Przesunięcie prób na porę obiadową</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Rozważyć przesunięcie pierwszej próby na 12–13 po wynikach świeżych leadów.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E15</p>
 <p>Na starej bazie najwięcej osób odbierało około 12:00–13:00 i po 17:00, a przed 10:00 prawie nikt. Pomysł: pierwsza próba w przerwie obiadowej. Odłożone do czasu wyników na świeżych leadach.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Najpierw wyniki na świeżych leadach</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Najpierw wyniki na świeżych leadach</span></div>
 <blockquote>Może, ale nie teraz. To była stara baza, na świeżych może być inaczej. Najpierw zobaczmy świeże.</blockquote>
 <blockquote>Jasne, zostawiam.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Podpięcie Opla do walidacji</b> <small>(E17)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E17" onclick="event.stopPropagation()">
+<div><span class="tytul">Podpięcie Opla do walidacji</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Opel czeka na wyniki świeżych leadów i decyzję Kasi.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E17</p>
 <p>Walidacja zostaje na Peugeocie i Citroënie. Opel czeka na wyniki leadów z ostatniego miesiąca. Paweł obawia się zrażenia klientów. Opla zatwierdza Kasia, a nie Paweł.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Wyniki na leadach z ostatniego miesiąca i decyzja Kasi</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Wyniki na leadach z ostatniego miesiąca i decyzja Kasi</span></div>
 <blockquote>Opla na to nie puszczamy. Peugeot i Citroën zostają, Opel czeka, aż zobaczymy wyniki na leadach z ostatniego miesiąca.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-czeka">czeka na klienta</span><b>Kampania na świeżych leadach</b> <small>(E19)</small>
+<details class="karta k-czeka"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E19" onclick="event.stopPropagation()">
+<div><span class="tytul">Kampania na świeżych leadach</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu pliku od Kasi (pn 12.10) puścić świeże leady.</div>
-<div class="meta">Marek · termin 12.10 · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 12.10</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E19</p>
 <p>Kasia wyśle plik z leadami z ostatniego miesiąca (strona i Facebook). Termin: poniedziałek 12.10, piątku nie obiecuje, bo zamykają miesiąc. Plik to brzydki eksport z panelu, model bywa w treści wiadomości. Wystarczy numer i salon (Toruń albo Włocławek). Bez pliku nic nie puszczamy. Jeśli w poniedziałek pliku nie będzie, Marek pisze do Kasi jeden mail. Nie startujemy w czasie urlopu Kasi (19–23.10).</p>
-<div class="meta">właściciel: Marek · termin: 2026-10-12 (poniedziałek) · warunek: Kasia wyśle plik z numerem i salonem</div>
+<div class="meta"><span>właściciel: Marek</span><span>termin: 2026-10-12 (poniedziałek)</span><span>warunek: Kasia wyśle plik z numerem i salonem</span></div>
 <div class="meta">przypomnienie: 2026-10-12 · Jeden mail do Kasi w sprawie pliku ze świeżymi leadami. · maks. 1 raz</div>
 <blockquote>Dobra. Bez pliku nic nie puszczam. Starej bazy drugi raz nie puszczam i wzoru ci nie wysyłam. Jak w poniedziałek nic nie będzie, napiszę raz.</blockquote>
 <blockquote>Piątku nie obiecuję, bo zamykamy miesiąc. Powiedzmy poniedziałek. Jak nie wyślę, napisz jeden mail, nie trzy.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-czeka">czeka na klienta</span><b>Przegląd zakwalifikowany jako lead sprzedażowy</b> <small>(E22)</small>
+<details class="karta k-czeka"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E22" onclick="event.stopPropagation()">
+<div><span class="tytul">Przegląd zakwalifikowany jako lead sprzedażowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Sprawdzić sprawę przeglądu od Oli, gdy Kasia ją prześle.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E22</p>
 <p>Ola dostała mail po walidacji, w którym dopiero na dole było widać, że klient chciał umówić przegląd. W systemie trafiło to jako lead sprzedażowy. Nie wiadomo, czy agent źle to zakwalifikował, czy Ola nie doczytała. Kasia prześle sprawę, jeśli Ola ją znajdzie w skrzynce.</p>
-<div class="meta">właściciel: Marek · warunek: Kasia prześle sprawę od Oli</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Kasia prześle sprawę od Oli</span></div>
 <blockquote>Jak mi tego nie prześlesz, to nie wiem, czy agent źle to zakwalifikował, czy ona nie doczytała. Bez tego nie ruszam.</blockquote>
 <blockquote>Powiedziała, że ma to w skrzynce i znajdzie. Jak znajdzie, prześlę. Jak nie, to nie zgadujcie, która to kampania.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Nowy układ maila do handlowców</b> <small>(E24)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E24" onclick="event.stopPropagation()">
+<div><span class="tytul">Nowy układ maila do handlowców</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Po starcie świeżych leadów dać model i salon na górze maila do handlowców.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E24</p>
 <p>Mail po walidacji to ściana tekstu z transkrypcją. Kasia chce mieć model i salon na górze. Odłożone do startu świeżych leadów, bo handlowcy zamykają miesiąc i nie ocenią zmiany.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Start świeżych leadów</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Start świeżych leadów</span></div>
 <blockquote>To zostawmy na świeże. W tym tygodniu i tak nikt ci nie powie, czy jest lepszy.</blockquote>
 <blockquote>A co do samego maila: model i salon na górze, żeby nie musieli szukać w tej ścianie. To bym chciała. Ale nie w tym tygodniu.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Agent po godzinach</b> <small>(E32)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E32" onclick="event.stopPropagation()">
+<div><span class="tytul">Agent po godzinach</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Agent po godzinach czeka na decyzję Kasi, nie w tym miesiącu.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E32</p>
 <p>Zakres: jeden agent na wszystkie numery po zamknięciu salonu (IVR po 17:00 nie rozdziela). Sprzedaż: jak walidacja, z leadem. Serwis: bez umawiania, zebrać imię, telefon, model, salon i opis problemu, bez pytania o VIN, rano oddzwania BOK. Części: tak samo, a na koniec poprosić, żeby rano mieć VIN pod ręką. Assistance: podać numer marki, bez zakładania sprawy. Zgubione kluczyki i inne sprawy: do BOK na rano. Serwisu w dzień ten agent nie obsługuje (może za pół roku). Nie w tym miesiącu, bo recepcja (Iza) nie wyrobi z oddzwonieniami. Paweł tylko pyta i nie zlecił. Wracamy do tematu tylko na sygnał Kasi. Numery assistance i listę pól Kasia wyśle w wolnej chwili, ale to nie jest zielone światło.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Kasia sama powie, że wracamy do tematu</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Kasia sama powie, że wracamy do tematu</span></div>
 <blockquote>Dobra. Jak wyślesz numery, odłożę je i nic nie podepnę. W tym miesiącu tego nie ruszamy. A jak ktoś napisze, że od wtorku, odpiszę, że czekam na ciebie.</blockquote>
 <blockquote>Nie w tym miesiącu.</blockquote>
 <blockquote>Jak sama nie powiem, że wracamy do tematu, to nie wracamy.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-czeka">czeka na klienta</span><b>Spotkanie z Pawłem</b> <small>(E36)</small>
+<details class="karta k-czeka"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E36" onclick="event.stopPropagation()">
+<div><span class="tytul">Spotkanie z Pawłem</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po potwierdzeniu Kasi wysłać Pawłowi zaproszenie na czwartek 15.10, 10:00.</div>
-<div class="meta">Marek · termin 15.10 · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 15.10</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E36</p>
 <p>30 minut z Pawłem: pokaz możliwości Rinvo, ustalenie, czego mu brakuje, pokazanie przypadku 208 i pytanie o zgodę na nazwę firmy. Kasia przekaże propozycję Pawłowi i potwierdzi. Zaproszenie Marek wysyła dopiero po jej potwierdzeniu.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · termin: 2026-10-15 (przyszły czwartek o dziesiątej) · warunek: Potwierdzenie od Kasi</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>termin: 2026-10-15 (przyszły czwartek o dziesiątej)</span><span>warunek: Potwierdzenie od Kasi</span></div>
 <blockquote>Czwartek, piętnastego, dziesiąta. Czekam na potwierdzenie od ciebie, zaproszenie wyślę dopiero wtedy.</blockquote>
 <blockquote>Zaproponuj przyszły czwartek o dziesiątej, on wtedy jest w Toruniu. Ja mu to przekażę i potwierdzę.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Szkolenie handlowców ze statusów</b> <small>(E38)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E38" onclick="event.stopPropagation()">
+<div><span class="tytul">Szkolenie handlowców ze statusów</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Przeprowadzić 15-minutowe szkolenie online, gdy Kasia poda termin po świeżych leadach.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E38</p>
 <p>Kwadrans online dla handlowców o statusach. Dopiero po starcie świeżych leadów, termin ustala Kasia.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Start świeżych leadów i termin od Kasi</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Start świeżych leadów i termin od Kasi</span></div>
 <blockquote>Szkolenie dopiero, jak pójdą świeże, nie wcześniej, bo zapomną. Termin ustalę ja.</blockquote>
-</div></details></section><section id="backlog"><h2>Backlog produktowy</h2><label><input type="checkbox"> zatwierdzam</label><details class="karta"><summary>
-<span class="et et-backlog">backlog</span><b>Testy A/B wbudowane w panel</b> <small>(E11)</small>
+</div></details></section><section id="backlog"><h2>Backlog produktowy<span class="ile">4</span></h2><details class="karta k-backlog"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E11" onclick="event.stopPropagation()">
+<div><span class="tytul">Testy A/B wbudowane w panel</span><span class="et et-backlog">backlog</span></div>
 <div class="skrot">Zapisać prośbę o testy A/B w panelu, z miarą: odsetek pełnych rozmów.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E11</p>
 <p>Kasia chce sama wrzucać w panelu 2–3 wersje początku rozmowy (także kolejność pytań, np. model albo aktualność zgłoszenia na początek). System sam dzieli telefony po równo, a po tygodniu pokazuje wyniki. Miarą sukcesu jest więcej pełnych rozmów (telefon, model, salon), a nie mniej rozłączeń. Bez terminu, o to pytają też inni klienci.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Więcej pełnych rozmów. Rozłączenia mogą być, jak ktoś po prostu nie chce. Ważne, ilu dochodzi do końca z telefonem, modelem i salonem.</blockquote>
 <blockquote>Takiej funkcji dziś nie ma. Ten jeden test ze wstępem zrobimy ręcznie, tak jak mówiłaś. A to, żebyś mogła sama, zapisuję jako prośbę.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-backlog">backlog</span><b>Klikalne kafelki w dashboardzie walidacji</b> <small>(E28)</small>
+<details class="karta k-backlog"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E28" onclick="event.stopPropagation()">
+<div><span class="tytul">Klikalne kafelki w dashboardzie walidacji</span><span class="et et-backlog">backlog</span></div>
 <div class="skrot">Zapisać prośbę: kliknięcie w kafelek „zainteresowani” pokazuje te osoby.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E28</p>
 <p>Kasia chce, żeby kliknięcie w kafelek (np. „zainteresowani: 9”) pokazywało listę tych 9 osób. Takiej funkcji nigdy nie było. Bez terminu.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Nie mieszałbym tych dwóch rzeczy: filtr jest zepsuty, a klikania w kafelek nigdy nie zrobiliśmy. Na to klikanie terminu ci nie podam.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-backlog">backlog</span><b>Cotygodniowy raport mailowy dla Pawła</b> <small>(E31)</small>
+<details class="karta k-backlog"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E31" onclick="event.stopPropagation()">
+<div><span class="tytul">Cotygodniowy raport mailowy dla Pawła</span><span class="et et-backlog">backlog</span></div>
 <div class="skrot">Zapisać prośbę o raport w poniedziałek rano: liczba połączeń, odebrane, zainteresowani.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E31</p>
 <p>Paweł co tydzień pyta o te same liczby: ile połączeń, ile odebrało, ilu zainteresowanych. Kasia przepisuje je ręcznie. Prośba: automatyczny mail w poniedziałek rano, oszczędziłby jej ok. pół godziny tygodniowo. Pytają o to też inni klienci. Bez terminu.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Raportu mailowego teraz nie mamy. Ale to jest coś, o co pyta więcej klientów, więc zapiszę. Nie obiecuję terminu.</blockquote>
 <blockquote>Paweł pyta mnie co tydzień o te same liczby: ile zadzwoniliśmy, ile odebrało, ilu zainteresowanych.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-wstrzymane">wstrzymane</span><b>Agent po godzinach</b> <small>(E32)</small>
+<details class="karta k-wstrzymane"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E32" onclick="event.stopPropagation()">
+<div><span class="tytul">Agent po godzinach</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Agent po godzinach czeka na decyzję Kasi, nie w tym miesiącu.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E32</p>
 <p>Zakres: jeden agent na wszystkie numery po zamknięciu salonu (IVR po 17:00 nie rozdziela). Sprzedaż: jak walidacja, z leadem. Serwis: bez umawiania, zebrać imię, telefon, model, salon i opis problemu, bez pytania o VIN, rano oddzwania BOK. Części: tak samo, a na koniec poprosić, żeby rano mieć VIN pod ręką. Assistance: podać numer marki, bez zakładania sprawy. Zgubione kluczyki i inne sprawy: do BOK na rano. Serwisu w dzień ten agent nie obsługuje (może za pół roku). Nie w tym miesiącu, bo recepcja (Iza) nie wyrobi z oddzwonieniami. Paweł tylko pyta i nie zlecił. Wracamy do tematu tylko na sygnał Kasi. Numery assistance i listę pól Kasia wyśle w wolnej chwili, ale to nie jest zielone światło.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Kasia · warunek: Kasia sama powie, że wracamy do tematu</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Kasia sama powie, że wracamy do tematu</span></div>
 <blockquote>Dobra. Jak wyślesz numery, odłożę je i nic nie podepnę. W tym miesiącu tego nie ruszamy. A jak ktoś napisze, że od wtorku, odpiszę, że czekam na ciebie.</blockquote>
 <blockquote>Nie w tym miesiącu.</blockquote>
 <blockquote>Jak sama nie powiem, że wracamy do tematu, to nie wracamy.</blockquote>
-</div></details></section><section id="crm"><h2>Notatka do CRM</h2><label><input type="checkbox"> zatwierdzam</label><h3>Ryzyka</h3>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Konkurencja VoiceDesk</b> <small>(E35)</small>
+</div></details></section><section id="crm"><h2>Notatka do CRM<span class="ile">7</span></h2><h3>Ryzyka</h3>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E35" onclick="event.stopPropagation()">
+<div><span class="tytul">Konkurencja VoiceDesk</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: VoiceDesk proponuje Pawłowi ok. 30% taniej i integrację z CRM.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E35</p>
 <p>Dwa tygodnie temu VoiceDesk prezentował się Pawłowi: deklarują, że są tańsi (ok. 30%, nie wiadomo, od czego) i mają integrację z CRM dealera. Paweł jest zainteresowany głównie integracją. Rinvo nie ma integracji i Marek nie obiecuje jej w tym kwartale. Rozmowa z Pawłem planowana na 15.10.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <div class="meta">wewnętrzne, nie trafia do maila</div>
 <blockquote>Nie wiem dokładnie. Paweł mówił coś o „jakieś trzydzieści procent taniej”, ale nie wiem, od czego. Bardziej go kręci to łączenie z systemem, bo dziewczyny teraz przepisują wszystko z maili.</blockquote>
 <blockquote>Powiedzieli, że są tańsi i że łączą się z systemem, więc leady same wpadają handlowcom. Paweł się tym zainteresował.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-zakaz">zakaz</span><b>Agent nie sprzedaje</b> <small>(E40)</small>
+<details class="karta k-zakaz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E40" onclick="event.stopPropagation()">
+<div><span class="tytul">Agent nie sprzedaje</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Agent nie sprzedaje i nie proponuje aut używanych przy odmowie.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E40</p>
 <p>Gdy klient mówi „już kupiłem” albo „rozmyśliłem się”, agent dziękuje i kończy rozmowę. Prośba Oli o proponowanie aut używanych jest odrzucona. Jeśli agent zacznie sprzedawać, Kasia go wyłączy.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Jasne, niech nie sprzedaje. Jak ktoś mówi, że kupił, dziękujemy i koniec. Używanych nie dokładam.</blockquote>
 <blockquote>Ola chciała, żeby przy odmowie proponował auto używane. Nie. Jak zacznie sprzedawać, wyłączę go.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Paweł rozważał wyłączenie usługi</b> <small>(E42)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E42" onclick="event.stopPropagation()">
+<div><span class="tytul">Paweł rozważał wyłączenie usługi</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: Paweł chciał wyłączyć agenta po wyniku 9 zainteresowanych na 70.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E42</p>
 <p>Paweł patrzy na liczby. Po wyniku starej bazy (70 numerów, 41 odebranych, 23 pełne rozmowy, 9 zainteresowanych) chciał wszystko wyłączyć. Kasia go przekonała, że to były stare leady. Decyzje Pawła zależą od wyników świeżych leadów.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <div class="meta">wewnętrzne, nie trafia do maila</div>
 <blockquote>Paweł zobaczył tylko te dziewięć na siedemdziesiąt i chciał wszystko wyłączyć.</blockquote>
 </div></details>
 <h3>Sukcesy</h3>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Case study: sprzedaż Peugeota 208</b> <small>(E13)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E13" onclick="event.stopPropagation()">
+<div><span class="tytul">Case study: sprzedaż Peugeota 208</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Użyć przykładu sprzedaży 208 (lead z lipca) bez nazwy firmy i pokazać go Pawłowi.</div>
-<div class="meta">Marek</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span></div>
+</summary><div class="wiecej"><p class="meta">E13</p>
 <p>Lead z Torunia leżał w bazie od lipca. Po piątkowej rozmowie z botem klient przyjechał w sobotę rano i kupił Peugeota 208. Rinvo może od razu używać tego przykładu bez nazwiska i bez nazwy firmy. Marek pokaże go na spotkaniu z Pawłem. Wyniki starej bazy: 70 numerów, 41 odebrało, 23 pełne rozmowy, 9 zainteresowanych.</p>
-<div class="meta">właściciel: Marek</div>
+<div class="meta"><span>właściciel: Marek</span></div>
 <blockquote>Dobra, na razie bez nazwy. O nazwę zapytam przy Pawle.</blockquote>
 <blockquote>Jeden z tych dziewięciu, pan z Torunia, w sobotę przyjechał i kupił Peugeota 208.</blockquote>
 <blockquote>Tak. I na tym spotkaniu możesz pokazać tę 208.</blockquote>
 </div></details>
 <h3>Pozostałe informacje handlowe</h3>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Naliczanie minut i odliczenie podwójnych połączeń</b> <small>(E06)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
+<div><span class="tytul">Naliczanie minut i odliczenie podwójnych połączeń</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić naliczanie krótkich połączeń, odjąć podwójne telefony i napisać Kasi, ile ich było.</div>
-<div class="meta">Marek · warunkowe</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>warunkowe</span></div>
+</summary><div class="wiecej"><p class="meta">E06</p>
 <p>Klient płaci za minuty. Paweł i pani Grażyna pytają, czy połączenia z rozłączeniem po 3 sekundach są liczone jako cała minuta. Marek nie pamięta, czy liczymy od pierwszej sekundy, czy za rozpoczętą minutę, i to sprawdzi. Jeśli podwójne telefony to błąd Rinvo, klient ich nie płaci i zostaną odjęte. Marek napisze Kasi, ile ich było, razem z informacją o błędzie (E04).</p>
-<div class="meta">właściciel: Marek · warunek: Odjęcie, jeśli podwójne telefony to błąd Rinvo</div>
+<div class="meta"><span>właściciel: Marek</span><span>warunek: Odjęcie, jeśli podwójne telefony to błąd Rinvo</span></div>
 <blockquote>Napiszę razem z informacją, co z tym błędem.</blockquote>
 <blockquote>Szczerze, nie pamiętam, czy liczymy od pierwszej sekundy, czy za rozpoczętą minutę. Sprawdzę. A jeśli te podwójne telefony to nasz błąd, to ich nie powinniście płacić. Odejmiemy je.</blockquote>
 <blockquote>To napisz mi, ile tego było, bo Paweł będzie pytał.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Korekta faktury za wrzesień</b> <small>(E07)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
+<div><span class="tytul">Korekta faktury za wrzesień</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przekazać Michałowi dziś korektę faktury za wrzesień na Auto Tama Toruń sp. z o.o.</div>
-<div class="meta">Michał · termin 12.10–16.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Michał</span><span>termin 12.10–16.10</span></div>
+</summary><div class="wiecej"><p class="meta">E07</p>
 <p>Faktura za wrzesień poszła na „Grupa Auto Tama sp. z o.o.”, a umowa jest z „Auto Tama Toruń sp. z o.o.”. Pani Grażyna (księgowa) bez korekty jej nie zaksięguje. Marek przekazuje sprawę Michałowi dziś, a korekta ma przyjść w przyszłym tygodniu.</p>
-<div class="meta">właściciel: Michał · termin: 2026-10-12 (przekazanie dziś, korekta w przyszłym tygodniu) · do: 2026-10-16</div>
+<div class="meta"><span>właściciel: Michał</span><span>termin: 2026-10-12 (przekazanie dziś, korekta w przyszłym tygodniu)</span><span>do: 2026-10-16</span></div>
 <blockquote>Kurczę, przepraszam. Faktury wystawia Michał, przekażę mu dziś. Korekta powinna przyjść w przyszłym tygodniu.</blockquote>
 <blockquote>Faktura za wrzesień przyszła na „Grupa Auto Tama sp. z o.o.”, a umowa jest podpisana z „Auto Tama Toruń sp. z o.o.”.</blockquote>
 </div></details>
-<details class="karta"><summary>
-<span class="et et-teraz">teraz</span><b>Cena SMS po nieudanych połączeniach</b> <small>(E34)</small>
+<details class="karta k-teraz"><summary>
+<input type="checkbox" class="zatw" aria-label="Zatwierdź E34" onclick="event.stopPropagation()">
+<div><span class="tytul">Cena SMS po nieudanych połączeniach</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Wysłać Kasi cenę SMS-a po dwóch nieudanych próbach do piątku 9.10.</div>
-<div class="meta">Marek · termin 9.10</div>
-</summary><div class="wiecej">
+<div class="meta"><span>Marek</span><span>termin 9.10</span></div>
+</summary><div class="wiecej"><p class="meta">E34</p>
 <p>Paweł pyta o SMS po dwóch nieudanych próbach połączenia. SMS-y są płatne osobno za każdą wiadomość. Marek wysyła Kasi cenę w tym tygodniu. Treść SMS napisze Kasia, więc bez przykładowego tekstu. Wszystko, co kosztuje, zatwierdza Paweł.</p>
-<div class="meta">właściciel: Marek · zatwierdza: Paweł · termin: 2026-10-09 (w tym tygodniu)</div>
+<div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Paweł</span><span>termin: 2026-10-09 (w tym tygodniu)</span></div>
 <blockquote>Dobra, cenę wyślę w tym tygodniu.</blockquote>
 <blockquote>Przyślij cenę. Wszystko, co kosztuje, i tak musi zatwierdzić Paweł. Treść napiszę sama, tak jak ze wstępem.</blockquote>
-</div></details></section><section id="kalendarz"><h2>Kalendarz</h2><label><input type="checkbox"> zatwierdzam</label><table><tr><th>Data</th><th>Rodzaj</th><th>Element</th><th>Właściciel</th></tr>
+</div></details></section><section id="kalendarz"><h2>Kalendarz<span class="ile">14</span></h2><table><tr><th>Data</th><th>Rodzaj</th><th>Element</th><th>Właściciel</th></tr>
 <tr><td>2026-10-06</td><td>termin</td><td>Nieaktualny adres salonu we Włocławku w bazie wiedzy (E01)</td><td>Marek</td></tr>
 <tr><td>2026-10-06</td><td>termin</td><td>Godziny otwarcia salonów podawane przez agenta (E02)</td><td>Marek</td></tr>
 <tr><td>2026-10-06</td><td>termin</td><td>Skrócenie godzin dzwonienia agenta (E03)</td><td>Marek</td></tr>
@@ -667,7 +753,7 @@ table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #e3ddd0;
 <tr><td>2026-10-16</td><td>termin do</td><td>Korekta faktury za wrzesień (E07)</td><td>Michał</td></tr>
 <tr><td>2026-10-19</td><td>termin</td><td>Nic nowego w czasie urlopu Kasi (E41)</td><td>Marek</td></tr>
 <tr><td>2026-10-23</td><td>termin do</td><td>Nic nowego w czasie urlopu Kasi (E41)</td><td>Marek</td></tr>
-</table></section><section id="mail"><h2>Szkic maila do klienta</h2><label><input type="checkbox"> zatwierdzam</label><textarea readonly aria-label="Szkic maila">Cześć,
+</table></section><section id="mail"><h2>Szkic maila do klienta<span class="ile">39</span></h2><textarea readonly aria-label="Szkic maila">Cześć,
 
 dzięki za rozmowę 6.10. W skrócie, co ustaliliśmy:
 
@@ -702,4 +788,4 @@ Czeka na Twój sygnał:
 Zapisane jako prośby o nowe funkcje (bez terminu): Testy A/B wbudowane w panel; Klikalne kafelki w dashboardzie walidacji; Cotygodniowy raport mailowy dla Pawła.
 
 Daj znać, jeśli coś pominąłem.
-Marek</textarea></section></main></body></html>
+Marek</textarea></section></main></div><script>const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep');function o(){let n=0;b.forEach(c=>{c.closest('.karta').classList.toggle('ok',c.checked);n+=c.checked});p.textContent='Zatwierdzono '+n+' z '+b.length}b.forEach(c=>c.addEventListener('change',o));o()</script></body></html>
