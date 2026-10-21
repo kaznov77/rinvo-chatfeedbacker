@@ -43,7 +43,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 @media (prefers-reduced-motion:no-preference){.karta{transition:opacity .2s}}
 @media print{nav,.postep,.karta input{display:none}.uklad{display:block}details>.wiecej{display:block}.karta{break-inside:avoid}}
 </style></head><body><div class="uklad"><nav aria-label="Sekcje"><strong>Sekcje</strong><ul><li><a href="#teraz"><span>Do zrobienia teraz</span><span class="ile">14</span></a></li><li><a href="#bledy"><span>Zgłoszenia błędów</span><span class="ile">5</span></a></li><li><a href="#konfiguracja"><span>Zmiany konfiguracji</span><span class="ile">6</span></a></li><li><a href="#przypomnienia"><span>Przypomnienia warunkowe</span><span class="ile">2</span></a></li><li><a href="#zakazy"><span>Zakazy dla konta klienta</span><span class="ile">15</span></a></li><li><a href="#czeka"><span>Czeka na klienta / wstrzymane</span><span class="ile">10</span></a></li><li><a href="#backlog"><span>Backlog produktowy</span><span class="ile">4</span></a></li><li><a href="#crm"><span>Notatka do CRM</span><span class="ile">7</span></a></li><li><a href="#kalendarz"><span>Kalendarz</span><span class="ile">14</span></a></li><li><a href="#mail"><span>Szkic maila do klienta</span><span class="ile">39</span></a></li></ul></nav><main><p class="baner">Szkice do zatwierdzenia. Nic nie zostało wysłane.</p><h1>Ustalenia po spotkaniu 2026-10-06</h1><p class="meta"><span>Źródło: samples/transkrypcja-spotkanie.md</span><span>Elementy: 42</span></p><div class="pasek" role="img" aria-label="Podział elementów według statusu"><span style="flex:14;background:var(--teraz)" title="do zrobienia teraz: 14"></span><span style="flex:4;background:var(--czeka)" title="czeka na klienta: 4"></span><span style="flex:6;background:var(--wstrzymane)" title="wstrzymane: 6"></span><span style="flex:3;background:var(--backlog)" title="backlog: 3"></span><span style="flex:15;background:var(--zakaz)" title="zakazy: 15"></span></div><p class="legenda"><span><i style="background:var(--teraz)"></i>do zrobienia teraz 14</span><span><i style="background:var(--czeka)"></i>czeka na klienta 4</span><span><i style="background:var(--wstrzymane)"></i>wstrzymane 6</span><span><i style="background:var(--backlog)"></i>backlog 3</span><span><i style="background:var(--zakaz)"></i>zakazy 15</span></p><p class="postep" id="postep" aria-live="polite"></p><section id="teraz"><h2>Do zrobienia teraz<span class="ile">14</span></h2><details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E01" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
 <div><span class="tytul">Nieaktualny adres salonu we Włocławku w bazie wiedzy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Zmienić adres salonu we Włocławku na ul. Toruńską 120 i dać znać Kasi.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -55,7 +55,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>O, to jest nasz błąd, ewidentnie nieaktualna baza wiedzy. Podaj mi nowy adres, poprawię dzisiaj.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E02" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
 <div><span class="tytul">Godziny otwarcia salonów podawane przez agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić w bazie wiedzy godziny obu salonów: pn–pt 9–18, sobota 9–15.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -67,7 +67,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra, poprawię razem z adresem.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E03" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
 <div><span class="tytul">Skrócenie godzin dzwonienia agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić godziny dzwonienia: pn–pt 9–19, sobota 9–15, niedziela bez połączeń.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -79,7 +79,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra. Tydzień dziewiąta–dziewiętnasta, sobota dziewiąta–czternasta. Zmienię po callu.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E04" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
 <div><span class="tytul">Ponowne połączenie po rozłączeniu w ciągu 3 sekund</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić, czemu agent dzwonił drugi raz po rozłączeniu w 3 s, i napisać Kasi.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -91,7 +91,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>A, to miało nie iść drugi raz. Dobra, sprawdzę po spotkaniu na tej kampanii, nie będziemy teraz w tym grzebać.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E06" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
 <div><span class="tytul">Naliczanie minut i odliczenie podwójnych połączeń</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić naliczanie krótkich połączeń, odjąć podwójne telefony i napisać Kasi, ile ich było.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -103,7 +103,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>To napisz mi, ile tego było, bo Paweł będzie pytał.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E07" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
 <div><span class="tytul">Korekta faktury za wrzesień</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przekazać Michałowi dziś korektę faktury za wrzesień na Auto Tama Toruń sp. z o.o.</div>
 <div class="meta"><span>Michał</span><span>termin 12.10–16.10</span></div>
@@ -114,7 +114,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Faktura za wrzesień przyszła na „Grupa Auto Tama sp. z o.o.”, a umowa jest podpisana z „Auto Tama Toruń sp. z o.o.”.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E12" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E12" aria-label="Zatwierdź E12" onclick="event.stopPropagation()">
 <div><span class="tytul">Klasyfikacja leada „oddzwońcie po urlopie”</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sklasyfikować klientkę z urlopu jako leada do oddzwonienia, nie jako „niezainteresowany”.</div>
 <div class="meta"><span>Marek</span></div>
@@ -125,7 +125,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>To jest lead, nie odmowa. Doradca ma zadzwonić, jak ona wróci. Jak wrzucicie ją w „niezainteresowany”, bo nie umówiła się na jutro, to źle to czytacie. Bot zapytał, kiedy zadzwonić, i to wystarczy.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E13" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E13" aria-label="Zatwierdź E13" onclick="event.stopPropagation()">
 <div><span class="tytul">Case study: sprzedaż Peugeota 208</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Użyć przykładu sprzedaży 208 (lead z lipca) bez nazwy firmy i pokazać go Pawłowi.</div>
 <div class="meta"><span>Marek</span></div>
@@ -137,7 +137,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Tak. I na tym spotkaniu możesz pokazać tę 208.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E27" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E27" aria-label="Zatwierdź E27" onclick="event.stopPropagation()">
 <div><span class="tytul">Filtr statusu „zainteresowany” nie zawęża listy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Naprawić filtr „zainteresowany” na liście kontaktów, zaraz po rozmowie.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -148,7 +148,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Widzę: data działa, a filtr statusu nie. To sprawdzę u nas po callu.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E29" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E29" aria-label="Zatwierdź E29" onclick="event.stopPropagation()">
 <div><span class="tytul">Kolumna nazwiska po statusie na liście kontaktów</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przy naprawie filtra przesunąć kolumnę nazwiska zaraz za status.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -159,7 +159,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Na liście kontaktów chcę mieć nazwisko zaraz po statusie.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E34" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E34" aria-label="Zatwierdź E34" onclick="event.stopPropagation()">
 <div><span class="tytul">Cena SMS po nieudanych połączeniach</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Wysłać Kasi cenę SMS-a po dwóch nieudanych próbach do piątku 9.10.</div>
 <div class="meta"><span>Marek</span><span>termin 9.10</span></div>
@@ -170,7 +170,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Przyślij cenę. Wszystko, co kosztuje, i tak musi zatwierdzić Paweł. Treść napiszę sama, tak jak ze wstępem.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E35" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E35" aria-label="Zatwierdź E35" onclick="event.stopPropagation()">
 <div><span class="tytul">Konkurencja VoiceDesk</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: VoiceDesk proponuje Pawłowi ok. 30% taniej i integrację z CRM.</div>
 <div class="meta"><span>Marek</span></div>
@@ -182,7 +182,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Powiedzieli, że są tańsi i że łączą się z systemem, więc leady same wpadają handlowcom. Paweł się tym zainteresował.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E37" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E37" aria-label="Zatwierdź E37" onclick="event.stopPropagation()">
 <div><span class="tytul">Ściąga statusów dla handlowców</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przygotować i wysłać Kasi jednostronicową ściągę ze statusami leadów.</div>
 <div class="meta"><span>Marek</span></div>
@@ -193,7 +193,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Ściągę tak.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E42" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E42" aria-label="Zatwierdź E42" onclick="event.stopPropagation()">
 <div><span class="tytul">Paweł rozważał wyłączenie usługi</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: Paweł chciał wyłączyć agenta po wyniku 9 zainteresowanych na 70.</div>
 <div class="meta"><span>Marek</span></div>
@@ -203,7 +203,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <div class="meta">wewnętrzne, nie trafia do maila</div>
 <blockquote>Paweł zobaczył tylko te dziewięć na siedemdziesiąt i chciał wszystko wyłączyć.</blockquote>
 </div></details></section><section id="bledy"><h2>Zgłoszenia błędów<span class="ile">5</span></h2><details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E01" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
 <div><span class="tytul">Nieaktualny adres salonu we Włocławku w bazie wiedzy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Zmienić adres salonu we Włocławku na ul. Toruńską 120 i dać znać Kasi.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -215,7 +215,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>O, to jest nasz błąd, ewidentnie nieaktualna baza wiedzy. Podaj mi nowy adres, poprawię dzisiaj.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E04" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
 <div><span class="tytul">Ponowne połączenie po rozłączeniu w ciągu 3 sekund</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić, czemu agent dzwonił drugi raz po rozłączeniu w 3 s, i napisać Kasi.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -227,7 +227,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>A, to miało nie iść drugi raz. Dobra, sprawdzę po spotkaniu na tej kampanii, nie będziemy teraz w tym grzebać.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E10" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
 <div><span class="tytul">Agent drugi raz pytał o model</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Nie szukać przypadku powtórnego pytania o model, dopóki nie będzie numeru.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -238,7 +238,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>W drugiej asystentka w środku rozmowy przestała odpowiadać na to, co klientka mówi, i drugi raz zapytała o model.</blockquote>
 </div></details>
 <details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E22" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E22" aria-label="Zatwierdź E22" onclick="event.stopPropagation()">
 <div><span class="tytul">Przegląd zakwalifikowany jako lead sprzedażowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Sprawdzić sprawę przeglądu od Oli, gdy Kasia ją prześle.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -249,7 +249,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Powiedziała, że ma to w skrzynce i znajdzie. Jak znajdzie, prześlę. Jak nie, to nie zgadujcie, która to kampania.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E27" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E27" aria-label="Zatwierdź E27" onclick="event.stopPropagation()">
 <div><span class="tytul">Filtr statusu „zainteresowany” nie zawęża listy</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Naprawić filtr „zainteresowany” na liście kontaktów, zaraz po rozmowie.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -259,7 +259,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Drugi telefon i filtr biorę zaraz po rozmowie, adres i godziny dzisiaj.</blockquote>
 <blockquote>Widzę: data działa, a filtr statusu nie. To sprawdzę u nas po callu.</blockquote>
 </div></details></section><section id="konfiguracja"><h2>Zmiany konfiguracji<span class="ile">6</span></h2><details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E02" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
 <div><span class="tytul">Godziny otwarcia salonów podawane przez agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić w bazie wiedzy godziny obu salonów: pn–pt 9–18, sobota 9–15.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -271,7 +271,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra, poprawię razem z adresem.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E03" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
 <div><span class="tytul">Skrócenie godzin dzwonienia agenta</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ustawić godziny dzwonienia: pn–pt 9–19, sobota 9–15, niedziela bez połączeń.</div>
 <div class="meta"><span>Marek</span><span>termin 6.10</span></div>
@@ -283,7 +283,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra. Tydzień dziewiąta–dziewiętnasta, sobota dziewiąta–czternasta. Zmienię po callu.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E15" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E15" aria-label="Zatwierdź E15" onclick="event.stopPropagation()">
 <div><span class="tytul">Przesunięcie prób na porę obiadową</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Rozważyć przesunięcie pierwszej próby na 12–13 po wynikach świeżych leadów.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -294,7 +294,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jasne, zostawiam.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E17" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E17" aria-label="Zatwierdź E17" onclick="event.stopPropagation()">
 <div><span class="tytul">Podpięcie Opla do walidacji</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Opel czeka na wyniki świeżych leadów i decyzję Kasi.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -304,7 +304,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Opla na to nie puszczamy. Peugeot i Citroën zostają, Opel czeka, aż zobaczymy wyniki na leadach z ostatniego miesiąca.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E24" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E24" aria-label="Zatwierdź E24" onclick="event.stopPropagation()">
 <div><span class="tytul">Nowy układ maila do handlowców</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Po starcie świeżych leadów dać model i salon na górze maila do handlowców.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -315,7 +315,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>A co do samego maila: model i salon na górze, żeby nie musieli szukać w tej ścianie. To bym chciała. Ale nie w tym tygodniu.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E29" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E29" aria-label="Zatwierdź E29" onclick="event.stopPropagation()">
 <div><span class="tytul">Kolumna nazwiska po statusie na liście kontaktów</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przy naprawie filtra przesunąć kolumnę nazwiska zaraz za status.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -325,7 +325,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jak już będę w tej liście, to przesunę ci nazwisko. Jak się okaże, że problem z filtrem siedzi gdzie indziej, to kolumn osobno nie ruszam.</blockquote>
 <blockquote>Na liście kontaktów chcę mieć nazwisko zaraz po statusie.</blockquote>
 </div></details></section><section id="przypomnienia"><h2>Przypomnienia warunkowe<span class="ile">2</span></h2><details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E08" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
 <div><span class="tytul">Test dwóch wersji wstępu rozmowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu od Kasi dwóch tekstów wstępu puścić test na dwa dni lub dwa miasta.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -337,7 +337,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Puśćcie to na dwa dni albo na dwa miasta, Toruń i Włocławek, a ja sama wybiorę, którą zostawiamy. Tekst napiszę ja. W tym tygodniu tego nie puszczajcie, bo odsłuchuję starą bazę i wszystko mi się zleje. Jak do czwartku nie wyślę obu wersji, przypomnij mi. Raz.</blockquote>
 </div></details>
 <details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E19" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E19" aria-label="Zatwierdź E19" onclick="event.stopPropagation()">
 <div><span class="tytul">Kampania na świeżych leadach</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu pliku od Kasi (pn 12.10) puścić świeże leady.</div>
 <div class="meta"><span>Marek</span><span>termin 12.10</span><span>warunkowe</span></div>
@@ -348,7 +348,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra. Bez pliku nic nie puszczam. Starej bazy drugi raz nie puszczam i wzoru ci nie wysyłam. Jak w poniedziałek nic nie będzie, napiszę raz.</blockquote>
 <blockquote>Piątku nie obiecuję, bo zamykamy miesiąc. Powiedzmy poniedziałek. Jak nie wyślę, napisz jeden mail, nie trzy.</blockquote>
 </div></details></section><section id="zakazy"><h2>Zakazy dla konta klienta<span class="ile">15</span></h2><details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E05" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E05" aria-label="Zatwierdź E05" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie zmieniać limitu 5 prób połączenia</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie zmieniać limitu 5 prób połączenia, nie schodzić do 3.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -359,7 +359,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>No, zostaje pięć.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E09" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E09" aria-label="Zatwierdź E09" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie puszczać testu wstępu w tym tygodniu</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie puszczać testu wstępu w tym tygodniu ani bez akceptacji Kasi.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -370,7 +370,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Ale Paweł nie zatwierdza ani Opla, ani tekstu wstępu. To czeka na mnie.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E14" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E14" aria-label="Zatwierdź E14" onclick="event.stopPropagation()">
 <div><span class="tytul">Bez nazwy firmy w case study</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie używać nazwy Auto Tama w case study bez zgody Pawła.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -380,7 +380,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Mnie to nie przeszkadza, ale nazwę firmy musi zatwierdzić Paweł. Bez nazwy możesz od razu.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E16" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E16" aria-label="Zatwierdź E16" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie zmieniać teraz rozkładu prób</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie przesuwać godzin prób przed wynikami na świeżych leadach.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -390,7 +390,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Może, ale nie teraz. To była stara baza, na świeżych może być inaczej. Najpierw zobaczmy świeże.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E18" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E18" aria-label="Zatwierdź E18" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie włączać Opla</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie włączać Opla, nawet na polecenie Pawła, bez rozmowy z Kasią.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -401,7 +401,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Ale Paweł nie zatwierdza ani Opla, ani tekstu wstępu. To czeka na mnie.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E20" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E20" aria-label="Zatwierdź E20" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie puszczać drugi raz starej bazy</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie puszczać drugi raz starej bazy leadów.</div>
 <div class="meta"><span>Marek</span></div>
@@ -411,7 +411,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Starej bazy drugi raz nie puszczajcie.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E21" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E21" aria-label="Zatwierdź E21" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie wysyłać wzoru pliku</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie wysyłać Kasi wzoru pliku z leadami.</div>
 <div class="meta"><span>Marek</span></div>
@@ -421,7 +421,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>I nie przysyłaj mi wzoru pliku.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E23" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E23" aria-label="Zatwierdź E23" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie zgadywać sprawy przeglądu</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie ruszać sprawy przeglądu ani nie zgadywać kampanii bez wiadomości od Kasi.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -432,7 +432,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jak nie, to nie zgadujcie, która to kampania.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E25" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E25" aria-label="Zatwierdź E25" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie zmieniać maila do handlowców teraz</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie zmieniać maila do handlowców w tym tygodniu ani przed świeżymi leadami.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -442,7 +442,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Ale nie w tym tygodniu. Zamykają miesiąc i nikt mi nie powie, czy nowy mail jest lepszy. Wrócimy do tego, jak pójdą świeże leady.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E26" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E26" aria-label="Zatwierdź E26" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie pisać bezpośrednio do Oli</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie kontaktować się z Olą, wszystko ustalać z Kasią.</div>
 <div class="meta"><span>Marek</span></div>
@@ -453,7 +453,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>I do Oli nie piszę, ustalam wszystko z tobą.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E30" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E30" aria-label="Zatwierdź E30" onclick="event.stopPropagation()">
 <div><span class="tytul">Bez osobnej pracy pod kolumnę nazwiska</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie robić osobnej pracy pod kolumnę nazwiska, jeśli lista nie jest ruszana.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -463,7 +463,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jak w tym tygodniu listy nie ruszacie, nie róbcie osobnej roboty pod kolumnę.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E33" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E33" aria-label="Zatwierdź E33" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie podpinać agenta po godzinach</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie podpinać agenta po godzinach ani numerów assistance bez decyzji Kasi.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -473,7 +473,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jak wyślę, trzymajcie u siebie, nie podpinajcie. I jak ktoś ode mnie napisze „Kasia mówiła, że po godzinach od wtorku”, nie wierzcie.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E39" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E39" aria-label="Zatwierdź E39" onclick="event.stopPropagation()">
 <div><span class="tytul">Bez szkolenia przed świeżymi leadami</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie robić szkolenia handlowców przed startem świeżych leadów.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -483,7 +483,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Szkolenie dopiero, jak pójdą świeże, nie wcześniej, bo zapomną.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E40" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E40" aria-label="Zatwierdź E40" onclick="event.stopPropagation()">
 <div><span class="tytul">Agent nie sprzedaje</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Agent nie sprzedaje i nie proponuje aut używanych przy odmowie.</div>
 <div class="meta"><span>Marek</span></div>
@@ -494,7 +494,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Ola chciała, żeby przy odmowie proponował auto używane. Nie. Jak zacznie sprzedawać, wyłączę go.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E41" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E41" aria-label="Zatwierdź E41" onclick="event.stopPropagation()">
 <div><span class="tytul">Nic nowego w czasie urlopu Kasi</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie uruchamiać niczego nowego od 19 do 23.10, w pilnych sprawach dzwonić do Pawła.</div>
 <div class="meta"><span>Marek</span><span>termin 19.10–23.10</span><span>warunkowe</span></div>
@@ -504,7 +504,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra. Tydzień od dziewiętnastego nic nowego nie startuje. Jak się pali, dzwonię do Pawła, ale Opel i wstęp czekają na ciebie.</blockquote>
 <blockquote>A, i od dziewiętnastego do dwudziestego trzeciego mam urlop. Cały tydzień. W tym czasie nic nowego nie odpalajcie, nawet jak plik ze świeżymi leadami już będzie i coś się wysypie.</blockquote>
 </div></details></section><section id="czeka"><h2>Czeka na klienta / wstrzymane<span class="ile">10</span></h2><details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E08" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
 <div><span class="tytul">Test dwóch wersji wstępu rozmowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu od Kasi dwóch tekstów wstępu puścić test na dwa dni lub dwa miasta.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -516,7 +516,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Puśćcie to na dwa dni albo na dwa miasta, Toruń i Włocławek, a ja sama wybiorę, którą zostawiamy. Tekst napiszę ja. W tym tygodniu tego nie puszczajcie, bo odsłuchuję starą bazę i wszystko mi się zleje. Jak do czwartku nie wyślę obu wersji, przypomnij mi. Raz.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E10" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
 <div><span class="tytul">Agent drugi raz pytał o model</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Nie szukać przypadku powtórnego pytania o model, dopóki nie będzie numeru.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -527,7 +527,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>W drugiej asystentka w środku rozmowy przestała odpowiadać na to, co klientka mówi, i drugi raz zapytała o model.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E15" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E15" aria-label="Zatwierdź E15" onclick="event.stopPropagation()">
 <div><span class="tytul">Przesunięcie prób na porę obiadową</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Rozważyć przesunięcie pierwszej próby na 12–13 po wynikach świeżych leadów.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -538,7 +538,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jasne, zostawiam.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E17" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E17" aria-label="Zatwierdź E17" onclick="event.stopPropagation()">
 <div><span class="tytul">Podpięcie Opla do walidacji</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Opel czeka na wyniki świeżych leadów i decyzję Kasi.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -548,7 +548,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Opla na to nie puszczamy. Peugeot i Citroën zostają, Opel czeka, aż zobaczymy wyniki na leadach z ostatniego miesiąca.</blockquote>
 </div></details>
 <details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E19" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E19" aria-label="Zatwierdź E19" onclick="event.stopPropagation()">
 <div><span class="tytul">Kampania na świeżych leadach</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po otrzymaniu pliku od Kasi (pn 12.10) puścić świeże leady.</div>
 <div class="meta"><span>Marek</span><span>termin 12.10</span><span>warunkowe</span></div>
@@ -560,7 +560,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Piątku nie obiecuję, bo zamykamy miesiąc. Powiedzmy poniedziałek. Jak nie wyślę, napisz jeden mail, nie trzy.</blockquote>
 </div></details>
 <details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E22" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E22" aria-label="Zatwierdź E22" onclick="event.stopPropagation()">
 <div><span class="tytul">Przegląd zakwalifikowany jako lead sprzedażowy</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Sprawdzić sprawę przeglądu od Oli, gdy Kasia ją prześle.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -571,7 +571,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Powiedziała, że ma to w skrzynce i znajdzie. Jak znajdzie, prześlę. Jak nie, to nie zgadujcie, która to kampania.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E24" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E24" aria-label="Zatwierdź E24" onclick="event.stopPropagation()">
 <div><span class="tytul">Nowy układ maila do handlowców</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Po starcie świeżych leadów dać model i salon na górze maila do handlowców.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -582,7 +582,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>A co do samego maila: model i salon na górze, żeby nie musieli szukać w tej ścianie. To bym chciała. Ale nie w tym tygodniu.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E32" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E32" aria-label="Zatwierdź E32" onclick="event.stopPropagation()">
 <div><span class="tytul">Agent po godzinach</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Agent po godzinach czeka na decyzję Kasi, nie w tym miesiącu.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -594,7 +594,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jak sama nie powiem, że wracamy do tematu, to nie wracamy.</blockquote>
 </div></details>
 <details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E36" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E36" aria-label="Zatwierdź E36" onclick="event.stopPropagation()">
 <div><span class="tytul">Spotkanie z Pawłem</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Po potwierdzeniu Kasi wysłać Pawłowi zaproszenie na czwartek 15.10, 10:00.</div>
 <div class="meta"><span>Marek</span><span>termin 15.10</span><span>warunkowe</span></div>
@@ -605,7 +605,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Zaproponuj przyszły czwartek o dziesiątej, on wtedy jest w Toruniu. Ja mu to przekażę i potwierdzę.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E38" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E38" aria-label="Zatwierdź E38" onclick="event.stopPropagation()">
 <div><span class="tytul">Szkolenie handlowców ze statusów</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Przeprowadzić 15-minutowe szkolenie online, gdy Kasia poda termin po świeżych leadach.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -614,7 +614,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <div class="meta"><span>właściciel: Marek</span><span>zatwierdza: Kasia</span><span>warunek: Start świeżych leadów i termin od Kasi</span></div>
 <blockquote>Szkolenie dopiero, jak pójdą świeże, nie wcześniej, bo zapomną. Termin ustalę ja.</blockquote>
 </div></details></section><section id="backlog"><h2>Backlog produktowy<span class="ile">4</span></h2><details class="karta k-backlog"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E11" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E11" aria-label="Zatwierdź E11" onclick="event.stopPropagation()">
 <div><span class="tytul">Testy A/B wbudowane w panel</span><span class="et et-backlog">backlog</span></div>
 <div class="skrot">Zapisać prośbę o testy A/B w panelu, z miarą: odsetek pełnych rozmów.</div>
 <div class="meta"><span>Marek</span></div>
@@ -625,7 +625,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Takiej funkcji dziś nie ma. Ten jeden test ze wstępem zrobimy ręcznie, tak jak mówiłaś. A to, żebyś mogła sama, zapisuję jako prośbę.</blockquote>
 </div></details>
 <details class="karta k-backlog"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E28" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E28" aria-label="Zatwierdź E28" onclick="event.stopPropagation()">
 <div><span class="tytul">Klikalne kafelki w dashboardzie walidacji</span><span class="et et-backlog">backlog</span></div>
 <div class="skrot">Zapisać prośbę: kliknięcie w kafelek „zainteresowani” pokazuje te osoby.</div>
 <div class="meta"><span>Marek</span></div>
@@ -635,7 +635,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Nie mieszałbym tych dwóch rzeczy: filtr jest zepsuty, a klikania w kafelek nigdy nie zrobiliśmy. Na to klikanie terminu ci nie podam.</blockquote>
 </div></details>
 <details class="karta k-backlog"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E31" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E31" aria-label="Zatwierdź E31" onclick="event.stopPropagation()">
 <div><span class="tytul">Cotygodniowy raport mailowy dla Pawła</span><span class="et et-backlog">backlog</span></div>
 <div class="skrot">Zapisać prośbę o raport w poniedziałek rano: liczba połączeń, odebrane, zainteresowani.</div>
 <div class="meta"><span>Marek</span></div>
@@ -646,7 +646,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Paweł pyta mnie co tydzień o te same liczby: ile zadzwoniliśmy, ile odebrało, ilu zainteresowanych.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E32" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E32" aria-label="Zatwierdź E32" onclick="event.stopPropagation()">
 <div><span class="tytul">Agent po godzinach</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Agent po godzinach czeka na decyzję Kasi, nie w tym miesiącu.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -658,7 +658,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jak sama nie powiem, że wracamy do tematu, to nie wracamy.</blockquote>
 </div></details></section><section id="crm"><h2>Notatka do CRM<span class="ile">7</span></h2><h3>Ryzyka</h3>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E35" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E35" aria-label="Zatwierdź E35" onclick="event.stopPropagation()">
 <div><span class="tytul">Konkurencja VoiceDesk</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: VoiceDesk proponuje Pawłowi ok. 30% taniej i integrację z CRM.</div>
 <div class="meta"><span>Marek</span></div>
@@ -670,7 +670,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Powiedzieli, że są tańsi i że łączą się z systemem, więc leady same wpadają handlowcom. Paweł się tym zainteresował.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E40" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E40" aria-label="Zatwierdź E40" onclick="event.stopPropagation()">
 <div><span class="tytul">Agent nie sprzedaje</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Agent nie sprzedaje i nie proponuje aut używanych przy odmowie.</div>
 <div class="meta"><span>Marek</span></div>
@@ -681,7 +681,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Ola chciała, żeby przy odmowie proponował auto używane. Nie. Jak zacznie sprzedawać, wyłączę go.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E42" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E42" aria-label="Zatwierdź E42" onclick="event.stopPropagation()">
 <div><span class="tytul">Paweł rozważał wyłączenie usługi</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Ryzyko: Paweł chciał wyłączyć agenta po wyniku 9 zainteresowanych na 70.</div>
 <div class="meta"><span>Marek</span></div>
@@ -693,7 +693,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 </div></details>
 <h3>Sukcesy</h3>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E13" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E13" aria-label="Zatwierdź E13" onclick="event.stopPropagation()">
 <div><span class="tytul">Case study: sprzedaż Peugeota 208</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Użyć przykładu sprzedaży 208 (lead z lipca) bez nazwy firmy i pokazać go Pawłowi.</div>
 <div class="meta"><span>Marek</span></div>
@@ -706,7 +706,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 </div></details>
 <h3>Pozostałe informacje handlowe</h3>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E06" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
 <div><span class="tytul">Naliczanie minut i odliczenie podwójnych połączeń</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Sprawdzić naliczanie krótkich połączeń, odjąć podwójne telefony i napisać Kasi, ile ich było.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -718,7 +718,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>To napisz mi, ile tego było, bo Paweł będzie pytał.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E07" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
 <div><span class="tytul">Korekta faktury za wrzesień</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przekazać Michałowi dziś korektę faktury za wrzesień na Auto Tama Toruń sp. z o.o.</div>
 <div class="meta"><span>Michał</span><span>termin 12.10–16.10</span></div>
@@ -729,7 +729,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Faktura za wrzesień przyszła na „Grupa Auto Tama sp. z o.o.”, a umowa jest podpisana z „Auto Tama Toruń sp. z o.o.”.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E34" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E34" aria-label="Zatwierdź E34" onclick="event.stopPropagation()">
 <div><span class="tytul">Cena SMS po nieudanych połączeniach</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Wysłać Kasi cenę SMS-a po dwóch nieudanych próbach do piątku 9.10.</div>
 <div class="meta"><span>Marek</span><span>termin 9.10</span></div>
@@ -788,4 +788,4 @@ Czeka na Twój sygnał:
 Zapisane jako prośby o nowe funkcje (bez terminu): Testy A/B wbudowane w panel; Klikalne kafelki w dashboardzie walidacji; Cotygodniowy raport mailowy dla Pawła.
 
 Daj znać, jeśli coś pominąłem.
-Marek</textarea></section></main></div><script>const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep');function o(){let n=0;b.forEach(c=>{c.closest('.karta').classList.toggle('ok',c.checked);n+=c.checked});p.textContent='Zatwierdzono '+n+' z '+b.length}b.forEach(c=>c.addEventListener('change',o));o()</script></body></html>
+Marek</textarea></section></main></div><script>const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep'),ok=new Set();function o(){b.forEach(c=>{c.checked=ok.has(c.dataset.id);c.closest('.karta').classList.toggle('ok',c.checked)});p.textContent='Zatwierdzono '+ok.size+' z '+new Set(b.map(c=>c.dataset.id)).size}b.forEach(c=>c.addEventListener('change',()=>{c.checked?ok.add(c.dataset.id):ok.delete(c.dataset.id);o()}));o()</script></body></html>

@@ -147,7 +147,7 @@ def _karta(x):
     """Zwinięta karta: tytuł i skrót na wierzchu, szczegóły po rozwinięciu."""
     klasa = {"czeka na klienta": "czeka", "wstrzymane": "wstrzymane"}.get(x.get("status"), x.get("status", ""))
     out = ['<details class="karta k-%s"><summary>' % e(str(klasa))]
-    out.append('<input type="checkbox" class="zatw" aria-label="Zatwierdź %s" onclick="event.stopPropagation()">' % e(x.get("id", "")))
+    out.append('<input type="checkbox" class="zatw" data-id="%s" aria-label="Zatwierdź %s" onclick="event.stopPropagation()">' % (e(x.get("id", "")), e(x.get("id", ""))))
     out.append('<div><span class="tytul">%s</span>%s</div>' % (e(x.get("tytul", "")), _etykieta(x.get("status", ""))))
     out.append('<div class="skrot">%s</div>' % e(_skrot(x)))
     krotko = []
@@ -270,9 +270,10 @@ def generuj_html(wyniki):
         if n:
             pasek.append('<span style="flex:%d;background:var(--%s)" title="%s: %d"></span>' % (n, kl, e(nazwa), n))
             legenda.append('<span><i style="background:var(--%s)"></i>%s %d</span>' % (kl, e(nazwa), n))
-    js = ("const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep');"
-          "function o(){let n=0;b.forEach(c=>{c.closest('.karta').classList.toggle('ok',c.checked);n+=c.checked});"
-          "p.textContent='Zatwierdzono '+n+' z '+b.length}b.forEach(c=>c.addEventListener('change',o));o()")
+    js = ("const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep'),ok=new Set();"
+          "function o(){b.forEach(c=>{c.checked=ok.has(c.dataset.id);c.closest('.karta').classList.toggle('ok',c.checked)});"
+          "p.textContent='Zatwierdzono '+ok.size+' z '+new Set(b.map(c=>c.dataset.id)).size}"
+          "b.forEach(c=>c.addEventListener('change',()=>{c.checked?ok.add(c.dataset.id):ok.delete(c.dataset.id);o()}));o()")
     return (
         '<!doctype html><html lang="pl"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'

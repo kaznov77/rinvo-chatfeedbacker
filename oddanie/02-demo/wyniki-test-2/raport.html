@@ -43,7 +43,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 @media (prefers-reduced-motion:no-preference){.karta{transition:opacity .2s}}
 @media print{nav,.postep,.karta input{display:none}.uklad{display:block}details>.wiecej{display:block}.karta{break-inside:avoid}}
 </style></head><body><div class="uklad"><nav aria-label="Sekcje"><strong>Sekcje</strong><ul><li><a href="#teraz"><span>Do zrobienia teraz</span><span class="ile">5</span></a></li><li><a href="#bledy"><span>Zgłoszenia błędów</span><span class="ile">1</span></a></li><li><a href="#konfiguracja"><span>Zmiany konfiguracji</span><span class="ile">3</span></a></li><li><a href="#przypomnienia"><span>Przypomnienia warunkowe</span><span class="ile">1</span></a></li><li><a href="#zakazy"><span>Zakazy dla konta klienta</span><span class="ile">2</span></a></li><li><a href="#czeka"><span>Czeka na klienta / wstrzymane</span><span class="ile">2</span></a></li><li><a href="#backlog"><span>Backlog produktowy</span><span class="ile">1</span></a></li><li><a href="#crm"><span>Notatka do CRM</span><span class="ile">4</span></a></li><li><a href="#kalendarz"><span>Kalendarz</span><span class="ile">4</span></a></li><li><a href="#mail"><span>Szkic maila do klienta</span><span class="ile">8</span></a></li></ul></nav><main><p class="baner">Szkice do zatwierdzenia. Nic nie zostało wysłane.</p><h1>Ustalenia po spotkaniu 2026-10-13</h1><p class="meta"><span>Źródło: wyniki-test-2/transkrypcja.md</span><span>Elementy: 10</span></p><div class="pasek" role="img" aria-label="Podział elementów według statusu"><span style="flex:5;background:var(--teraz)" title="do zrobienia teraz: 5"></span><span style="flex:1;background:var(--czeka)" title="czeka na klienta: 1"></span><span style="flex:1;background:var(--wstrzymane)" title="wstrzymane: 1"></span><span style="flex:1;background:var(--backlog)" title="backlog: 1"></span><span style="flex:2;background:var(--zakaz)" title="zakazy: 2"></span></div><p class="legenda"><span><i style="background:var(--teraz)"></i>do zrobienia teraz 5</span><span><i style="background:var(--czeka)"></i>czeka na klienta 1</span><span><i style="background:var(--wstrzymane)"></i>wstrzymane 1</span><span><i style="background:var(--backlog)"></i>backlog 1</span><span><i style="background:var(--zakaz)"></i>zakazy 2</span></p><p class="postep" id="postep" aria-live="polite"></p><section id="teraz"><h2>Do zrobienia teraz<span class="ile">5</span></h2><details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E01" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
 <div><span class="tytul">Rozmowy niesprzedażowe oceniane jak sprzedażowe</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Dziś sprawdzić błąd: rozmowy niesprzedażowe mają być oznaczane i nieliczone do średniej.</div>
 <div class="meta"><span>Marek</span><span>termin 13.10</span></div>
@@ -54,7 +54,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Czyli system ocenia rozmowy, które nie są sprzedażowe, tak jakby były sprzedażowe. To jest nasz błąd. Masz datę tej rozmowy?</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E02" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
 <div><span class="tytul">Usunąć dwójkę Agnieszki ze średniej</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Do piątku 2026-10-16 usunąć ze średniej Agnieszki ocenę 2 za rozmowę z 8 października.</div>
 <div class="meta"><span>Marek</span><span>termin 16.10</span></div>
@@ -66,7 +66,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Czwartek, ósmy, jakoś po dziesiątej. Agnieszka pamięta, bo się zdenerwowała.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E03" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
 <div><span class="tytul">Zmiana godziny wysyłki raportu tygodniowego</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przestawić wysyłkę raportu z poniedziałku 7:00 na niedzielę 20:00.</div>
 <div class="meta"><span>Marek</span></div>
@@ -77,7 +77,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Czyli niedziela, dwudziesta.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E05" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E05" aria-label="Zatwierdź E05" onclick="event.stopPropagation()">
 <div><span class="tytul">Wyłączenie działu flotowego z ocen</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Wyłączyć rozmowy działu flotowego z oceniania.</div>
 <div class="meta"><span>Marek</span></div>
@@ -87,7 +87,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jasne, flotę wyłączam z ocen.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E08" aria-label="Zatwierdź E08" onclick="event.stopPropagation()">
 <div><span class="tytul">Korekta faktury: zły adres</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Dziś przekazać Michałowi prośbę o korektę faktury na adres ul. Grunwaldzka 410.</div>
 <div class="meta"><span>Marek</span><span>termin 13.10</span></div>
@@ -97,7 +97,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Faktury wystawia Michał, przekażę mu dziś.</blockquote>
 <blockquote>I faktura. Przyszła na stary adres, na Kartuską, a my od lipca jesteśmy na Grunwaldzkiej. Księgowość chce korektę.</blockquote>
 </div></details></section><section id="bledy"><h2>Zgłoszenia błędów<span class="ile">1</span></h2><details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E01" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
 <div><span class="tytul">Rozmowy niesprzedażowe oceniane jak sprzedażowe</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Dziś sprawdzić błąd: rozmowy niesprzedażowe mają być oznaczane i nieliczone do średniej.</div>
 <div class="meta"><span>Marek</span><span>termin 13.10</span></div>
@@ -107,7 +107,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra, sprawdzę dziś. I takie rozmowy powinny być oznaczane jako „niesprzedażowe” i nieliczone do średniej.</blockquote>
 <blockquote>Czyli system ocenia rozmowy, które nie są sprzedażowe, tak jakby były sprzedażowe. To jest nasz błąd. Masz datę tej rozmowy?</blockquote>
 </div></details></section><section id="konfiguracja"><h2>Zmiany konfiguracji<span class="ile">3</span></h2><details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E03" aria-label="Zatwierdź E03" onclick="event.stopPropagation()">
 <div><span class="tytul">Zmiana godziny wysyłki raportu tygodniowego</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Przestawić wysyłkę raportu z poniedziałku 7:00 na niedzielę 20:00.</div>
 <div class="meta"><span>Marek</span></div>
@@ -118,7 +118,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Czyli niedziela, dwudziesta.</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E05" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E05" aria-label="Zatwierdź E05" onclick="event.stopPropagation()">
 <div><span class="tytul">Wyłączenie działu flotowego z ocen</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Wyłączyć rozmowy działu flotowego z oceniania.</div>
 <div class="meta"><span>Marek</span></div>
@@ -128,7 +128,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Jasne, flotę wyłączam z ocen.</blockquote>
 </div></details>
 <details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E07" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
 <div><span class="tytul">Nowa kategoria oceny: propozycja finansowania</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Dodać kategorię „zaproponował finansowanie” po otrzymaniu opisu od Tomasza; przypomnieć raz 2026-10-16.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -139,7 +139,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra. Bez twojego opisu nic nie dodaję. Jak do piątku nie będzie, przypomnę raz.</blockquote>
 <blockquote>I chciałbym dodać do oceny nową kategorię: czy handlowiec zaproponował finansowanie. Tylko jeszcze nie wiem, jak to sformułować. Wyślę wam opis kryterium. Jak do piątku nie wyślę, przypomnij mi raz.</blockquote>
 </div></details></section><section id="przypomnienia"><h2>Przypomnienia warunkowe<span class="ile">1</span></h2><details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E07" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
 <div><span class="tytul">Nowa kategoria oceny: propozycja finansowania</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Dodać kategorię „zaproponował finansowanie” po otrzymaniu opisu od Tomasza; przypomnieć raz 2026-10-16.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -150,7 +150,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Dobra. Bez twojego opisu nic nie dodaję. Jak do piątku nie będzie, przypomnę raz.</blockquote>
 <blockquote>I chciałbym dodać do oceny nową kategorię: czy handlowiec zaproponował finansowanie. Tylko jeszcze nie wiem, jak to sformułować. Wyślę wam opis kryterium. Jak do piątku nie wyślę, przypomnij mi raz.</blockquote>
 </div></details></section><section id="zakazy"><h2>Zakazy dla konta klienta<span class="ile">2</span></h2><details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E06" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie oceniać rozmów działu flotowego</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie oceniać rozmów działu flotowego Motorpolu.</div>
 </summary><div class="wiecej"><p class="meta">E06</p>
@@ -158,7 +158,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Spoko. Jeszcze jedno. Nie oceniajcie rozmów działu flotowego. Flota ma osobne zasady i osobnego kierownika, to nie moja działka. Jak zaczniecie im wystawiać oceny, będzie awantura.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E10" aria-label="Zatwierdź E10" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie wysyłać ofert na agenta głosowego</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie wysyłać panu Robertowi ofert ani nie podejmować działań ws. agenta głosowego.</div>
 <div class="meta"><span>warunkowe</span></div>
@@ -169,7 +169,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Rozumiem, nic nie wysyłam.</blockquote>
 <blockquote>Dzięki. Aha, pan Robert myśli o tym, żeby dołożyć agenta głosowego do odbierania telefonów po godzinach. Ale to na razie tylko myśli, nic nie róbcie, nie wysyłajcie ofert. Jak będzie chciał, sam się odezwie.</blockquote>
 </div></details></section><section id="czeka"><h2>Czeka na klienta / wstrzymane<span class="ile">2</span></h2><details class="karta k-czeka"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E07" aria-label="Zatwierdź E07" onclick="event.stopPropagation()">
 <div><span class="tytul">Nowa kategoria oceny: propozycja finansowania</span><span class="et et-czeka">czeka na klienta</span></div>
 <div class="skrot">Dodać kategorię „zaproponował finansowanie” po otrzymaniu opisu od Tomasza; przypomnieć raz 2026-10-16.</div>
 <div class="meta"><span>Marek</span><span>warunkowe</span></div>
@@ -181,7 +181,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>I chciałbym dodać do oceny nową kategorię: czy handlowiec zaproponował finansowanie. Tylko jeszcze nie wiem, jak to sformułować. Wyślę wam opis kryterium. Jak do piątku nie wyślę, przypomnij mi raz.</blockquote>
 </div></details>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E09" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E09" aria-label="Zatwierdź E09" onclick="event.stopPropagation()">
 <div><span class="tytul">Pan Robert rozważa agenta głosowego po godzinach</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Czekać, aż pan Robert sam się odezwie w sprawie agenta głosowego po godzinach.</div>
 <div class="meta"><span>warunkowe</span></div>
@@ -191,7 +191,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <div class="meta">wewnętrzne, nie trafia do maila</div>
 <blockquote>Dzięki. Aha, pan Robert myśli o tym, żeby dołożyć agenta głosowego do odbierania telefonów po godzinach. Ale to na razie tylko myśli, nic nie róbcie, nie wysyłajcie ofert. Jak będzie chciał, sam się odezwie.</blockquote>
 </div></details></section><section id="backlog"><h2>Backlog produktowy<span class="ile">1</span></h2><details class="karta k-backlog"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E04" aria-label="Zatwierdź E04" onclick="event.stopPropagation()">
 <div><span class="tytul">Eksport wyników do Excela</span><span class="et et-backlog">backlog</span></div>
 <div class="skrot">Zapisać prośbę pana Roberta o eksport wyników do Excela, bez terminu.</div>
 <div class="meta"><span>Marek</span></div>
@@ -202,7 +202,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>I pan Robert pytał, czy da się te wyniki ściągnąć do Excela. On lubi mieć wszystko w tabelce.</blockquote>
 </div></details></section><section id="crm"><h2>Notatka do CRM<span class="ile">4</span></h2><h3>Ryzyka</h3>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E01" aria-label="Zatwierdź E01" onclick="event.stopPropagation()">
 <div><span class="tytul">Rozmowy niesprzedażowe oceniane jak sprzedażowe</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Dziś sprawdzić błąd: rozmowy niesprzedażowe mają być oznaczane i nieliczone do średniej.</div>
 <div class="meta"><span>Marek</span><span>termin 13.10</span></div>
@@ -213,7 +213,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Czyli system ocenia rozmowy, które nie są sprzedażowe, tak jakby były sprzedażowe. To jest nasz błąd. Masz datę tej rozmowy?</blockquote>
 </div></details>
 <details class="karta k-teraz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E02" aria-label="Zatwierdź E02" onclick="event.stopPropagation()">
 <div><span class="tytul">Usunąć dwójkę Agnieszki ze średniej</span><span class="et et-teraz">teraz</span></div>
 <div class="skrot">Do piątku 2026-10-16 usunąć ze średniej Agnieszki ocenę 2 za rozmowę z 8 października.</div>
 <div class="meta"><span>Marek</span><span>termin 16.10</span></div>
@@ -225,7 +225,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 <blockquote>Czwartek, ósmy, jakoś po dziesiątej. Agnieszka pamięta, bo się zdenerwowała.</blockquote>
 </div></details>
 <details class="karta k-zakaz"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E06" aria-label="Zatwierdź E06" onclick="event.stopPropagation()">
 <div><span class="tytul">Nie oceniać rozmów działu flotowego</span><span class="et et-zakaz">zakaz</span></div>
 <div class="skrot">Nie oceniać rozmów działu flotowego Motorpolu.</div>
 </summary><div class="wiecej"><p class="meta">E06</p>
@@ -234,7 +234,7 @@ textarea{width:100%;min-height:360px;padding:16px;border:1px solid var(--linia);
 </div></details>
 <h3>Sukcesy</h3>
 <details class="karta k-wstrzymane"><summary>
-<input type="checkbox" class="zatw" aria-label="Zatwierdź E09" onclick="event.stopPropagation()">
+<input type="checkbox" class="zatw" data-id="E09" aria-label="Zatwierdź E09" onclick="event.stopPropagation()">
 <div><span class="tytul">Pan Robert rozważa agenta głosowego po godzinach</span><span class="et et-wstrzymane">wstrzymane</span></div>
 <div class="skrot">Czekać, aż pan Robert sam się odezwie w sprawie agenta głosowego po godzinach.</div>
 <div class="meta"><span>warunkowe</span></div>
@@ -267,4 +267,4 @@ Potrzebujemy od Ciebie:
 Zapisane jako prośby o nowe funkcje (bez terminu): Eksport wyników do Excela.
 
 Daj znać, jeśli coś pominąłem.
-Marek</textarea></section></main></div><script>const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep');function o(){let n=0;b.forEach(c=>{c.closest('.karta').classList.toggle('ok',c.checked);n+=c.checked});p.textContent='Zatwierdzono '+n+' z '+b.length}b.forEach(c=>c.addEventListener('change',o));o()</script></body></html>
+Marek</textarea></section></main></div><script>const b=[...document.querySelectorAll('.zatw')],p=document.getElementById('postep'),ok=new Set();function o(){b.forEach(c=>{c.checked=ok.has(c.dataset.id);c.closest('.karta').classList.toggle('ok',c.checked)});p.textContent='Zatwierdzono '+ok.size+' z '+new Set(b.map(c=>c.dataset.id)).size}b.forEach(c=>c.addEventListener('change',()=>{c.checked?ok.add(c.dataset.id):ok.delete(c.dataset.id);o()}));o()</script></body></html>
