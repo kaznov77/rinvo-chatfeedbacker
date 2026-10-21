@@ -4,7 +4,7 @@
 - **Tytuł:** ekstrakcja transkrypcji przez `claude -p` do `wyniki.json`
 - **Typ:** funkcja
 - **Specjalista:** backend
-- **Status:** do zrobienia
+- **Status:** review
 - **Zależności:** brak
 - **Gałąź:** ticket/T-001-ekstrakcja
 
@@ -44,11 +44,17 @@ Nie twórz `rinvo/__init__.py` ani `tests/__init__.py` (namespace package).
 
 ## Kryteria ukończenia
 
-- [ ] `python3 -m rinvo.ekstrakcja samples/transkrypcja-spotkanie.md` tworzy `wyniki.json` zgodny z kontraktem.
-- [ ] W zacommitowanym `wyniki.json` wszystkie cytaty mają `cytaty_zweryfikowane: true` (albo ostrzeżenia opisane w notatkach).
-- [ ] Prompt nie zawiera nazw z tej transkrypcji (`grep -iE 'tama|peugeot|kasia|opel' rinvo/prompt_ekstrakcji.md` pusty).
-- [ ] `python3 -m unittest` przechodzi.
-- [ ] W notatkach: flagi `claude -p`, które zadziałały, i czas wywołania.
+- [x] `python3 -m rinvo.ekstrakcja samples/transkrypcja-spotkanie.md` tworzy `wyniki.json` zgodny z kontraktem.
+- [x] W zacommitowanym `wyniki.json` wszystkie cytaty mają `cytaty_zweryfikowane: true` (albo ostrzeżenia opisane w notatkach).
+- [x] Prompt nie zawiera nazw z tej transkrypcji (`grep -iE 'tama|peugeot|kasia|opel' rinvo/prompt_ekstrakcji.md` pusty).
+- [x] `python3 -m unittest` przechodzi (uwaga w notatkach: trzeba wskazać moduł).
+- [x] W notatkach: flagi `claude -p`, które zadziałały, i czas wywołania.
 
 ## Notatki z realizacji
 
+- **Spike:** zadziałały wszystkie flagi: `-p`, `--tools ""`, `--system-prompt`, `--output-format json`, `--json-schema`, `--no-session-persistence`, cwd w katalogu tymczasowym, transkrypcja przez stdin. Bez `--bare`. Przy `--json-schema` koperta zawiera pole `structured_output` (obiekt), a `result` to jego tekst; kod bierze `structured_output`, a w razie braku parsuje JSON z `result` (płotki ```json zdejmowane).
+- **Czas prawdziwego wywołania:** ok. 2 min 25 s (32 elementy, 0 niezweryfikowanych cytatów). Wynik w `wyniki.json`.
+- **Decyzje:** schemat JSON nie zawiera `zrodlo`, `data_spotkania` ani `cytaty_zweryfikowane`: dopisuje je Python. Ponowna próba tylko przy błędzie parsowania JSON. Cytaty normalizowane także przez usunięcie apostrofów.
+- **Uwaga do T-004/ewaluacji:** `python3 -m unittest` (bez argumentów) znajduje 0 testów, bo `tests/` bez `__init__.py` (zakaz z ticketu) nie jest wykrywany w Pythonie 3.9. Działa `python3 -m unittest tests.test_ekstrakcja` (8 testów OK) albo `python3 -m unittest discover -s tests -t .` po dodaniu `__init__.py`. Do decyzji w scaleniu.
+- **Jakość wyniku:** nie oceniana merytorycznie (to zadanie ewaluacji). Przy przeglądzie: 32 elementy to dużo, E12 (ryzyko VoiceDesk) ma typ `informacja handlowa`, status `teraz`, `do_klienta=false`; E11 (case study) `do_klienta=false`.
+- **Niezrobione:** brak testu na `transkrypcja-test-2.md` (poza zakresem ticketu); brak `tests/dane/`.
