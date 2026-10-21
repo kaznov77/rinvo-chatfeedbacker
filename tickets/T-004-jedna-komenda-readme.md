@@ -4,7 +4,7 @@
 - **Tytuł:** `uruchom.sh`, prawdziwy przebieg na transkrypcji, wynik ewaluacji i README
 - **Typ:** funkcja
 - **Specjalista:** backend
-- **Status:** review
+- **Status:** gotowe
 - **Zależności:** T-001, T-002, T-003
 - **Gałąź:** ticket/T-004-jedna-komenda-readme
 
