@@ -4,7 +4,7 @@
 - **Tytuł:** generowanie `raport.html` (wszystkie szkice) z `wyniki.json`
 - **Typ:** funkcja
 - **Specjalista:** frontend
-- **Status:** do zrobienia
+- **Status:** review
 - **Zależności:** brak (pracuje na kontrakcie z `docs/plan.md`)
 - **Gałąź:** ticket/T-002-raport
 
@@ -50,10 +50,13 @@ Nie twórz `rinvo/__init__.py`. Nie commituj `raport.html` (zrobi to T-004).
 
 ## Kryteria ukończenia
 
-- [ ] `python3 -m rinvo.raport tests/dane/raport-przyklad.json --wyjscie /tmp/raport.html` tworzy plik, który otwiera się z dysku.
-- [ ] Wszystkie 10 sekcji są obecne; puste sekcje pokazują „brak”.
-- [ ] Mail nie zawiera elementów `do_klienta: false` (test).
-- [ ] `python3 -m unittest` przechodzi.
+- [x] `python3 -m rinvo.raport tests/dane/raport-przyklad.json --wyjscie /tmp/raport.html` tworzy plik, który otwiera się z dysku.
+- [x] Wszystkie 10 sekcji są obecne; puste sekcje pokazują „brak”.
+- [x] Mail nie zawiera elementów `do_klienta: false` (test).
+- [x] `python3 -m unittest` przechodzi.
 
 ## Notatki z realizacji
-
+- Zrobiono: `rinvo/raport.py` (CLI + `generuj_html`, `szkic_maila`), 2 testy, ręczny przykład `tests/dane/raport-przyklad.json` (18 elementów, wszystkie typy i statusy).
+- Decyzje: dodano pusty `tests/__init__.py` (bez niego `python3 -m unittest` nie znajduje testów, 0 testów); to drobne wyjście poza listę plików, ale w `tests/`. `rinvo/__init__.py` nie istnieje. Checkbox „zatwierdzam” jest per sekcja (szkic). Sekcje „teraz”, błędy itd. mogą dublować element (filtry po statusie/typie). Mail grupuje: teraz = co robimy, czeka na klienta = czego potrzebujemy, reszta = co czeka. Ostrzeżenie o cytatach pokazywane przy `cytaty_zweryfikowane: false`.
+- Sprawdzono: `python3 -m unittest` (2 testy OK), generacja do `/tmp/raport.html` (10 sekcji). Wyglądu w przeglądarce NIE oglądano; HTML tylko sprawdzony strukturalnie.
+- Nie zrobiono: ręczne obejrzenie w przeglądarce i wydruku.
