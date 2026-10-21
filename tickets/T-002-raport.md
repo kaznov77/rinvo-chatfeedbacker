@@ -4,7 +4,7 @@
 - **Tytuł:** generowanie `raport.html` (wszystkie szkice) z `wyniki.json`
 - **Typ:** funkcja
 - **Specjalista:** frontend
-- **Status:** review
+- **Status:** gotowe
 - **Zależności:** brak (pracuje na kontrakcie z `docs/plan.md`)
 - **Gałąź:** ticket/T-002-raport
 
