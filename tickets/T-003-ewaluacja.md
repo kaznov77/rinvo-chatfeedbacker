@@ -73,3 +73,10 @@ Nie twórz `rinvo/__init__.py`.
   - Nie testowane w osobnych testach: zepsucia „filtr+kafelek” i „VoiceDesk bez ryzyka” (ticket mówi: testy minimalne). Logika jest ta sama (`brak`/`kategoria_crm`).
 - Nie przeczytałem skilli TDD z `~/.agents/skills/` (limit czasu).
 - Znalezione błędy kodu produkcyjnego: brak (kod produkcyjny nie istnieje w tym worktree).
+
+### Poprawki po review (rundy 1-2)
+
+- Runda 1: zawężone i doprecyzowane regexy w `oczekiwane.json` po uwagach reviewera (szczegóły w historii gita).
+- Runda 2: fakt 9 (atomy „bez wzoru” i „bez starej bazy”) używa negacji z granicą słowa `\b(?:nie|bez)\b`, więc „ponownie” nie spełnia negacji. Fakt 2: czasownik pisania `\b(?:na|od)?pis(?:z|a|ac|ze|zemy|ania)\w*` (nie łapie „opis/wpis/zapis”), adresat tylko `kasi\w*`. Fakt 15: przywrócony wymóg zaprzeczenia `\b(?:nie|a nie)\b\W+(?:\w+\W+){0,3}?(?:odmow|niezainteres)`.
+- Sondy: „Zapytać ponownie o starą bazę” (fakt 9, atom starej bazy) -> ❌; „Agent podaje klientom stary adres; wpisać nowy do bazy wiedzy” (fakt 2, atom Kasi) -> ❌; „Klientka na urlopie odmówiła – lead zamknięty, nie dzwonić” (fakt 15) -> ❌.
+- Wyniki: `python3 -m unittest` 3/3 OK; dobry plik testowy 15/15; prawdziwe `wyniki.json` 14/15 (nie przechodzi tylko fakt 11, atom „zakaz: nowy mail dla handlowców”; fakt 2 przechodzi). Fakt 11 do poprawy w prompcie ekstrakcji lub regexie.

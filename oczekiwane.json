@@ -70,8 +70,8 @@
     "gdzie": {
      "tekst": [
       "adres|kapitulnej|torunsk|baza wiedzy",
-      "(?:napis|pis|poinform|powiadom|da[cć] zna|odpis|wiadomo|informac|zawiadom)\\w*",
-      "kasi\\w*|klient\\w*"
+      "\\b(?:na|od)?pis(?:z|a|ac|ze|zemy|ania)\\w*|\\b(?:poinform|powiadom|da[cć] zna|odpis|wiadomo|informac|zawiadom)\\w*",
+      "kasi\\w*"
      ]
     }
    }
@@ -336,7 +336,7 @@
     "rodzaj": "istnieje",
     "gdzie": {
      "tekst": [
-      "(?:nie|bez)\\W+(?:\\w+\\W+){0,4}?wzor\\w*|wzor\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,30}(?:nie|zbedn)"
+      "\\b(?:nie|bez)\\b\\W+(?:\\w+\\W+){0,4}?wzor\\w*|wzor\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,30}\\b(?:nie|zbedn)"
      ]
     }
    },
@@ -345,7 +345,7 @@
     "rodzaj": "istnieje",
     "gdzie": {
      "tekst": [
-      "(?:nie|bez)\\W+(?:\\w+\\W+){0,4}?star\\w*\\s+baz\\w*|star\\w*\\s+baz\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,40}(?:nie|bez|zbedn)",
+      "\\b(?:nie|bez)\\b\\W+(?:\\w+\\W+){0,4}?star\\w*\\s+baz\\w*|star\\w*\\s+baz\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,40}\\b(?:nie|bez|zbedn)",
       "drugi\\w*\\s+raz|ponown\\w*|powtorn\\w*|ponowi\\w*"
      ]
     }
@@ -571,7 +571,7 @@
       "klient\\w*",
       "oddzwo\\w*|zadzwoni\\w*|zadzwon\\w*|dzwoni\\w*|kontakt\\w*",
       "lead\\w*",
-      "odmow|niezainteres"
+      "\\b(?:nie|a nie)\\b\\W+(?:\\w+\\W+){0,3}?(?:odmow|niezainteres)"
      ]
     }
    }
