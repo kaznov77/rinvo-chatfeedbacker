@@ -22,16 +22,16 @@ flowchart LR
     E -.-> O[Wynik X/15]
 ```
 
-Każdy element ma typ, status, właściciela, termin, warunek, przypomnienie i co najmniej jeden cytat. Cytaty są sprawdzane jako dosłowne fragmenty transkrypcji, więc wynik da się zweryfikować.
+Każdy element ma krótki `skrot` (jedno konkretne zdanie: co zrobić, z liczbą, datą lub osobą), pełny `opis`, typ, status, właściciela, termin, warunek, przypomnienie i co najmniej jeden cytat. Cytaty są sprawdzane jako dosłowne fragmenty transkrypcji, więc wynik da się zweryfikować.
 
 ## Demo krok po kroku
 
 1. `./uruchom.sh --bez-modelu` buduje `raport.html` i liczy ewaluację z zacommitowanego `wyniki.json` (bez `claude`).
 2. Otwórz `raport.html` w przeglądarce.
-3. Przejrzyj listę elementów: typy, statusy i terminy; sprawdź, że przy każdym jest cytat z rozmowy.
+3. Przejrzyj listę elementów. Na wierzchu każdej karty jest tylko status, tytuł, jednozdaniowy skrót, właściciel i termin. Kliknięcie rozwija pełny opis, warunek, przypomnienie i cytaty z rozmowy (dowód).
 4. Zobacz zakazy (czego nie robić na koncie) i elementy wstrzymane z warunkiem odblokowania.
 5. Zobacz przypomnienia (data, treść, maks. liczba razy) oraz ryzyka/sukcesy dla CRM.
-6. Zobacz szkic maila do klienta: trafiają do niego tylko elementy z `do_klienta: true`, treści wewnętrzne zostają w Rinvo.
+6. Zobacz szkic maila do klienta. Jest krótki: same punkty z terminami w czterech grupach (po naszej stronie, potrzebujemy od Ciebie, czeka na Twój sygnał, prośby o funkcje), bez opisów. Trafiają do niego tylko elementy z `do_klienta: true`, treści wewnętrzne zostają w Rinvo.
 
 ## Uruchomienie na innej transkrypcji
 
@@ -62,11 +62,12 @@ Data spotkania jest brana z nagłówka transkrypcji, a `--data` ją zastępuje. 
 |---|---|---|---|
 | wcześniejszy `wyniki.json` | bazowy | 14/15 | 11 (zakaz: nowy mail dla handlowców; model zapisał jako prośbę o funkcję) |
 | 1 | + reguła o zakazach i imieniu adresata | 14/15 | 15 (lead na urlopie do oddzwonienia) |
-| 2 (zacommitowany) | jw. | 14/15 | 15 |
+| 2 | jw. | 14/15 | 15 |
+| 3 (zacommitowany) | + pole `skrot` | 14/15 | 15 |
 
-Poprawka promptu naprawiła fakt 11, ale w obu przebiegach nie przeszedł fakt 15, który wcześniej przechodził. Nie wiadomo, czy to skutek zmiany promptu, czy niedeterminizmu; limit dwóch poprawek wyczerpany, więc zostawiono tę wersję. Zacommitowany `wyniki.json` pochodzi z przebiegu 2.
+Poprawka promptu naprawiła fakt 11, ale w obu przebiegach nie przeszedł fakt 15, który wcześniej przechodził. Nie wiadomo, czy to skutek zmiany promptu, czy niedeterminizmu; limit dwóch poprawek wyczerpany, więc zostawiono tę wersję. Przebieg 3 (po dodaniu pola `skrot`) znów nie zaliczył faktu 15. Trzy przebiegi z rzędu sugerują, że to raczej skutek reguły o osobnych zakazach niż przypadek. Zacommitowany `wyniki.json` pochodzi z przebiegu 3.
 
-**`transkrypcja-test-2.md` (Motorpol Gdańsk, Analiza Rozmów, inny produkt i klient): 8/8 według ręcznego porównania.** Ekstrakcja dostała transkrypcję bez listy faktów (`wyniki-test-2/transkrypcja.md`), 10 elementów, 0 niezweryfikowanych cytatów, ok. 40 s. Porównanie z listą faktów:
+**`transkrypcja-test-2.md` (Motorpol Gdańsk, Analiza Rozmów, inny produkt i klient): 8/8 według ręcznego porównania** (powtórzone po dodaniu pola `skrot`, nadal 8/8). Ekstrakcja dostała transkrypcję bez listy faktów (`wyniki-test-2/transkrypcja.md`), 10 elementów, 0 niezweryfikowanych cytatów, ok. 40 s. Porównanie z listą faktów:
 
 1. Błąd rozmów niesprzedażowych (rozmowa Agnieszki, 8.10, sprawdzić dziś): jest (E01).
 2. Usunięcie oceny 2 Agnieszki do 16.10: jest (E02).

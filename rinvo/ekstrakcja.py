@@ -20,7 +20,7 @@ SCHEMAT = {
     "required": ["elementy"],
     "properties": {"elementy": {"type": "array", "items": {
         "type": "object",
-        "required": ["id", "typ", "status", "tytul", "opis", "wlasciciel", "zatwierdza", "termin",
+        "required": ["id", "typ", "status", "tytul", "skrot", "opis", "wlasciciel", "zatwierdza", "termin",
                      "termin_do", "termin_opis", "warunek", "przypomnienie", "kategoria_crm",
                      "do_klienta", "cytaty"],
         "properties": {
@@ -28,6 +28,7 @@ SCHEMAT = {
             "typ": {"type": "string", "enum": TYPY},
             "status": {"type": "string", "enum": STATUSY},
             "tytul": {"type": "string"},
+            "skrot": {"type": "string"},
             "opis": {"type": "string"},
             "wlasciciel": _NULL_STR, "zatwierdza": _NULL_STR, "termin": _NULL_STR,
             "termin_do": _NULL_STR, "termin_opis": _NULL_STR, "warunek": _NULL_STR,

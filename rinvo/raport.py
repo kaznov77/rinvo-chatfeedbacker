@@ -35,7 +35,9 @@ h2{border-bottom:1px solid #d8d2c4;padding-bottom:4px;margin-top:32px}
 .baner{background:#d9480f;color:#fff;padding:10px 16px;font-weight:600}
 nav ul{columns:2;padding-left:18px}
 .karta{background:#fff;border:1px solid #e3ddd0;padding:10px 14px;margin:10px 0}
-.karta h3{margin:0 0 4px;font-size:1.05em}
+.karta summary{cursor:pointer;list-style:none}.karta summary::-webkit-details-marker{display:none}
+.karta summary b:after{content:' ▸';color:#8a8f94}.karta[open] summary b:after{content:' ▾'}
+.skrot{margin:2px 0}.wiecej{border-top:1px dashed #e3ddd0;margin-top:8px;padding-top:6px}
 .meta{color:#5c636a;font-size:.88em}
 .et{display:inline-block;font:600 .75em system-ui;padding:1px 7px;border-radius:3px;color:#fff;background:#777;margin-right:6px;text-transform:uppercase}
 .et-teraz{background:#d9480f}.et-czeka{background:#1c6ea4}.et-wstrzymane{background:#777}
@@ -43,9 +45,9 @@ nav ul{columns:2;padding-left:18px}
 blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid #d9480f;background:#f3efe6;font:.85em ui-monospace,monospace}
 .ostrz{color:#c92a2a;font-weight:600;font-size:.88em}
 .brak{color:#8a8f94;font-style:italic}
-textarea{width:100%;min-height:320px;font:13px ui-monospace,monospace;box-sizing:border-box}
+textarea{width:100%;min-height:220px;font:13px ui-monospace,monospace;box-sizing:border-box}
 table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #e3ddd0;padding:4px 8px;text-align:left}
-@media print{.baner{color:#000;background:none;border:2px solid #000}nav{display:none}.karta{break-inside:avoid}}
+@media print{details>.wiecej{display:block}.baner{color:#000;background:none;border:2px solid #000}nav{display:none}.karta{break-inside:avoid}}
 """
 
 
@@ -101,11 +103,42 @@ def _meta(x):
     return " · ".join(czesci)
 
 
-def _karta(x, rozszerzona=False):
-    out = ['<div class="karta">']
-    out.append("<h3>%s%s <small>(%s)</small></h3>" % (_etykieta(x.get("status", "")), e(x.get("tytul", "")), e(x.get("id", ""))))
+def _skrot(x):
+    """Krótki opis: pole skrot, a gdy go brak, pierwsze zdanie opisu."""
+    if x.get("skrot"):
+        return x["skrot"]
+    opis = x.get("opis", "")
+    return opis.split(". ")[0].rstrip(".") + "." if opis else ""
+
+
+def _dm(data):
+    """2026-10-08 -> 8.10"""
+    try:
+        r, m, d = data.split("-")
+        return "%d.%d" % (int(d), int(m))
+    except (ValueError, AttributeError):
+        return data or ""
+
+
+def _karta(x):
+    """Zwinięta karta: tytuł i skrót na wierzchu, szczegóły po rozwinięciu."""
+    out = ['<details class="karta"><summary>']
+    out.append("%s<b>%s</b> <small>(%s)</small>" % (_etykieta(x.get("status", "")), e(x.get("tytul", "")), e(x.get("id", ""))))
+    out.append('<div class="skrot">%s</div>' % e(_skrot(x)))
+    krotko = []
+    if x.get("wlasciciel"):
+        krotko.append(e(x["wlasciciel"]))
+    if x.get("termin"):
+        krotko.append("termin " + e(_dm(x["termin"])) + ("–" + e(_dm(x["termin_do"])) if x.get("termin_do") else ""))
+    if x.get("warunek"):
+        krotko.append("warunkowe")
+    if krotko:
+        out.append('<div class="meta">%s</div>' % " · ".join(krotko))
+    if not x.get("cytaty_zweryfikowane", False):
+        out.append('<div class="ostrz">Uwaga: cytaty niezweryfikowane względem transkrypcji.</div>')
+    out.append('</summary><div class="wiecej">')
     if x.get("opis"):
-        out.append("<div>%s</div>" % e(x["opis"]))
+        out.append("<p>%s</p>" % e(x["opis"]))
     m = _meta(x)
     if m:
         out.append('<div class="meta">%s</div>' % m)
@@ -115,11 +148,9 @@ def _karta(x, rozszerzona=False):
             e(str(p.get("data", ""))), e(str(p.get("tresc", ""))), e(str(p.get("maks_razy", "?")))))
     if x.get("do_klienta") is False:
         out.append('<div class="meta">wewnętrzne, nie trafia do maila</div>')
-    if not x.get("cytaty_zweryfikowane", False):
-        out.append('<div class="ostrz">Uwaga: cytaty niezweryfikowane względem transkrypcji.</div>')
     for c in x.get("cytaty", []):
         out.append("<blockquote>%s</blockquote>" % e(c))
-    out.append("</div>")
+    out.append("</div></details>")
     return "\n".join(out)
 
 
@@ -160,27 +191,30 @@ def _sekcja_kalendarz(wyniki):
 
 
 def szkic_maila(wyniki):
-    """Tekst maila do klienta. Tylko elementy z do_klienta == True."""
+    """Krótki mail do klienta: same punkty z terminami. Tylko elementy z do_klienta == True."""
     el = [x for x in wyniki.get("elementy", []) if x.get("do_klienta") is True]
-    robimy = [x for x in el if x.get("status") == "teraz"]
+    robimy = [x for x in el if x.get("status") == "teraz" and x.get("typ") != "zakaz"]
     potrzebujemy = [x for x in el if x.get("status") == "czeka na klienta"]
-    czeka = [x for x in el if x.get("status") not in ("teraz", "czeka na klienta")]
+    odkladamy = [x for x in el if x.get("status") == "wstrzymane" and x.get("typ") != "zakaz"]
+    backlog = [x for x in el if x.get("status") == "backlog"]
+    dzis = wyniki.get("data_spotkania")
 
-    def wiersz(x):
-        s = "- %s" % x.get("tytul", "")
-        if x.get("opis"):
-            s += ": " + x["opis"]
-        if x.get("termin"):
-            s += " (termin: %s)" % x["termin"]
-        if x.get("warunek"):
-            s += " [warunek: %s]" % x["warunek"]
+    def punkt(x):
+        data = x.get("termin") or (x.get("przypomnienie") or {}).get("data")
+        s = "- " + x.get("tytul", "")
+        if data:
+            s += " (dziś)" if data == dzis else " (do %s)" % _dm(data)
         return s
 
-    linie = ["Dzień dobry,", "", "poniżej podsumowanie ustaleń ze spotkania z %s." % wyniki.get("data_spotkania", "")]
-    for nazwa, lista in (("Co robimy", robimy), ("Czego od Was potrzebujemy", potrzebujemy), ("Co czeka", czeka)):
-        linie += ["", nazwa + ":"]
-        linie += [wiersz(x) for x in lista] or ["- brak"]
-    linie += ["", "W razie pytań jestem do dyspozycji.", "Marek"]
+    linie = ["Cześć,", "", "dzięki za rozmowę %s. W skrócie, co ustaliliśmy:" % _dm(dzis or "")]
+    for naglowek, lista in (("Po naszej stronie:", robimy), ("Potrzebujemy od Ciebie:", potrzebujemy),
+                            ("Czeka na Twój sygnał:", odkladamy)):
+        if lista:
+            linie += ["", naglowek] + [punkt(x) for x in lista]
+    if backlog:
+        linie += ["", "Zapisane jako prośby o nowe funkcje (bez terminu): "
+                  + "; ".join(x.get("tytul", "") for x in backlog) + "."]
+    linie += ["", "Daj znać, jeśli coś pominąłem.", "Marek"]
     return "\n".join(linie)
 
 

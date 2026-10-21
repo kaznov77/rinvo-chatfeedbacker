@@ -12,7 +12,7 @@ Wszystkie daty zapisuj jako RRRR-MM-DD, wyliczone z tego kalendarza. "Do końca 
 
 ## Elementy
 
-Każdy element ma pola: id (E01, E02, ...), typ, status, tytul, opis, wlasciciel, zatwierdza, termin, termin_do, termin_opis, warunek, przypomnienie, kategoria_crm, do_klienta, cytaty.
+Każdy element ma pola: id (E01, E02, ...), typ, status, tytul, skrot, opis, wlasciciel, zatwierdza, termin, termin_do, termin_opis, warunek, przypomnienie, kategoria_crm, do_klienta, cytaty.
 
 Typy: `błąd`, `zmiana konfiguracji`, `zadanie`, `prośba o funkcję`, `zakaz`, `informacja handlowa`.
 
@@ -24,6 +24,7 @@ Statusy:
 - `zakaz`: czego nie robić na tym koncie. Typ `zakaz` ma zawsze status `zakaz`.
 
 Zasady:
+- `skrot`: jedno konkretne zdanie (do ok. 15 słów), co trzeba zrobić albo czego nie robić, z najważniejszą liczbą, datą lub osobą. Bez tła i uzasadnień, te idą do `opis`. Np. „Zmienić adres salonu na ul. Przykładową 5 i dać znać Annie.”
 - Późniejsze wypowiedzi nadpisują wcześniejsze. W `opis` zapisz stan końcowy po wszystkich nadpisaniach, z liczbami i szczegółami (godziny, ceny, ilości, nazwy). Pierwszy cytat to wypowiedź rozstrzygająca (najpóźniejsza w rozmowie).
 - Nie opieraj się na podsumowaniu z końca rozmowy. Podsumowanie bywa niepełne lub błędne, wiążące są konkretne ustalenia z rozmowy.
 - `wlasciciel`: kto wykonuje (imię), `zatwierdza`: kto musi zatwierdzić. Brak: `null`.
