@@ -4,7 +4,7 @@
 - **Tytuł:** ekstrakcja transkrypcji przez `claude -p` do `wyniki.json`
 - **Typ:** funkcja
 - **Specjalista:** backend
-- **Status:** review
+- **Status:** gotowe
 - **Zależności:** brak
 - **Gałąź:** ticket/T-001-ekstrakcja
 
