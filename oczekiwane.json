@@ -1,0 +1,584 @@
+[
+ {
+  "id": 1,
+  "opis": "Godziny dzwonienia pn-pt 9-19, sobota 9-15, niedziela nie; godziny salonu sobota do 15 (oba salony); brak soboty do 14",
+  "atomy": [
+   {
+    "opis": "pn-pt 9-19",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "(?:9|dziewiat\\w*)(?:[:.]00)?\\s*(?:-|do|a)\\s*(?:19|dziewietnast\\w*)"
+     ]
+    }
+   },
+   {
+    "opis": "sobota do 15 (dzwonienie)",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "zmiana konfiguracji"
+     ],
+     "tekst": [
+      "sobot\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,40}?(?<![\\d:.])(?:15|pietnast\\w*)(?![\\d])"
+     ]
+    }
+   },
+   {
+    "opis": "niedziela bez dzwonienia",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "niedziel\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "godziny salonu podawane przez agenta: sobota do 15",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "godzin\\w*\\s+(?:otwarcia\\s+)?salon\\w*|salon\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,30}godzin|podaj\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,50}godzin|godzin\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,60}(?:klient|podaj)",
+      "sobot\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,40}?(?<![\\d:.])(?:15|pietnast\\w*)(?![\\d])"
+     ]
+    }
+   },
+   {
+    "opis": "brak soboty do 14 w polach strukturalnych",
+    "rodzaj": "brak",
+    "gdzie": {
+     "tekst": [
+      "sobot\\w*(?:\\W+\\w+){0,4}?\\W*(?:-|do)\\s*(?:godz\\w*\\s*)?(?:14|czternast\\w*)(?:[:.]00)?(?![\\d]|[:.]\\d)"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "opis": "Adres Włocławek Toruńska 120; po poprawce napisać do Kasi",
+  "atomy": [
+   {
+    "opis": "Toruńska 120",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "torunsk\\w*\\s*(?:nr\\.?\\s*)?120"
+     ]
+    }
+   },
+   {
+    "opis": "napisać do Kasi po poprawce",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "adres|kapitulnej|torunsk|baza wiedzy",
+      "(?:napis|poinform|powiadom|da[cć] zna|odpis|wiadomo|informac|zawiadom)\\w*",
+      "kasi\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "opis": "Błąd: ponowne dzwonienie po rozłączeniu w 3 s; 6 przypadków, 16:40, numer na 14, limit 5 prób bez zmian",
+  "atomy": [
+   {
+    "opis": "błąd + rozłączenie w 3 s + ponowne dzwonienie",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "błąd"
+     ],
+     "tekst": [
+      "(?<!\\d)(?:3|trzech|trzy)\\s*(?:s\\b|sek\\w*)",
+      "ponown\\w*|drugi\\w*|podwojn\\w*|dwukrotn\\w*|dwa razy|ponowie"
+     ]
+    }
+   },
+   {
+    "opis": "6 przypadków",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "błąd"
+     ],
+     "tekst": [
+      "(?<![\\d.:])(?:6|szesc\\w*)(?![\\d])"
+     ]
+    }
+   },
+   {
+    "opis": "16:40",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "błąd"
+     ],
+     "tekst": [
+      "16\\s*[:.]\\s*40"
+     ]
+    }
+   },
+   {
+    "opis": "numer kończy się na 14",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "błąd"
+     ],
+     "tekst": [
+      "(?<!\\d)14(?!\\d)|czternast"
+     ]
+    }
+   },
+   {
+    "opis": "limit 5 prób",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "błąd"
+     ],
+     "tekst": [
+      "limit\\w*\\W+(?:\\w+\\W+){0,6}?(?:5|piec\\w*)(?![\\d])|(?:5|piec\\w*)\\W+(?:\\w+\\W+){0,1}?pr[oó]b"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "opis": "Filtr statusu „zainteresowany” jako błąd; klikalny kafelek jako osobna prośba o funkcję",
+  "atomy": [
+   {
+    "opis": "błąd: filtr zainteresowany",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "błąd"
+     ],
+     "tekst": [
+      "filtr\\w*",
+      "zainteresowan\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "prośba o funkcję: klikalny kafelek",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "prośba o funkcję"
+     ],
+     "tekst": [
+      "kafel\\w*|klikaln\\w*|klikni\\w*|klika\\w*|przekier\\w*|przenosz\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "filtr i kafelek nie sklejone w jednym błędzie",
+    "rodzaj": "brak",
+    "gdzie": {
+     "typ": [
+      "błąd"
+     ],
+     "tekst": [
+      "filtr\\w*",
+      "kafel\\w*|klikaln\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "opis": "Korekta faktury na Auto Tama Toruń sp. z o.o., właściciel Michał",
+  "atomy": [
+   {
+    "opis": "korekta faktury na Auto Tama Toruń, właściciel Michał",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "wlasciciel": "michal",
+     "tekst": [
+      "korekt\\w*|faktur\\w*",
+      "auto\\s+tama\\s+torun"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "opis": "Zwrot/odjęcie podwójnych połączeń i informacja do Kasi, ile ich było",
+  "atomy": [
+   {
+    "opis": "odjęcie/zwrot podwójnych połączeń",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "ode?jm\\w*|odj\\w*|zwrot|zwroc\\w*|odlicz\\w*|rabat|korekt\\w*|kredyt|nie\\s+(?:bedzie|nalicz|obciaz|pla)\\w*|nie\\s+powin\\w+\\s+pla",
+      "podwojn\\w*|dubl\\w*|drugi\\w*\\s+(?:telefon|polacz|dzwon)\\w*|ponown\\w*|dwukrotn\\w*|dwa razy|3\\s*s\\b|trzech\\s+sek"
+     ]
+    }
+   },
+   {
+    "opis": "informacja do Kasi, ile ich było",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "kasi\\w*",
+      "\\bile\\b|liczb\\w*|ilosc\\w*|\\bilu\\b",
+      "podwojn\\w*|dubl\\w*|drugi\\w*\\s+(?:telefon|polacz|dzwon)\\w*|ponown\\w*|dwukrotn\\w*|dwa razy|3\\s*s\\b|trzech\\s+sek"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "opis": "Cena SMS do 2026-10-09 (dopuszczalnie do 11.10); treść pisze Kasia; zatwierdza Paweł",
+  "atomy": [
+   {
+    "opis": "cena SMS z terminem 9-11.10",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "termin": [
+      "2026-10-09",
+      "2026-10-10",
+      "2026-10-11"
+     ],
+     "tekst": [
+      "sms\\w*",
+      "cen\\w*|cennik|koszt\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "zatwierdza Paweł",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "zatwierdza": "pawe?l",
+     "tekst": [
+      "sms\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "treść pisze Kasia",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "sms\\w*",
+      "(?:tresc|tekst|wiadomosc)\\w*",
+      "kasi\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "opis": "Dokładnie jedno przypomnienie o tekstach wstępu, 2026-10-08, maks_razy 1",
+  "atomy": [
+   {
+    "opis": "dokładnie 1 przypomnienie o wstępie",
+    "rodzaj": "liczba",
+    "ile": 1,
+    "gdzie": {
+     "przypomnienie": true,
+     "tekst": [
+      "wstep\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "data 2026-10-08, maks_razy 1",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "przypomnienie": true,
+     "maks_razy": 1,
+     "data": [
+      "2026-10-08"
+     ],
+     "tekst": [
+      "wstep\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "opis": "Dokładnie jedno przypomnienie o pliku leadów, 2026-10-12, maks_razy 1; bez wzoru pliku; bez ponownej starej bazy",
+  "atomy": [
+   {
+    "opis": "dokładnie 1 przypomnienie o pliku",
+    "rodzaj": "liczba",
+    "ile": 1,
+    "gdzie": {
+     "przypomnienie": true,
+     "tekst": [
+      "plik\\w*|swiez\\w*\\s+lead\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "data 2026-10-12, maks_razy 1",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "przypomnienie": true,
+     "maks_razy": 1,
+     "data": [
+      "2026-10-12"
+     ],
+     "tekst": [
+      "plik\\w*|swiez\\w*\\s+lead\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "bez wzoru pliku",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "(?:nie|bez)\\W+(?:\\w+\\W+){0,4}?wzor\\w*|wzor\\w*(?:(?!\\.\\s|;)[\\s\\S]){0,30}(?:nie|zbedn)"
+     ]
+    }
+   },
+   {
+    "opis": "bez ponownej starej bazy",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "star\\w*\\s+baz\\w*",
+      "drugi\\w*\\s+raz|ponown\\w*|powtorn\\w*|ponowi\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "opis": "Spotkanie z Pawłem 2026-10-15 10:00, zaproszenie po potwierdzeniu Kasi; case Peugeot 208 bez nazwy firmy",
+  "atomy": [
+   {
+    "opis": "spotkanie z Pawłem 15.10 o 10:00",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "termin": [
+      "2026-10-15"
+     ],
+     "tekst": [
+      "spotkan\\w*|prezentac\\w*|call|rozmow\\w*",
+      "pawe?l\\w*",
+      "(?<![\\d])10(?:[:.]00)?(?![\\d])|dziesiat\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "zaproszenie dopiero po potwierdzeniu",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "zaproszeni\\w*",
+      "potwierd\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "case Peugeot 208 bez nazwy firmy",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "(?<!\\d)208(?!\\d)",
+      "(?:bez|nie)\\W+(?:\\w+\\W+){0,4}?(?:nazw\\w*|firm\\w*|nazwisk\\w*)|nazw\\w*\\s+firm\\w*|anonim\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "opis": "Zakazy: Opel, agent po godzinach, nowy mail dla handlowców, sprzedawanie/auta używane, kontakt z Olą",
+  "atomy": [
+   {
+    "opis": "zakaz: Opel",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "zakaz"
+     ],
+     "status": [
+      "zakaz"
+     ],
+     "tekst": [
+      "\\bopel\\w*|\\bopl(?:a|u|em|e)\\b"
+     ]
+    }
+   },
+   {
+    "opis": "zakaz: agent po godzinach",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "zakaz"
+     ],
+     "status": [
+      "zakaz"
+     ],
+     "tekst": [
+      "po\\s+godzin\\w*|poza\\s+godzin\\w*|nocn\\w*|po\\s+zamkni\\w*|po\\s+17"
+     ]
+    }
+   },
+   {
+    "opis": "zakaz: nowy mail dla handlowców",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "zakaz"
+     ],
+     "status": [
+      "zakaz"
+     ],
+     "tekst": [
+      "mail\\w*|e-mail\\w*|wiadomosc\\w*",
+      "handlow\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "zakaz: sprzedawanie / auta używane",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "zakaz"
+     ],
+     "status": [
+      "zakaz"
+     ],
+     "tekst": [
+      "sprzeda\\w*|uzywan\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "zakaz: kontakt z Olą",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "typ": [
+      "zakaz"
+     ],
+     "status": [
+      "zakaz"
+     ],
+     "tekst": [
+      "\\bol(?:a|i|e)\\b"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "opis": "Zablokowane do wiadomości od Kasi: podwójne pytanie o model; lead serwisowy Oli",
+  "atomy": [
+   {
+    "opis": "podwójne pytanie o model (czeka/wstrzymane)",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "status": [
+      "czeka na klienta",
+      "wstrzymane"
+     ],
+     "tekst": [
+      "model\\w*",
+      "drug\\w*|podwojn\\w*|dwukrot\\w*|powtarz\\w*|ponown\\w*|dwa razy",
+      "pyta\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "lead serwisowy Oli (czeka/wstrzymane)",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "status": [
+      "czeka na klienta",
+      "wstrzymane"
+     ],
+     "tekst": [
+      "serwis\\w*|przeglad\\w*",
+      "\\bol(?:a|i|e)\\b|lead\\w*|skrzynk\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "opis": "Urlop Kasi 2026-10-19 – 2026-10-23, nic nowego nie startuje",
+  "atomy": [
+   {
+    "opis": "urlop 19-23.10",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "termin": [
+      "2026-10-19"
+     ],
+     "termin_do": [
+      "2026-10-23"
+     ],
+     "tekst": [
+      "urlop\\w*"
+     ]
+    }
+   },
+   {
+    "opis": "nic nowego nie startuje",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "urlop\\w*",
+      "nic\\s+nowego|nowych|nowe\\b|nie\\s+(?:startuj|odpal|uruchami|rozpocz|zacz|puszcz)\\w*|zamroz\\w*|wstrzym\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "opis": "Ryzyko odejścia: VoiceDesk, integracja, ok. 30% taniej (kategoria_crm: ryzyko)",
+  "atomy": [
+   {
+    "opis": "ryzyko VoiceDesk, integracja, 30%",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "kategoria_crm": "ryzyko",
+     "tekst": [
+      "voice\\s*desk",
+      "integrac\\w*|laczen\\w*|laczy\\w*|polaczen\\w*|crm|systemem",
+      "(?<!\\d)30(?!\\d)|trzydziest\\w*"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "opis": "Klientka na urlopie to lead do oddzwonienia, nie odmowa",
+  "atomy": [
+   {
+    "opis": "lead na urlopie do oddzwonienia",
+    "rodzaj": "istnieje",
+    "gdzie": {
+     "tekst": [
+      "urlop\\w*",
+      "oddzwo\\w*|zadzwoni\\w*|zadzwon\\w*|dzwoni\\w*|kontakt\\w*",
+      "lead\\w*|nie\\W+(?:\\w+\\W+){0,3}?(?:odmow|niezainteres)"
+     ]
+    }
+   }
+  ]
+ }
+]
