@@ -1,0 +1,65 @@
+# T-003: oczekiwane.json i skrypt ewaluacji
+
+- **ID:** T-003
+- **Tytuł:** `oczekiwane.json` z 15 faktami i deterministyczny skrypt ewaluacji
+- **Typ:** funkcja
+- **Specjalista:** tester
+- **Status:** do zrobienia
+- **Zależności:** brak (pracuje na kontrakcie z `docs/plan.md`)
+- **Gałąź:** ticket/T-003-ewaluacja
+
+## Cel
+
+`python3 -m rinvo.ewaluacja wyniki.json [oczekiwane.json]` wypisuje dla każdego z 15 faktów ✅/❌ i które atomy nie przeszły, na końcu `Wynik: X/15`. Kod wyjścia 0 tylko przy 15/15.
+
+`oczekiwane.json`: lista faktów `{id, opis, atomy: [...]}`. Atom to proste, deterministyczne sprawdzenie, np.:
+- `istnieje`: istnieje element spełniający warunki na polach (`typ`, `status` jako lista dozwolonych, `termin`, `wlasciciel`, `zatwierdza`, `przypomnienie.maks_razy`, regex po tekście `tytul+opis+warunek+termin_opis+przypomnienie.tresc`), **nigdy po `cytaty`**;
+- `liczba`: liczba elementów spełniających warunki (np. dokładnie 1 przypomnienie o tekstach wstępu);
+- `brak`: żaden element nie zawiera wzorca w polach strukturalnych (np. sobota do 14).
+
+Regexy bez wielkości liter, tolerancyjne na odmianę i zapis (np. `15(:00)?|piętnast`, `toru[ńn]sk\w* 120`).
+
+Fakty (zgodnie z `docs/pomysl.md`, z poprawkami z planu):
+1. Godziny dzwonienia: pn–pt 9–19, sobota 9–15, niedziela nie; godziny salonu podawane przez agenta: sobota do 15 dla obu salonów; `brak` soboty do 14 w polach strukturalnych.
+2. Adres Włocławek Toruńska 120; po poprawce napisać do Kasi.
+3. Błąd: ponowne dzwonienie po rozłączeniu w 3 s; 6 przypadków, 5.10 16:40 (albo „wczoraj 16:40”), numer kończy się na 14; limit 5 prób bez zmian.
+4. Filtr statusu „zainteresowany” jako `błąd`; klikalny kafelek jako osobny element `prośba o funkcję`.
+5. Korekta faktury na Auto Tama Toruń sp. z o.o., właściciel Michał.
+6. Zwrot/odjęcie podwójnych połączeń i informacja do Kasi, ile ich było.
+7. Cena SMS z terminem 2026-10-09 (dopuszczalnie do 2026-10-11); treść pisze Kasia; zatwierdza Paweł.
+8. Dokładnie jedno przypomnienie o tekstach wstępu, termin/data 2026-10-08, `maks_razy` 1.
+9. Dokładnie jedno przypomnienie o pliku leadów, data 2026-10-12, `maks_razy` 1; bez wzoru pliku; bez ponownej starej bazy.
+10. Spotkanie z Pawłem 2026-10-15 10:00, zaproszenie dopiero po potwierdzeniu Kasi; case Peugeot 208 bez nazwy firmy.
+11. Zakazy (status `zakaz`): Opel, agent po godzinach, nowy mail dla handlowców, sprzedawanie/auta używane, kontakt z Olą.
+12. Zablokowane do wiadomości od Kasi (status `czeka na klienta` albo `wstrzymane`): podwójne pytanie o model; lead serwisowy Oli.
+13. Urlop Kasi 2026-10-19 – 2026-10-23, nic nowego nie startuje.
+14. Ryzyko odejścia: VoiceDesk, integracja, ok. 30% taniej (`kategoria_crm: ryzyko`).
+15. Klientka na urlopie to lead do oddzwonienia, nie odmowa.
+
+Dodatkowo (poza 15 faktami, jako ostrzeżenie, nie wpływa na wynik): liczba elementów z `cytaty_zweryfikowane: false`.
+
+
+**Limit czasu:** wszystko (łącznie z T-004) ma być gotowe do 14:30. Nie dopracowuj. Jeśli coś się przeciąga, zatrzymaj się i opisz to w notatkach.
+
+## Zakres plików
+
+- `oczekiwane.json`
+- `rinvo/ewaluacja.py`
+- `tests/test_ewaluacja.py`
+- `tests/dane/ewaluacja-*.json` (własne ręcznie napisane wyniki: jeden „dobry”, kilka zepsutych)
+
+Nie twórz `rinvo/__init__.py`.
+
+## Miejsca testów
+
+- `ewaluacja.ocen(wyniki, oczekiwane) -> lista wyników faktów`: na ręcznie napisanym „dobrym” wyniku daje 15/15; na zepsutych wyłapuje: sobotę do 14 w opisie, dwa przypomnienia zamiast jednego, brak zakazu Opla, filtr i kafelek sklejone w jeden element, VoiceDesk bez `kategoria_crm: ryzyko`. Nie wyłapie parafraz spoza regexów (fałszywe ❌) ani kompletności poza 15 faktami.
+- **Testy minimalne:** jeden „dobry” wynik (15/15) i jeden plik z kilkoma zepsuciami naraz (sobota do 14, dwa przypomnienia, brak zakazu Opla) sprawdzający, że te fakty dają ❌. Nie rozbudowuj.
+
+## Kryteria ukończenia
+
+- [ ] `oczekiwane.json` ma 15 faktów, każdy z min. 1 atomem.
+- [ ] Testy na wynikach dobrym i zepsutych przechodzą zgodnie z opisem.
+- [ ] `python3 -m unittest` przechodzi.
+
+## Notatki z realizacji
+
