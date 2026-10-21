@@ -1,0 +1,3 @@
+{"type":"mode","mode":"normal","sessionId":"f38214c1-013f-4507-a2dd-5a87d30889f8"}
+{"type":"permission-mode","permissionMode":"auto","sessionId":"f38214c1-013f-4507-a2dd-5a87d30889f8"}
+{"parentUuid":null,"isSidechain":false,"type":"system","subtype":"informational","content":"Unknown command: /logut. Did you mean /logout?","isMeta":false,"timestamp":"2026-10-21T12:36:57.161Z","uuid":"3183fa98-fe89-4a90-9f53-12e4751a382f","level":"warning","userType":"external","entrypoint":"cli","cwd":"/Users/wawrin/.t3/projects/rinvo-chatfeedbacker","sessionId":"f38214c1-013f-4507-a2dd-5a87d30889f8","version":"2.1.304","gitBranch":"main"}

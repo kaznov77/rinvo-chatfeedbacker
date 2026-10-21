@@ -13,7 +13,7 @@ Na innej transkrypcji system uruchamia się jedną komendą: ./uruchom.sh transk
 
 Wynik: 15/15 faktów na Twojej transkrypcji i 8/8 na drugiej. Przez większość pracy było 14/15: system pomijał klientkę na urlopie, która jest leadem do oddzwonienia, a nie odmową. Naprawiła to ogólna reguła w prompcie, ale to wynik pojedynczego przebiegu. Szczegóły są w README.
 
-Repozytorium: [LINK DO REPO]
+Repozytorium: https://github.com/kaznov77/rinvo-chatfeedbacker/tree/main/oddanie
 
 Pozdrawiam,
 Wawrzyniec Kaznowski
